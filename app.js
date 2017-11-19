@@ -6,87 +6,63 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose= require('mongoose');
+var assert = require('assert');
 
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var home = require('./routes/home');
-var contact = require('./routes/contact');
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-
-
-//var db = mongoose.connection;
-//db.on('error', console.error);
-/* mongoose.connect('mongodb://localhost/jyoti');
-mongoose.connection.once('open',function() {
-    console.log('connetion success');
-}).on('error',function(error){
-  console.log('conn error',error);
-}); */
+//database connection
 var dbConn = mongoose.connect('mongodb://localhost/myapp', {
     useMongoClient: true,
     /* other options */
-
 });
 if(dbConn) {
     console.log('success');
 }else {
   console.log('fail');
 }
-/*
-var user = mongoose.model('emp',schema);
-
-var schema= new mongoose.Schema({
-  age:'number'
-});
-
-*/
-
-app.use(bodyParser.urlencoded({extended:false}));
-
-var user = mongoose.model(contact);
-app.post('/post-contact', function (req,res) {
-  new user({
-      name : req.body.name,
-      add  : req.body.add
-  }).save(function (err,doc) {
-      if(err) res.json(err);
-      else res.send('succes insert');
-
-    })
-
-});
-/*app.post('/post-contact', function (req,res) {
-  //req.end("stop");
-    var dbConn = mongoose.connect('mongodb://localhost/myapp', {
-        useMongoClient: true,
-        /* other options
-
-    });
-        delete req.body._id; // for safety reasons
-        dbConn.collection('contact').insertOne(req.body);
 
 
-
-   res.send(('inserted:\n' +  JSON.stringify(req,bodyParser)));
-});*/
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/home', home);
-app.use('/contact', contact);
+//redirection of file to the particular pages
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/home', require('./routes/home'));
+app.use('/contact', require('./routes/contact'));
 
+var url = 'mongodb://localhost:27017/StudyConDb';
+
+app.post('/post-contact', function (req,res) {
+
+//console.log("postcontact");
+    var item = {
+        name: req.body.name,
+        age: req.body.age
+    };
+    mongoose.connect(url, function (err,db) {
+        //useMongoClient: true,
+        assert.equal(null,err);
+        db.collection('contact').insertOne(item, function (err,result) {
+            assert.equal(null,error);
+            console.log('data insrrtes');
+            db.clone();
+
+        });
+
+    });
+    res.send('/insert');
+
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -106,6 +82,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 
 module.exports = app;
