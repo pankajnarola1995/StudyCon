@@ -22,51 +22,7 @@
 
 <!-----------------------------------------the homepage navigation-->
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid"> 
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-      <a class="navbar-brand" href="#">
-      
-<!--      	the site logo-->
-      	<img src="images/logo.png" alt="site logo" />
-      	
-<!--      	site name ( keep span )-->
-      	<span>You</span>Need
-      </a>
-      	</div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="inverseNavbar1">
-<!--     search form-->
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control">
-        </div>
-      </form>
-<!--      end search form-->
-     
-      <ul class="nav navbar-nav navbar-right text-uppercase">
-        
-        <!--       if you want to customize the navigation menu use the list bellow-->
-        <li class="active"><a href="#heroarea">home</a></li>
-        <li><a href="#services">services</a></li>
-        <li><a href="#blog">blog</a></li>
-        <li><a href="#works">team</a></li>
-        <li><a href="#portfolio">works</a></li>
-        <li><a href="#contact">contact</a></li>
-        <li><a href="blog-3.html">External link</a></li>
-        
-        <!--        end menu list-->
-        
-      </ul>
-    </div>
-    <!-- /.navbar-collapse --> 
-  </div>
-  <!-- /.container-fluid --> 
-</nav>
+<% include partials/header.ejs %>
 
 <!-----------------------------------------end homepage navigation--> 
 
@@ -592,33 +548,7 @@
 
 <!--######################################begin page footer-->
 
-<footer class="container-fluid section" id="footer">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4"><a class="footer-brand" href="#">
-<!--      site logo in the footer-->
-      <img src="images/footer-logo.png" alt="" />
-<!--      site name-->
-      <span>You</span>Need</a>
-      
-      </div>
-      <div class="col-md-4">
-      
-<!--       newsletter form-->
-        <form action="" class="text-center" id="newsletter-form">
-          <input name="newsletter" type="text" id="newsletter" placeholder="Please subscribe to our newsletter">
-          <input name="newsletter-submit" type="submit" id="newsletter-submit" class="btn btn-primary" value="Subscribe">
-        </form>
-<!--        end newsletter-->
-     
-      </div>
-      <div class="col-md-4 copyright">
-        <p>©2017 by freethemeszone.com</p>
-        <p><a href="http://freethemeszone.com">free html template by freethemeszone.com</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
+<% include partials/footer.ejs %>
 
 <!--end footer-->
 <!--    works modals-->
