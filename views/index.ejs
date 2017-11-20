@@ -56,7 +56,7 @@
         <li><a href="#blog">blog</a></li>
         <li><a href="#works">team</a></li>
         <li><a href="#portfolio">works</a></li>
-        <li><a href="/contact">contact</a></li>
+        <li><a href="#contact">contact</a></li>
         <li><a href="blog-3.html">External link</a></li>
         
         <!--        end menu list-->
@@ -560,12 +560,12 @@
       <div class="col-md-6">
        
 <!--       contact form -- the one thing that you need to customize is the placeholder or the value of the input button(submit button) -->
-        <form action="contact.php" method="post" name="form1" id="contact-form">
+        <form action="/save_contact" method="post" name="form1" id="contact-form">
           <input name="name" type="text" id="name" form="contact-form" placeholder="Your name">
           <input name="subject" type="text" id="subject" form="contact-form" placeholder="Message subject">
           <input name="email" required type="email" id="email" form="contact-form" placeholder="Your Email">
           <textarea name="message" required id="Message" form="contact-form" placeholder="Your message"></textarea>
-          <input name="submit" type="submit" class="btn btn-primary" id="submit" formaction="contact.php" value="submit">
+          <input name="submit" type="submit" class="btn btn-primary" id="submit" formaction="/save_contact" value="submit">
         </form>
 <!--        end contact form-->
        

@@ -5,25 +5,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const mongoose= require('mongoose');
 var assert = require('assert');
+
+//mongodb url and required
+//var url = 'mongodb://localhost:27017/StudyConDb';
+const mongoose= require('mongoose');
+var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
+    useMongoClient: true,
+    /* other options */
+});
+if (dbConn){
+    console.log('Database connection success');
+} else {
+    console.log('Database connection fail');
+}
+
+
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-//database connection
-var dbConn = mongoose.connect('mongodb://localhost/myapp', {
-    useMongoClient: true,
-    /* other options */
-});
-if(dbConn) {
-    console.log('success');
-}else {
-  console.log('fail');
-}
-
 
 
 // uncomment after placing your favicon in /public
@@ -40,29 +42,39 @@ app.use('/users', require('./routes/users'));
 app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
 
-var url = 'mongodb://localhost:27017/StudyConDb';
 
-app.post('/post-contact', function (req,res) {
-
-//console.log("postcontact");
-    var item = {
-        name: req.body.name,
-        age: req.body.age
-    };
-    mongoose.connect(url, function (err,db) {
-        //useMongoClient: true,
-        assert.equal(null,err);
-        db.collection('contact').insertOne(item, function (err,result) {
-            assert.equal(null,error);
-            console.log('data insrrtes');
-            db.clone();
-
-        });
-
-    });
-    res.send('/insert');
+var contactSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    subject: String,
+    message:String
 
 });
+var contact = mongoose.model('contact',contactSchema);
+
+app.post('/save_contact', function (req,res) {
+    var contactinfo = new contact({
+        name: req.body.name,
+        email: req.body.email,
+        subject: req.body.subject,
+        message: req.body.message
+
+    });
+
+    contactinfo.save(function (err, thro) {
+        if (err) {
+            return console.error(err);
+        }
+        else {
+            console.log("1 record inserted");
+
+
+            //alert("Your data sent successfully! We will get back to you soon... ");
+            res.redirect('/');
+        }
+    });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
