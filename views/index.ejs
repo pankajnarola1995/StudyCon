@@ -355,52 +355,7 @@
 
 <!-----------------------------------------------------end our team section-->
 
-<h1>ajax practice</h1>
-<script src="javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
-<div>
-    <form action="">
-        <input name ='name' id="name"  />
 
-
-
-
-    </form>
-    <button id="getbutton"  type="submit" onclick="get()">submit</button>
-    <button id="clear" type="submit" onclick="clear()">clear</button>
-
-    <pre id="getResponse">
-
-    </pre>
-    <pre id="getResponseClear">
-
-    </pre>
-    <script>
-        function get(){
-            $.ajax({
-                type:'GET',
-                url: 'http://localhost:3000/ajaxcall',
-                dataType:'json'
-            })
-                .done(function(data){
-                    console.log('GET response:',JSON.stringify(data,"",2));
-                    $('#getResponse').html(JSON.stringify(data,"",2));
-
-
-                });
-        }
-        function clear(){
-            $.ajax({
-                type:'GET',
-                url: 'http://localhost:3000/ajaxcallClear',
-                dataType:'json'
-            })
-                .done(function(data1){
-                    console.log('GET response:',JSON.stringify(data1,"",2));
-                    $('#getResponseClear').html(JSON.stringify(data1,"",2));
-                });
-        }
-    </script>
-</div>
 
 <!-----------------------------------------------------begin portfolio section-->
 

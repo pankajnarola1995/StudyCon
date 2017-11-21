@@ -1,22 +1,19 @@
 var express = require('express');
 var router = express.Router();
+const mongoose= require('mongoose');
+var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
+    useMongoClient: true,
+    /* other options */
+});
+
+
+//var contact = mongoose.model('contact');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/ajaxcall', function (req,res) {
-    var data={
-    contactId: 1,
-    firstName:'a',
-      lastName:'narola',
-      email:'p@gmail.com',
-
-
-  };
-  res.send(data);
-    
-});
+//var contact = mongoose.model('contact');
 router.get('/ajaxcallClear', function (req,res) {
     var data1={
         contactId: '1',
