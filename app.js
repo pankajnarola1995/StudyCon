@@ -5,34 +5,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var assert = require('assert');
+
+//mongodb url and required
+//var url = 'mongodb://localhost:27017/StudyConDb';
 const mongoose= require('mongoose');
-
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-var home = require('./routes/home');
-var contact = require('./routes/contact');
-
-
-
-//var db = mongoose.connection;
-//db.on('error', console.error);
-/* mongoose.connect('mongodb://localhost/jyoti');
-mongoose.connection.once('open',function() {
-    console.log('connetion success');
-}).on('error',function(error){
-  console.log('conn error',error);
-}); */
-var dbConn = mongoose.connect('mongodb://localhost/myapp', {
+var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
     /* other options */
-
 });
-if(dbConn) {
-    console.log('success');
-}else {
-  console.log('fail');
+if (dbConn){
+    console.log('Database connection success');
+} else {
+    console.log('Database connection fail');
 }
+<<<<<<< HEAD
 /*
 var user = mongoose.model('emp',schema);
 
@@ -54,27 +41,63 @@ app.use(bodyParser.urlencoded({extended:false}));
     });
         delete req.body._id; // for safety reasons
         dbConn.collection('contact').insertOne(req.body);
+=======
+
+>>>>>>> d29253303279b770272f704fa718c1daa6cfbbd5
 
 
 
-   res.send(('inserted:\n' +  JSON.stringify(req,bodyParser)));
-});*/
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/home', home);
-app.use('/contact', contact);
+//redirection of file to the particular pages
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/home', require('./routes/home'));
+app.use('/contact', require('./routes/contact'));
+
+
+var contactSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    subject: String,
+    message:String
+
+});
+var contact = mongoose.model('contact',contactSchema);
+
+app.post('/save_contact', function (req,res) {
+    var contactinfo = new contact({
+        name: req.body.name,
+        email: req.body.email,
+        subject: req.body.subject,
+        message: req.body.message
+
+    });
+
+    contactinfo.save(function (err, thro) {
+        if (err) {
+            return console.error(err);
+        }
+        else {
+            console.log("1 record inserted");
+
+
+            //alert("Your data sent successfully! We will get back to you soon... ");
+            res.redirect('/');
+        }
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -95,6 +118,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 
 module.exports = app;
