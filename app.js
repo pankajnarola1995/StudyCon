@@ -44,18 +44,7 @@ var schema= new mongoose.Schema({
 
 app.use(bodyParser.urlencoded({extended:false}));
 
-var user = mongoose.model(contact);
-app.post('/post-contact', function (req,res) {
-  new user({
-      name : req.body.name,
-      add  : req.body.add
-  }).save(function (err,doc) {
-      if(err) res.json(err);
-      else res.send('succes insert');
 
-    })
-
-});
 /*app.post('/post-contact', function (req,res) {
   //req.end("stop");
     var dbConn = mongoose.connect('mongodb://localhost/myapp', {
