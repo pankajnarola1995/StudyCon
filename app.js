@@ -19,7 +19,6 @@ if (dbConn){
 } else {
     console.log('Database connection fail');
 }
-<<<<<<< HEAD
 /*
 var user = mongoose.model('emp',schema);
 
