@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     res.render('contact');
 });
 
-router.get('/get-data',function (req,res,next) {
+/*router.get('/get-data',function (req,res,next) {
     var resultArray = [];
     mongo.connect(url,function (err,db) {
         assert.equal(null,err);
@@ -26,11 +26,9 @@ router.get('/get-data',function (req,res,next) {
        } );
     });
 });
-router.post('/insert',function (req,res,next) {
-
-});
 
 
 
 
+*/
 module.exports = router;

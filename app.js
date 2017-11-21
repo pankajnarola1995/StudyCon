@@ -41,6 +41,9 @@ app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
+app.use('/Admin', require('./routes/Admin/AdminIndex'));
+app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
+
 
 
 var contactSchema = new mongoose.Schema({
@@ -74,6 +77,26 @@ app.post('/save_contact', function (req,res) {
         }
     });
 });
+
+
+//Admin Functions
+app.get('/AdminContactView',function (req,res) {
+
+    contact.find(function (err,data) {
+        if(data){
+            console.log("Contact Data Fetched");
+            res.render('Admin/AdminContactView',{contact:data});
+        }
+        else
+        {
+            res.status(400).send(err);
+        }
+        
+    });
+    console.log('AdminContactView');
+
+
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
