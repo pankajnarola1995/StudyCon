@@ -9,6 +9,7 @@ const mongoose= require('mongoose');
 var assert = require('assert');
 
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -39,7 +40,7 @@ app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
-
+app.use('/websocket', require('./routes/websocket'));
 var url = 'mongodb://localhost:27017/StudyConDb';
 
 app.post('/post-contact', function (req,res) {
@@ -63,6 +64,8 @@ app.post('/post-contact', function (req,res) {
     res.send('/insert');
 
 });
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
