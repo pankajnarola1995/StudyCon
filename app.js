@@ -56,7 +56,7 @@ app.post('/post-contact', function (req,res) {
         db.collection('contact').insertOne(item, function (err,result) {
             assert.equal(null,error);
             console.log('data insrrtes');
-            db.clone();
+            db.close();
 
         });
 
