@@ -40,25 +40,6 @@ app.use('/contact', require('./routes/contact'));
 app.use('/Admin', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/websocket', require('./routes/websocket'));
-<<<<<<< HEAD
-=======
-var url = 'mongodb://localhost:27017/StudyConDb';
-
-app.post('/post-contact', function (req,res) {
-
-//console.log("postcontact");
-    var item = {
-        name: req.body.name,
-        age: req.body.age
-    };
-    mongoose.connect(url, function (err,db) {
-        //useMongoClient: true,
-        assert.equal(null,err);
-        db.collection('contact').insertOne(item, function (err,result) {
-            assert.equal(null,error);
-            console.log('data insrrtes');
-            db.close();
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
 
 //contact table create
 var contactSchema =  mongoose.Schema({

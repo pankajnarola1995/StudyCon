@@ -28,14 +28,10 @@
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
-<<<<<<< HEAD
             <state relative-caret-position="1785">
               <caret line="105" column="24" lean-forward="false" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
 =======
             <state relative-caret-position="315">
-=======
-            <state relative-caret-position="0">
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
               <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
               <folding />
@@ -43,7 +39,6 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="AdminContactView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/Admin/AdminContactView.js">
@@ -95,13 +90,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-=======
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
               <folding />
             </state>
           </provider>
@@ -126,20 +114,14 @@
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state relative-caret-position="386">
               <caret line="599" column="6" lean-forward="false" selection-start-line="599" selection-start-column="6" selection-end-line="599" selection-end-column="6" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-            <state relative-caret-position="640">
-              <caret line="597" column="29" lean-forward="false" selection-start-line="597" selection-start-column="29" selection-end-line="597" selection-end-column="29" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="AdminIndex.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/Admin/AdminIndex.ejs">
@@ -153,19 +135,11 @@
             <state relative-caret-position="210">
               <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-      <file leaf-file-name="websocket.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/websocket.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
@@ -179,13 +153,6 @@
             <state relative-caret-position="7035">
               <caret line="335" column="34" lean-forward="false" selection-start-line="335" selection-start-column="34" selection-end-line="335" selection-end-column="34" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-      <file leaf-file-name="websocket.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/websocket.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
               <folding />
             </state>
           </provider>
@@ -201,14 +168,9 @@
       <file leaf-file-name="missingSchema.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/error/missingSchema.js">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state relative-caret-position="567">
               <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-            <state relative-caret-position="777">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
               <folding />
             </state>
           </provider>
@@ -281,14 +243,10 @@
         <option value="$PROJECT_DIR$/views/partials/websocket.ejs" />
         <option value="$PROJECT_DIR$/views/websocket.ejs" />
         <option value="$PROJECT_DIR$/model/websocket.js" />
-        <option value="$PROJECT_DIR$/routes/websocket.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/routes/websocket.js" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
       </list>
     </option>
   </component>
@@ -304,10 +262,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="32" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="y" value="1" />
+    <option name="width" value="1366" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -329,7 +286,6 @@
 =======
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -376,12 +332,9 @@
         </subPane>
       </pane>
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
       <pane id="Scratches" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,7 +343,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="8.9.1" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/mi131-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
@@ -439,19 +392,12 @@
       <workItem from="1511197283556" duration="320000" />
       <workItem from="1511250985185" duration="915000" />
       <workItem from="1511262201618" duration="5593000" />
-<<<<<<< HEAD
       <workItem from="1511271275838" duration="1233000" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-      <workItem from="1511271275838" duration="1988000" />
-      <workItem from="1511279853211" duration="2333000" />
-      <workItem from="1511298210100" duration="6242000" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="78247000" />
   </component>
@@ -467,26 +413,18 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21428572" sideWeight="0.2139423" order="0" side_tool="true" content_ui="tabs" />
 =======
     <option name="totallyTimeSpent" value="43949000" />
-=======
-    <option name="totallyTimeSpent" value="53279000" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.094260134" sideWeight="0.7946726" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13533439" sideWeight="0.80826443" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13533439" sideWeight="0.19173554" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.094260134" sideWeight="0.20532742" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -496,11 +434,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-<<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -518,7 +452,6 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/node_modules/mongoose/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -532,8 +465,6 @@
         </state>
       </provider>
     </entry>
-=======
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -856,14 +787,13 @@
 =======
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="315">
           <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb-core/lib/topologies/server.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -890,8 +820,6 @@
         </state>
       </provider>
     </entry>
-=======
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
     <entry file="file://$PROJECT_DIR$/model/chatserver.js" />
     <entry file="file://$PROJECT_DIR$/model/chatfrontend.js" />
     <entry file="file://$PROJECT_DIR$/routes/contact.js">
@@ -992,22 +920,15 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/websocket.ejs" />
-    <entry file="file://$PROJECT_DIR$/views/websocket.html" />
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb-core/lib/topologies/server.js">
+    <entry file="file://$PROJECT_DIR$/views/websocket.html">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="315">
           <caret line="15" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="57" selection-end-column="7" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-        <state relative-caret-position="21">
-          <caret line="335" column="34" lean-forward="false" selection-start-line="335" selection-start-column="34" selection-end-line="335" selection-end-column="34" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/routes/Admin/AdminContactView.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1019,12 +940,6 @@
         <state relative-caret-position="588">
           <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-    <entry file="file://$USER_HOME$/Desktop/mi131-master/mi131-master/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
           <folding />
         </state>
       </provider>
@@ -1045,7 +960,6 @@
       </provider>
     </entry>
 <<<<<<< HEAD
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6069">
@@ -1056,12 +970,6 @@
         <state relative-caret-position="252">
           <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/error/missingSchema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
           <folding />
         </state>
       </provider>
@@ -1082,14 +990,9 @@
 =======
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="386">
           <caret line="599" column="6" lean-forward="false" selection-start-line="599" selection-start-column="6" selection-end-line="599" selection-end-column="6" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-        <state relative-caret-position="640">
-          <caret line="597" column="29" lean-forward="false" selection-start-line="597" selection-start-column="29" selection-end-line="597" selection-end-column="29" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
           <folding />
         </state>
       </provider>
@@ -1102,30 +1005,9 @@
 =======
     <entry file="file://$PROJECT_DIR$/routes/websocket.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="210">
           <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
 >>>>>>> 1cb9705c0868bd52d4745a226ef0c99152290488
-=======
-        <state relative-caret-position="63">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/websocket.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
->>>>>>> 52b55fe57f1b81897c6d0ee7b325f089ac4d76b0
           <folding />
         </state>
       </provider>
