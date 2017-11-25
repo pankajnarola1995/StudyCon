@@ -9,7 +9,7 @@ const mongoose= require('mongoose');
 var assert = require('assert');
 
 //database connection
-var dbConn = mongoose.connect('mongodb://localhost/StudyCon', {
+var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
     /* other options */
 });
