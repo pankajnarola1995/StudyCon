@@ -36,10 +36,14 @@ app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
+app.use('/websocket', require('./routes/websocket'));
+
 
 app.use('/Admin', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
-app.use('/websocket', require('./routes/websocket'));
+app.use('/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
+app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
+
 
 //contact table create
 var contactSchema =  mongoose.Schema({
@@ -93,7 +97,48 @@ app.get('/AdminContactView',function (req,res) {
 
 
 });*/
+var ConsultancySchema =  mongoose.Schema({
 
+    country_name: String,
+    flage_image: String,
+    requirenment:String,
+    detail:String,
+    important_link:String,
+    // images:String
+
+});
+var Consultancy = mongoose.model("Consultancy",ConsultancySchema);
+
+
+app.post('/AdminConsultancyAddData', function (req,res) {
+    console.log("AdminConsultancyAddData");
+
+    var consultancyData = new Consultancy( {
+        country_name:    req.body.country_name,
+        flage_image:     req.body.flage_image,
+        requirenment:    req.body.requirenment,
+        detail:        req.body.detail,
+        important_link: req.body.important_link,
+     //   images:         req.body.images
+    });
+    console.log(consultancyData);
+    var promise = consultancyData.save();
+    assert.ok(promise instanceof require('mpromise'));
+
+if(promise) {
+    console.log("inserted country data");
+    res.redirect("/AdminConsultancy");
+}
+    else {
+        console.log("error in insert country");
+    res.redirect("/Admin/AdminConsultancy");
+
+}
+
+
+
+
+});
 
 app.get('/ajaxcall', function (req,res) {
     contact.find(function (err,data) {
