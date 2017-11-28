@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6, nav, .btn {
 .navbar-form .form-control {
 	border-radius: 15px;
 	width: 35px;
-	background-image: url(images/search-icon.png);
+	background-image: url(/images/search-icon.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	border: none;
@@ -112,7 +112,7 @@ nav.navbar .dropdown-menu li a {
 
 
 #heroarea {
-	background-image: url(images/heroarea.png);
+	background-image: url('/images/heroarea.jpg');
 	background-repeat: no-repeat;
 	color: #FFFFFF;
 	width: 100%;
@@ -572,9 +572,5 @@ ul#filters li span:hover {
 	margin-bottom: 30px;
 	border-left: 4px solid #FFFFFF;
 }
-
-
-
-
 
 }

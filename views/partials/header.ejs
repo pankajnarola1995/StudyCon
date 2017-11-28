@@ -6,13 +6,13 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
 
                 <!--      	the site logo-->
-                <img src="images/logo.png" alt="site logo" />
+                <img src="images/logo.png" alt="site logo" style="height:60px;width: 60px;visibility: inherit" />
 
                 <!--      	site name ( keep span )-->
-                <span>You</span>Need
+                <span>Study</span>Con
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,7 +20,7 @@
             <!--     search form-->
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" placeholder="Search here..." >
                 </div>
             </form>
             <!--      end search form-->
@@ -28,40 +28,75 @@
             <ul class="nav navbar-nav navbar-right text-uppercase">
 
                 <!--       if you want to customize the navigation menu use the list bellow-->
-                <li class="active"><a href="#heroarea">home</a></li>
-                <li class="consultancy"><a href="#services">Consultancy</a></li>
-                    <ul class="subconsultancy" >
-                        <li>germany</li>
-                        <li>india</li>
-                    </ul>
+                <div class="dropdown">
+                    <li class="active"><a href="#heroarea">home</a></li>
 
-                <li><a href="#blog">Languages</a></li>
-                <li><a href="#works">Pilot Training</a></li>
-                <li><a href="#portfolio">Call Center</a></li>
-                <li><a href="#contact">contact</a></li>
-                <li><a href="blog-3.html">External link</a></li>
+
+                </div>
+
+                <div class="dropdown">
+                    <li><a href="#services">Consultancy</a></li>
+
+                    <div class="dropdown-content">
+                        <% for(var i=0; i<Consultancy.length; i++){  %>
+
+                        <a href="#"><%= Consultancy[i].country_name %></a>
+
+                        <%}%>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <li><a href="#blog">Languages</a></li>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <li><a href="#works">Pilot Training</a></li>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <li><a href="#portfolio">Call Center</a></li>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <li><a href="/contact">contact</a></li>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <li><a href="blog-3.html">External link</a></li>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+
+
+
 
                 <!--        end menu list-->
 
             </ul>
+
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
 </nav>
-<script>
-    $(".subconsultancy").hide();
 
-
-    $("li.consultancy").hover(
-    function(){
-       // $(this).(".subconsultancy").show();
-        event.stopImmediatePropagation();
-        },
-        function(){
-            $(".subconsultancy").hide();
-            event.stopImmediatePropagation();
-        }
-    );
-
-</script>

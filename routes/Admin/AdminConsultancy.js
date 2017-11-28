@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 
     Consultancy.find(function (err,Consultancydata) {
         if(Consultancydata){
-            console.log("Contact Data Fetched");
+            console.log("Consultancy Data Fetched: Admin");
 
             res.render('Admin/AdminConsultancy',{Consultancy:Consultancydata});
         }

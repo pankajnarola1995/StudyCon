@@ -78,6 +78,11 @@ app.post('/saveContact', function (req,res) {
         });
     });
 
+
+
+
+
+
 /*
 //Admin Functions
 app.get('/AdminContactView',function (req,res) {
@@ -109,7 +114,7 @@ var ConsultancySchema =  mongoose.Schema({
 });
 var Consultancy = mongoose.model("Consultancy",ConsultancySchema);
 
-
+//Consultancy Insert data
 app.post('/AdminConsultancyAddData', function (req,res) {
     console.log("AdminConsultancyAddData");
 
@@ -131,11 +136,35 @@ if(promise) {
 }
     else {
         console.log("error in insert country");
-    res.redirect("/Admin/AdminConsultancy");
+    res.redirect("/AdminConsultancy");
 
 }
 
 
+
+
+});
+//Consultancy Delete data
+app.post('/AdminConsultancyDeleteData',function (req,res) {
+    console.log("Ajax working");
+
+
+    var cid = req.body.cid;
+    console.log(cid);
+    Consultancy.remove({_id : cid},function (err) {
+        if (err) { res.json({"err": err}); } else {
+            res.json({success: true});
+        }
+
+    });
+    //Consultancy.findByIdAndRemove(cid).then((docs) => {});
+
+        //Consultancy.delete(function(err,Consultancy){
+           // if(err) throw err;
+           // console.log('the document is deleted');
+            //res.send(question);
+
+        //});
 
 
 });
