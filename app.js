@@ -9,6 +9,7 @@ const mongoose= require('mongoose');
 var assert = require('assert');
 
 // this is task4
+//These are some changes for task 3
 
 //database connection
 var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
@@ -39,13 +40,20 @@ app.use('/users', require('./routes/users'));
 app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
 app.use('/websocket', require('./routes/websocket'));
-
+app.use('/signin', require('./routes/signin'));
+app.use('/register', require('./routes/register'));
 
 app.use('/Admin', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
+<<<<<<< HEAD
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
+=======
+app.use('/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
+
+
+>>>>>>> a5637a3a50e94025a12ed6ea2a1816f993d6dea0
 
 //contact table create
 var contactSchema =  mongoose.Schema({
@@ -80,6 +88,11 @@ app.post('/saveContact', function (req,res) {
         });
     });
 
+
+
+
+
+
 /*
 //Admin Functions
 app.get('/AdminContactView',function (req,res) {
@@ -111,7 +124,7 @@ var ConsultancySchema =  mongoose.Schema({
 });
 var Consultancy = mongoose.model("Consultancy",ConsultancySchema);
 
-
+//Consultancy Insert data
 app.post('/AdminConsultancyAddData', function (req,res) {
     console.log("AdminConsultancyAddData");
 
@@ -133,9 +146,80 @@ if(promise) {
 }
     else {
         console.log("error in insert country");
-    res.redirect("/Admin/AdminConsultancy");
+    res.redirect("/AdminConsultancy");
 
 }
+
+
+
+
+});
+//Consultancy Delete data
+app.post('/AdminConsultancyDeleteData',function (req,res) {
+    console.log("Ajax working");
+
+
+    var cid = req.body.cid;
+    console.log(cid);
+    Consultancy.remove({_id : cid},function (err) {
+        if (err) { res.json({"err": err}); } else {
+            res.json({success: true});
+        }
+
+    });
+    //Consultancy.findByIdAndRemove(cid).then((docs) => {});
+
+        //Consultancy.delete(function(err,Consultancy){
+           // if(err) throw err;
+           // console.log('the document is deleted');
+            //res.send(question);
+
+        //});
+
+
+});
+
+
+var AddEventSchema =  mongoose.Schema({
+
+    event_name: String,
+    event_description: String,
+    event_type:String,
+    event_details:String,
+    images:String,
+    // images:String
+
+});
+
+//Admin Event handling
+
+var AddEvent = mongoose.model("AddEvent",ConsultancySchema);
+
+
+app.post('/AdminAddEventAddData', function (req,res) {
+    console.log("AdminAddEventAddData");
+
+    var AddEventData = new AddEvent( {
+        event_name:    req.body.event_name,
+        event_description:     req.body.event_description,
+        event_type:    req.body.event_type,
+        event_details:        req.body.event_details,
+        images: req.body.images,
+        //   images:         req.body.images
+    });
+    console.log(AddEventData);
+    var promise = AddEventData.save();
+    assert.ok(promise instanceof require('mpromise'));
+
+    if(promise) {
+        console.log("inserted event data");
+        res.redirect("/AdminAddEvent");
+    }
+    else {
+        console.log("error in insert event");
+        res.redirect("/AdminAddEvent");
+
+    }
 
 
 
