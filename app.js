@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 const mongoose= require('mongoose');
 var assert = require('assert');
 
+// this is task4
+
 //database connection
 var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
@@ -43,7 +45,7 @@ app.use('/Admin', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
-
+app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
 
 //contact table create
 var contactSchema =  mongoose.Schema({
@@ -134,6 +136,50 @@ if(promise) {
     res.redirect("/Admin/AdminConsultancy");
 
 }
+
+
+
+
+});
+
+
+var AddEventSchema =  mongoose.Schema({
+
+    event_name: String,
+    event_description: String,
+    event_type:String,
+    event_details:String,
+    images:String,
+    // images:String
+
+});
+var AddEvent = mongoose.model("AddEvent",ConsultancySchema);
+
+
+app.post('/AdminAddEventAddData', function (req,res) {
+    console.log("AdminAddEventAddData");
+
+    var AddEventData = new AddEvent( {
+        event_name:    req.body.event_name,
+        event_description:     req.body.event_description,
+        event_type:    req.body.event_type,
+        event_details:        req.body.event_details,
+        images: req.body.images,
+        //   images:         req.body.images
+    });
+    console.log(addeventData);
+    var promise = addeventData.save();
+    assert.ok(promise instanceof require('mpromise'));
+
+    if(promise) {
+        console.log("inserted event data");
+        res.redirect("/AdminAddEvent");
+    }
+    else {
+        console.log("error in insert event");
+        res.redirect("/Admin/AdminAddEvent");
+
+    }
 
 
 
