@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
             console.log("Get Counsultancy Details Data Fetched for menu :User ");
             //console.log(data);
 
-            res.render('login',{Consultancy:data});
+            res.render('register',{Consultancy:data});
             //res.render('Admin/AdminContactView',{contact:data});
         }
         else {

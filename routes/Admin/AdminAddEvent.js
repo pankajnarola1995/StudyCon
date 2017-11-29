@@ -13,13 +13,13 @@ router.get('/', function(req, res, next) {
         /* other options */
     });
 
-    var Consultancy = mongoose.model("Consultancy");
+    var AddEvent = mongoose.model("AddEvent");
 
-    Consultancy.find(function (err,Consultancydata) {
-        if(Consultancydata){
-            console.log("Consultancy Data Fetched: Admin");
+    AddEvent.find(function (err,AddEventdata) {
+        if(AddEventdata){
+            console.log("AddEvent Data Fetched: Admin");
 
-            res.render('Admin/AdminConsultancy',{Consultancy:Consultancydata});
+            res.render('Admin/AdminAddEvent',{AddEvent:AddEventdata});
         }
         else
         {

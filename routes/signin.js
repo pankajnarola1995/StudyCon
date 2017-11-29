@@ -8,29 +8,28 @@ const mongoose= require('mongoose');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-
 //var contact = mongoose.model('contact');
 
 //database connection
-var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
-    useMongoClient: true,
-    /* other options */
-});
+    var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
+        useMongoClient: true,
+        /* other options */
+    });
 
-var Consultancy = mongoose.model("Consultancy");
+    var Consultancy = mongoose.model("Consultancy");
     Consultancy.find(function (err,data) {
         if (data) {
 
             console.log("Get Counsultancy Details Data Fetched for menu :User ");
             //console.log(data);
 
-            res.render('index',{Consultancy:data});
+            res.render('login',{Consultancy:data});
             //res.render('Admin/AdminContactView',{contact:data});
         }
         else {
             res.status(400).send(err);
         }
 
-});
+    });
 });
 module.exports = router;
