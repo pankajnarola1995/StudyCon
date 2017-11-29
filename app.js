@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 const mongoose= require('mongoose');
 var assert = require('assert');
 
+//These are some changes for task 3
+
 //database connection
 var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
