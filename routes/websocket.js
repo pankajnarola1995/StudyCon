@@ -1,10 +1,18 @@
-var server = require('ws').Server;
-var s = new server({port: 5001});
-
 var express = require('express');
 var path = require('path');
 //router object
+var mongo = require('mongoose');
+var url = 'mongodb://localhost:27017/StudyConDb';
 var router = express.Router();
+
+    app = express(),
+    http = require('http').Server(app),
+    WebSocketServer = require('ws').Server,
+    wss = new WebSocketServer({
+        port: 8080
+    });
+
+app.use(express.static('public'));
 
 router.get('/', function (req, res) {
     console.log('websocket');
@@ -12,30 +20,22 @@ router.get('/', function (req, res) {
     //res.sendFile(path.join(__dirname, '..', 'websocket.html'));
 });
 
-module.exports = router
 
-s.on('connection',function (ws) {
-    ws.on('message',function (message) {
 
-        message= JSON.parse(message);
-        if(message.type=="name"){
-            ws.personName=message.data;
-            return;
-        }
-        console.log("Received:"+message);
-
-        s.clients.forEach(function e(client) {
-            if(client != ws)
-                client.send(JSON.stringify({
-                    name: ws.personName,
-                    data: message.data
-                }));
-        });
-    }) ;
-
-    ws.on('close',function() {
-        console.log("I lost a client");
+wss.broadcast = function broadcast(data) {
+    wss.clients.forEach(function each(client) {
+        client.send(data);
     });
+};
 
+wss.on('connection', function(ws) {
+    ws.on('message', function(msg) {
+        data = JSON.parse(msg);
+        if (data.message) wss.broadcast('<strong>' + data.name + '</strong>: ' + data.message);
+    });
+});
 
-})
+http.listen(3001, function() {
+    console.log('listening on *:3001');
+});
+module.exports = router

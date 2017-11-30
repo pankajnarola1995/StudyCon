@@ -176,7 +176,32 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
+//contact table create
+var chatSchema =  mongoose.Schema({
 
+    Name: String,
+    Message: String
+
+});
+var chat = mongoose.model("chat",chatSchema);
+
+//chat method call
+app.post('/postchat', function (req,res) {
+    console.log("postchat");
+    var chatdata = new chat( {
+        Name: req.body.name,
+        Message:req.body.message
+    });
+    console.log(chatdata);
+    var promise = chatdata.save();
+    assert.ok(promise instanceof require('mpromise'));
+
+    if(promise) {
+        console.log("inserted chat data");
+        res.redirect("/websocket");
+    }
+
+});
 
 
 module.exports = app;
