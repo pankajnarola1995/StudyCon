@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 const mongoose= require('mongoose');
 var assert = require('assert');
 
+// this is task4
+//These are some changes for task 3
+
 //database connection
 var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
@@ -44,9 +47,7 @@ app.use('/Admin', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
-app.use('/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
-
-
+app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
 
 //contact table create
 var contactSchema =  mongoose.Schema({
@@ -193,31 +194,34 @@ app.post('/AdminConsultancyUpdateData', function (req,res) {
     console.log("AdminConsultancyAddData");
 
 
-    var    country_name =   req.body.country_name;
-     var   flage_image =     req.body.flage_image;
-       var requirenment =    req.body.requirenment;
-       var detail=        req.body.detail;
-        var important_link = req.body.important_link;
-        //   images:         req.body.images
+    var country_name = req.body.country_name;
+    var flage_image = req.body.flage_image;
+    var requirenment = req.body.requirenment;
+    var detail = req.body.detail;
+    var important_link = req.body.important_link;
+    //   images:         req.body.images
 
-   // console.log(consultancyData);
-    var promise = Consultancy.update({'country_name':country_name},
-        { $set: {'country_name': country_name, 'flage_image': flage_image, 'requirenment': requirenment , 'detail': detail, 'important_link': important_link}});
+    // console.log(consultancyData);
+    var promise = Consultancy.update({'country_name': country_name},
+        {
+            $set: {
+                'country_name': country_name,
+                'flage_image': flage_image,
+                'requirenment': requirenment,
+                'detail': detail,
+                'important_link': important_link
+            }
+        });
     assert.ok(promise instanceof require('mpromise'));
 
-    if(promise) {
+    if (promise) {
         console.log("updated Consultancy data");
         res.redirect("/AdminConsultancy");
     }
     else {
         console.log("error in updated Consultancy");
         res.redirect("/AdminConsultancy");
-
     }
-
-
-
-
 });
 
 var AddEventSchema =  mongoose.Schema({
@@ -265,6 +269,7 @@ app.post('/AdminAddEventAddData', function (req,res) {
 
 
 });
+
 
 app.get('/ajaxcall', function (req,res) {
     contact.find(function (err,data) {

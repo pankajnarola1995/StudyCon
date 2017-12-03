@@ -69,7 +69,9 @@
                     <div class="control-group">
                         <label class="control-label"><b>Country Name</b></label>
                         <div class="controls">
-                            <input type="text" name="country_name" id="c" placeholder="Type country name" class="span8" required>
+
+                            <input type="text" name="country_name" id="country_name" placeholder="Type country name" class="span8" required>
+
                             <span class="help-inline" id="msgseed_detail_name" style="color:#F00;position:absolute"></span>
                         </div>
                     </div>
@@ -156,7 +158,8 @@
 
                         <!-- Display Popup Button -->
 
-                            <td><a id="popup" onclick="div_show('<%= Consultancy[i]._id %>')" > <img src="/images/update.png" id="myPopup" style="height: 25px;width: 25px" /></a></td>
+
+                        <td><a id="popup" onclick="div_show('<%= Consultancy[i]._id %>')" > <img src="/images/update.png" id="myPopup" style="height: 25px;width: 25px" /></a></td>
                         <td><a href="/"><img src=""/></a></td>
 
                         <td><%= Consultancy[i].country_name %></td>
@@ -208,7 +211,8 @@
         text-align:center;
         border-radius:10px 10px 0 0;
         float: right">
-    Update Consultancy Details <img id="close" src="/images/close.png" onclick ="div_hide() " style="float: right;margin-left: 50px">
+    Update Consultancy Details
+    <img id="close" src="/images/close.png" onclick ="div_hide() " style="float: right;margin-left: 50px">
 </h1>
         <form class="form-horizontal row-fluid" method="post" action="/AdminConsultancyUpdateData"  style="
           max-width:100%;
@@ -225,7 +229,8 @@
             <div class="control-group">
                 <label class="control-label"><b>Country Name</b></label>
                 <div class="controls">
-                    <input type="text" name="country_name" id="c" placeholder="Type country name" class="span8" >
+                <input type="text" name="country_name" id="country_name" placeholder="Type country name" class="span8" >
+
                     <span class="help-inline" id="msgseed_detail_name" style="color:#F00;position:absolute"></span>
 
                 </div>
@@ -334,18 +339,19 @@
         });
     }
     // When the user clicks on div, open the popup
+
     function div_show(cid) {
         $.ajax({
-            type:'POST',
+            type: 'POST',
             url: 'http://localhost:3000/AdminConsultancyUpdateGetData',
-            data:{"cid":cid},
-            dataType:'json',
-        }).done(function(data) {
-            var $response=$(data);
+            data: {"cid": cid},
+            dataType: 'json',
+        }).done(function (data) {
+            var $response = $(data);
             //console.log('GET response:',JSON.stringify(data,"",2));
-            $('#getResponse').html(JSON.stringify(data,"",2));
+            $('#getResponse').html(JSON.stringify(data, "", 2));
             console.log(' $(data).filter("#country_name").text();');
-          //  var country_name = $response.filter('#country_name').html();
+            //  var country_name = $response.filter('#country_name').html();
 
             // console.log(country_name);
 
@@ -354,7 +360,6 @@
         document.getElementById('abc').style.display = "block";
         //console.log(data);
 
-
     }
     //Function to Hide Popup
     function div_hide(){
@@ -362,6 +367,8 @@
     }
 </script>
 <pre id="country_name"></pre>
+
+
 
 
 <% include partials/footer.ejs %>
