@@ -64,7 +64,7 @@
 
 
 
-                <form class="form-horizontal row-fluid" method="post" action="/AdminConsultancyAddData" >
+                <form class="form-horizontal row-fluid" method="post" action="/AdminConsultancyAddData" enctype="multipart/form-data">
 
                     <div class="control-group">
                         <label class="control-label"><b>Country Name</b></label>
@@ -137,6 +137,7 @@
                         <th>Delete</th>
                         <th>Update</th>
                         <th>Update Image</th>
+                        <th>Flag</th>
                         <th>Country Name</th>
                         <th>Requirenment</th>
                         <th>Details</th>
@@ -162,7 +163,8 @@
                         <td><a id="popup" onclick="div_show('<%= Consultancy[i]._id %>')" > <img src="/images/update.png" id="myPopup" style="height: 25px;width: 25px" /></a></td>
                         <td><a href="/"><img src=""/></a></td>
 
-                        <td><%= Consultancy[i].country_name %></td>
+                        <td><img src="/images/<%= Consultancy[i].flage_image %>" /></td>
+                      <td><%= Consultancy[i].country_name %></td>
                         <td><%= Consultancy[i].requirenment %></td>
                         <td><%= Consultancy[i].detail %></td>
                         <td><%= Consultancy[i].important_link %></td>
@@ -177,6 +179,7 @@
                         <th>Delete</th>
                         <th>Update</th>
                         <th>Update Image</th>
+                        <th>Flag</th>
                         <th>Country Name</th>
                         <th>Requirenment</th>
                         <th>Details</th>
@@ -310,18 +313,21 @@
 
     function deleteConsultancy(cid){
         //console.log("de");
-        $.ajax({
-            type:'POST',
-            url: 'http://localhost:3000/AdminConsultancyDeleteData',
-             data:{"cid":cid},
-            dataType:'json',
-            success: function(result) {
-                if (result) {
-                    location.reload();
+        if (alert("Are you sure you want to delete customer "))
+        {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/AdminConsultancyDeleteData',
+                data: {"cid": cid},
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+                        location.reload();
 
+                    }
                 }
-            }
             });
+        }
     }
     function updateConsultancy(cid){
         //console.log("de");

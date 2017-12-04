@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose= require('mongoose');
 var assert = require('assert');
+const fileUpload = require('express-fileupload');
 
 // this is task4
 //These are some changes for task 3
@@ -48,6 +49,8 @@ app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
+
+app.use(fileUpload());
 
 //contact table create
 var contactSchema =  mongoose.Schema({
@@ -113,7 +116,7 @@ var ConsultancySchema =  mongoose.Schema({
     requirenment:String,
     detail:String,
     important_link:String,
-    // images:String
+    images:String
 
 });
 var Consultancy = mongoose.model("Consultancy",ConsultancySchema);
@@ -123,15 +126,35 @@ var Consultancy = mongoose.model("Consultancy",ConsultancySchema);
 app.post('/AdminConsultancyAddData', function (req,res) {
     console.log("AdminConsultancyAddData");
 
+      if (!req.files)
+        return res.status(400).send('No files were uploaded.');
+
+    var flage_image1 = req.files.flage_image;
+    console.log(flage_image1);
+    // Use the mv() method to place the file somewhere on your server
+    var newpath = './public\\images\\' + flage_image1.name;
+    flage_image1.mv(newpath  , function(err) {
+        if (err)
+            return res.status(500).send(err);
+
+        console.log('File uploaded Flage Image Consultancy!');
+    });
+
+
+
+   var images=  new images{
+       req.files.images;
+    }
     var consultancyData = new Consultancy( {
         country_name:    req.body.country_name,
-        flage_image:     req.body.flage_image,
+        flage_image:     flage_image1.name,
         requirenment:    req.body.requirenment,
         detail:        req.body.detail,
         important_link: req.body.important_link,
-        //   images:         req.body.images
+        images:         images.name
     });
     console.log(consultancyData);
+
     var promise = consultancyData.save();
     assert.ok(promise instanceof require('mpromise'));
 
@@ -147,23 +170,23 @@ app.post('/AdminConsultancyAddData', function (req,res) {
 });
 //Consultancy Delete data
 app.post('/AdminConsultancyDeleteData',function (req,res) {
-    console.log("Ajax working");
 
+        var cid = req.body.cid;
+        console.log(cid);
+        Consultancy.remove({_id: cid}, function (err) {
+            if (err) {
+                res.json({"err": err});
+            } else {
+                res.json({success: true});
+            }
 
-    var cid = req.body.cid;
-    console.log(cid);
-    Consultancy.remove({_id : cid},function (err) {
-        if (err) { res.json({"err": err}); } else {
-            res.json({success: true});
-        }
-
-    });
-    //Consultancy.findByIdAndRemove(cid).then((docs) => {});
+        });
+        //Consultancy.findByIdAndRemove(cid).then((docs) => {});
 
         //Consultancy.delete(function(err,Consultancy){
-           // if(err) throw err;
-           // console.log('the document is deleted');
-            //res.send(question);
+        // if(err) throw err;
+        // console.log('the document is deleted');
+        //res.send(question);
 
         //});
 
