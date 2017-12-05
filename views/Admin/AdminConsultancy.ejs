@@ -229,19 +229,20 @@
       ">
             <br /><br /><br /><br />
 
-            <div class="control-group">
+           <div class="control-group">
                 <label class="control-label"><b>Country Name</b></label>
                 <div class="controls">
-                <input type="text" name="country_name" id="country_name" placeholder="Type country name" class="span8" >
+                    <textarea  name="country_name"  id="getResponsecountry_name"  placeholder="Type country name" class="span8" style="resize: none"></textarea>
 
                     <span class="help-inline" id="msgseed_detail_name" style="color:#F00;position:absolute"></span>
 
                 </div>
             </div>
+
             <div class="control-group">
                 <label class="control-label" ><b>Country Flag</b></label>
                 <div class="controls">
-                    <input type="file" id="flag_image" name="flage_image" class="span8" >
+                    <input type="file" id="getResponseflag_image" name="flage_image" class="span8" >
                     <span class="help-inline"  id="msgseed_images" style="color:#F00;position:absolute" ></span>
                 </div>
             </div>
@@ -250,7 +251,7 @@
             <div class="control-group">
                 <label class="control-label"><b>Requirenment</b></label>
                 <div class="controls">
-                    <textarea class="span8" rows="5" name="requirenment" id="requirenment" placeholder="Enter requirenment"></textarea>
+                    <textarea class="span8" rows="5" name="requirenment" id="getResponserequirenment" placeholder="Enter requirenment"></textarea>
                     <span class="help-inline" id="msgdescription" style="color:#F00;position:absolute"></span>
                 </div>
             </div>
@@ -258,7 +259,7 @@
             <div class="control-group">
                 <label class="control-label"><b>Details</b></label>
                 <div class="controls">
-                    <textarea class="span8" rows="5" name="detail" id="detail" placeholder="Enter detail"></textarea>
+                    <textarea class="span8" rows="5" name="detail" id="getResponsedetail" placeholder="Enter detail"></textarea>
                     <span class="help-inline" id="msgdescription1" style="color:#F00;position:absolute"></span>
                 </div>
             </div>
@@ -266,7 +267,7 @@
             <div class="control-group">
                 <label class="control-label"><b>Important Links</b></label>
                 <div class="controls">
-                    <textarea class="span8" rows="5" name="important_link" id="important_link" placeholder="Enter important_link"></textarea>
+                    <textarea class="span8" rows="5" name="important_link" id="getResponseimportant_link" placeholder="Enter important_link"></textarea>
                     <span class="help-inline" id="msgdescription2" style="color:#F00;position:absolute"></span>
                 </div>
             </div>
@@ -313,7 +314,7 @@
 
     function deleteConsultancy(cid){
         //console.log("de");
-        if (alert("Are you sure you want to delete customer "))
+        if (confirm("Are you sure you want to delete customer "))
         {
             $.ajax({
                 type: 'POST',
@@ -328,21 +329,9 @@
                 }
             });
         }
-    }
-    function updateConsultancy(cid){
-        //console.log("de");
-        $.ajax({
-            type:'POST',
-            url: 'http://localhost:3000/AdminConsultancyDeleteData',
-            data:{"cid":cid},
-            dataType:'json',
-            success: function(result) {
-                if (result) {
-                    location.reload();
-
-                }
-            }
-        });
+        else {
+            return false;
+        }
     }
     // When the user clicks on div, open the popup
 
@@ -353,14 +342,16 @@
             data: {"cid": cid},
             dataType: 'json',
         }).done(function (data) {
-            var $response = $(data);
-            //console.log('GET response:',JSON.stringify(data,"",2));
-            $('#getResponse').html(JSON.stringify(data, "", 2));
-            console.log(' $(data).filter("#country_name").text();');
-            //  var country_name = $response.filter('#country_name').html();
 
-            // console.log(country_name);
+            $('#getResponsecountry').html(data.Consultancy[0].country_name);
+          //  $('#getResponseflag_image').html(data.Consultancy[0].flage_image);
 
+            $('#getResponsecountry_name').html(data.Consultancy[0].country_name);
+            $('#getResponserequirenment').html(data.Consultancy[0].requirenment);
+            $('#getResponsedetail').html(data.Consultancy[0].detail);
+            $('#getResponseimportant_link').html(data.Consultancy[0].important_link);
+
+            console.log(data.Consultancy[0].country_name);
 
         });
         document.getElementById('abc').style.display = "block";
@@ -372,7 +363,6 @@
         document.getElementById('abc').style.display = "none";
     }
 </script>
-<pre id="country_name"></pre>
 
 
 

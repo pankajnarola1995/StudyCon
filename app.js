@@ -142,9 +142,7 @@ app.post('/AdminConsultancyAddData', function (req,res) {
 
 
 
-   var images=  new images{
-       req.files.images;
-    }
+
     var consultancyData = new Consultancy( {
         country_name:    req.body.country_name,
         flage_image:     flage_image1.name,
