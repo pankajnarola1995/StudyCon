@@ -36,7 +36,7 @@ app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
-app.use('/websocket', require('./routes/websocket'));
+app.use('/', require('./routes/websocket'));
 
 
 app.use('/Admin', require('./routes/Admin/AdminIndex'));
@@ -189,7 +189,7 @@ var chat = mongoose.model("chat",chatSchema);
 app.post('/postchat', function (req,res) {
     console.log("postchat");
     var chatdata = new chat( {
-        Name: req.body.name,
+        Name: req.body.username,
         Message:req.body.message
     });
     console.log(chatdata);
@@ -198,7 +198,7 @@ app.post('/postchat', function (req,res) {
 
     if(promise) {
         console.log("inserted chat data");
-        res.redirect("/websocket");
+        res.redirect("/index");
     }
 
 });

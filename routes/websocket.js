@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 //router object
-var mongo = require('mongoose');
+var mongoose = require('mongoose');
 var url = 'mongodb://localhost:27017/StudyConDb';
 var router = express.Router();
 
@@ -14,13 +14,15 @@ var router = express.Router();
 
 app.use(express.static('public'));
 
-router.get('/', function (req, res) {
+/*router.get('/', function (req, res) {
     console.log('websocket');
     res.render('websocket')
     //res.sendFile(path.join(__dirname, '..', 'websocket.html'));
+});*/
+
+router.get('/', function(req, res) {
+    res.render('index');
 });
-
-
 
 wss.broadcast = function broadcast(data) {
     wss.clients.forEach(function each(client) {
