@@ -103,7 +103,9 @@
                     <li><a href="#services">Consultancy</a></li>
 
                     <div class="dropdown-content">
-                        <% for(var i=0; i<Consultancy.length; i++){  %>
+                        <%
+                        if(locals.Consultancy)
+                        for(var i=0; i<Consultancy.length; i++){  %>
 
                         <a href="#"><%= Consultancy[i].country_name %></a>
 
