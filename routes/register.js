@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
 const mongoose= require('mongoose');
-var assert = require('assert');
 
-/* GET users listing. */
+
+//var contact = mongoose.model('contact');
+
+/* GET home page. */
 router.get('/', function(req, res, next) {
-    //console.log("admin");
+
+//var contact = mongoose.model('contact');
 
 //database connection
     var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
@@ -14,23 +17,19 @@ router.get('/', function(req, res, next) {
     });
 
     var Consultancy = mongoose.model("Consultancy");
+    Consultancy.find(function (err,data) {
+        if (data) {
 
-    Consultancy.find(function (err,Consultancydata) {
-        if(Consultancydata){
-            console.log("Consultancy Data Fetched: Admin");
+            console.log("Get Counsultancy Details Data Fetched for menu :User ");
+            //console.log(data);
 
-            res.render('Admin/AdminConsultancy',{Consultancy:Consultancydata});
+            res.render('register',{Consultancy:data});
+            //res.render('Admin/AdminContactView',{contact:data});
         }
-        else
-        {
+        else {
             res.status(400).send(err);
         }
 
     });
-
-
-
-
 });
-
 module.exports = router;

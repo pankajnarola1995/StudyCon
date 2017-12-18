@@ -1,3 +1,4 @@
+
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -7,6 +8,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose= require('mongoose');
 var assert = require('assert');
+
+// this is task4
+//These are some changes for task 3
 
 //database connection
 var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
@@ -36,14 +40,15 @@ app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
-app.use('/', require('./routes/websocket'));
-
+app.use('/websocket', require('./routes/websocket'));
+app.use('/signin', require('./routes/signin'));
+app.use('/register', require('./routes/register'));
 
 app.use('/Admin', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
-
+app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
 
 //contact table create
 var contactSchema =  mongoose.Schema({
@@ -65,23 +70,27 @@ app.post('/saveContact', function (req,res) {
         Email:req.body.email,
         Message:req.body.message
     });
-        contactdata.save(function(error, data){
-            if(error){
-                console.log("contact insert error ");
-                res.json(error);
+    contactdata.save(function(error, data){
+        if(error){
+            console.log("contact insert error ");
+            res.json(error);
 
-            }
-            else{
-                console.log("contact inserted ");
-                res.redirect("/");
-            }
-        });
+        }
+        else{
+            console.log("contact inserted ");
+            res.redirect("/");
+        }
     });
+});
+
+
+
+
+
 
 /*
 //Admin Functions
 app.get('/AdminContactView',function (req,res) {
-
     contact.find(function (err,data) {
         if(data){
             console.log("Contact Data Fetched");
@@ -91,11 +100,9 @@ app.get('/AdminContactView',function (req,res) {
         {
             res.status(400).send(err);
         }
-        
+
     });
     console.log('AdminContactView');
-
-
 });*/
 var ConsultancySchema =  mongoose.Schema({
 
@@ -110,6 +117,7 @@ var ConsultancySchema =  mongoose.Schema({
 var Consultancy = mongoose.model("Consultancy",ConsultancySchema);
 
 
+//Consultancy Insert data
 app.post('/AdminConsultancyAddData', function (req,res) {
     console.log("AdminConsultancyAddData");
 
@@ -119,26 +127,148 @@ app.post('/AdminConsultancyAddData', function (req,res) {
         requirenment:    req.body.requirenment,
         detail:        req.body.detail,
         important_link: req.body.important_link,
-     //   images:         req.body.images
+        //   images:         req.body.images
     });
     console.log(consultancyData);
     var promise = consultancyData.save();
     assert.ok(promise instanceof require('mpromise'));
 
-if(promise) {
-    console.log("inserted country data");
-    res.redirect("/AdminConsultancy");
-}
+    if(promise) {
+        console.log("inserted country data");
+        res.redirect("/AdminConsultancy");
+    }
     else {
         console.log("error in insert country");
-    res.redirect("/Admin/AdminConsultancy");
+        res.redirect("/AdminConsultancy");
 
-}
+    }
+});
+//Consultancy Delete data
+app.post('/AdminConsultancyDeleteData',function (req,res) {
+    console.log("Ajax working");
+
+
+    var cid = req.body.cid;
+    console.log(cid);
+    Consultancy.remove({_id : cid},function (err) {
+        if (err) { res.json({"err": err}); } else {
+            res.json({success: true});
+        }
+
+    });
+    //Consultancy.findByIdAndRemove(cid).then((docs) => {});
+
+    //Consultancy.delete(function(err,Consultancy){
+    // if(err) throw err;
+    // console.log('the document is deleted');
+    //res.send(question);
+
+    //});
+
+
+});
+
+//Consultancy Update data
+app.post('/AdminConsultancyUpdateGetData',function (req,res) {
+    console.log("Ajax working");
+
+
+    var cid = req.body.cid;
+    console.log(cid);
+    Consultancy.find({_id: cid}, function (err,data) {
+        if (err) {
+            res.json({"err": err});
+        } else {
+            //console.log(data);
+            res.send({Consultancy:data});
+        }
+
+    });
+});
+
+
+//Consultancy Update data
+app.post('/AdminConsultancyUpdateData', function (req,res) {
+    console.log("AdminConsultancyAddData");
+
+
+    var country_name = req.body.country_name;
+    var flage_image = req.body.flage_image;
+    var requirenment = req.body.requirenment;
+    var detail = req.body.detail;
+    var important_link = req.body.important_link;
+    //   images:         req.body.images
+
+    // console.log(consultancyData);
+    var promise = Consultancy.update({'country_name': country_name},
+        {
+            $set: {
+                'country_name': country_name,
+                'flage_image': flage_image,
+                'requirenment': requirenment,
+                'detail': detail,
+                'important_link': important_link
+            }
+        });
+    assert.ok(promise instanceof require('mpromise'));
+
+    if (promise) {
+        console.log("updated Consultancy data");
+        res.redirect("/AdminConsultancy");
+    }
+    else {
+        console.log("error in updated Consultancy");
+        res.redirect("/AdminConsultancy");
+    }
+});
+
+
+var AddEventSchema =  mongoose.Schema({
+
+    event_name: String,
+    event_description: String,
+    event_type:String,
+    event_details:String,
+    images:String,
+    // images:String
+
+});
+
+//Admin Event handling
+
+var AddEvent = mongoose.model("AddEvent",ConsultancySchema);
+
+
+app.post('/AdminAddEventAddData', function (req,res) {
+    console.log("AdminAddEventAddData");
+
+    var AddEventData = new AddEvent( {
+        event_name:    req.body.event_name,
+        event_description:     req.body.event_description,
+        event_type:    req.body.event_type,
+        event_details:        req.body.event_details,
+        images: req.body.images,
+        //   images:         req.body.images
+    });
+    console.log(AddEventData);
+    var promise = AddEventData.save();
+    assert.ok(promise instanceof require('mpromise'));
+
+    if(promise) {
+        console.log("inserted event data");
+        res.redirect("/AdminAddEvent");
+    }
+    else {
+        console.log("error in insert event");
+        res.redirect("/AdminAddEvent");
+
+    }
 
 
 
 
 });
+
 
 app.get('/ajaxcall', function (req,res) {
     contact.find(function (err,data) {
@@ -176,32 +306,7 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-//contact table create
-var chatSchema =  mongoose.Schema({
 
-    Name: String,
-    Message: String
-
-});
-var chat = mongoose.model("chat",chatSchema);
-
-//chat method call
-app.post('/postchat', function (req,res) {
-    console.log("postchat");
-    var chatdata = new chat( {
-        Name: req.body.username,
-        Message:req.body.message
-    });
-    console.log(chatdata);
-    var promise = chatdata.save();
-    assert.ok(promise instanceof require('mpromise'));
-
-    if(promise) {
-        console.log("inserted chat data");
-        res.redirect("/index");
-    }
-
-});
 
 
 module.exports = app;
