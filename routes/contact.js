@@ -1,17 +1,46 @@
 var express = require('express');
 var router = express.Router();
-var mongo = require('mongoose');
+var mongoose = require('mongoose');
 var assert = require('assert');
-var app = express();
-
-var url = 'mongodb://localhost:27017/StudyConDb';
 
 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
     res.render('contact');
 });
+let contactSchema = mongoose.Schema({
 
+    Name: String,
+    Subject: String,
+    Email: String,
+    Message: String
+
+});
+//Consultancy Table Create
+//Image Table Create
+let contact = mongoose.model("contact", contactSchema);
+
+//contact method call
+router.post('/saveContact',  (req, res) => {
+    console.log("postcontact");
+    let contactdata = new contact({
+        Name: req.body.name,
+        Subject: req.body.subject,
+        Email: req.body.email,
+        Message: req.body.message
+    });
+    contactdata.save(function (error, data) {
+        if (error) {
+            console.log("contact insert error ");
+            res.json(error);
+
+        }
+        else {
+            console.log("contact inserted ");
+            res.redirect("/");
+        }
+    });
+});
 /*router.get('/get-data',function (req,res,next) {
     var resultArray = [];
     mongo.connect(url,function (err,db) {

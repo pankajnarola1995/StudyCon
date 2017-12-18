@@ -28,7 +28,7 @@ var Consultancy = mongoose.model("Consultancy");
             //res.render('Admin/AdminContactView',{contact:data});
         }
         else {
-            res.status(400).send(err);
+            res.render('index');
         }
 
 });

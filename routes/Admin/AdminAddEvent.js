@@ -1,36 +1,72 @@
 var express = require('express');
 var router = express.Router();
-const mongoose= require('mongoose');
+const mongoose = require('mongoose');
 var assert = require('assert');
+let AddEventSchema = mongoose.Schema({
+
+    event_name: String,
+    event_description: String,
+    event_type: String,
+    event_details: String,
+    images: String,
+    // images:String
+
+});
+
+//Admin Event handling
+
+let AddEvent = mongoose.model("AddEvent", AddEventSchema);
+
+
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     //console.log("admin");
 
-//database connection
-    var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
-        useMongoClient: true,
-        /* other options */
-    });
 
     var AddEvent = mongoose.model("AddEvent");
 
-    AddEvent.find(function (err,AddEventdata) {
-        if(AddEventdata){
+    AddEvent.find(function (err, AddEventdata) {
+        if (AddEventdata) {
             console.log("AddEvent Data Fetched: Admin");
 
-            res.render('Admin/AdminAddEvent',{AddEvent:AddEventdata});
+            res.render('Admin/AdminAddEvent', {AddEvent: AddEventdata});
         }
-        else
-        {
+        else {
             res.status(400).send(err);
         }
 
     });
+});
 
 
+router.post('/AdminAddEventAddData', (req, res) => {
+    console.log("AdminAddEventAddData");
+
+    let AddEventData = new AddEvent({
+        event_name: req.body.event_name,
+        event_description: req.body.event_description,
+        event_type: req.body.event_type,
+        event_details: req.body.event_details,
+        images: req.body.images,
+        //   images:         req.body.images
+    });
+    console.log(AddEventData);
+    let promise = AddEventData.save();
+    assert.ok(promise instanceof require('mpromise'));
+
+    if (promise) {
+        console.log("inserted event data");
+        res.redirect("/Admin/AdminAddEvent");
+    }
+    else {
+        console.log("error in insert event");
+        res.redirect("/Admin/AdminAddEvent");
+
+    }
 
 
 });
+
 
 module.exports = router;
