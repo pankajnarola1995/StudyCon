@@ -12,6 +12,9 @@
 <script src="/admindata/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/admindata/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <script src="/admindata/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script type='text/javascript' src='script.js'></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
 
 <script src="/admindata/scripts/datatables/jquery.dataTables.js"></script>
 <script>
@@ -22,6 +25,21 @@
         $('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
         $('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
     } );
+
+    $(document).ready(function() {
+        $("#event_start").datepicker();
+        $("#event_end").datepicker();
+        $("add_seed").click(function() {
+
+            var event_start = $("#event_start").val();
+            var event_end = $("#event_end").val();
+            if (event_start === "" || event_end === "") {
+                alert("Please select start and end dates.");
+            } else {
+                confirm("Pls confirm that the event starts " + selected + " on " + event_start + " and ends on " + event_end + "?");
+            }
+        });
+    });
 </script>
 
 

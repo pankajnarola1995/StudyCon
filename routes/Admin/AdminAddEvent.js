@@ -40,6 +40,7 @@ router.get('/', function (req, res, next) {
 });
 
 
+
 router.post('/AdminAddEventAddData', (req, res) => {
     console.log("AdminAddEventAddData");
 
@@ -47,6 +48,8 @@ router.post('/AdminAddEventAddData', (req, res) => {
         event_name: req.body.event_name,
         event_description: req.body.event_description,
         event_type: req.body.event_type,
+        event_start: req.body.event_start,
+        event_end: req.body.event_end,
         event_details: req.body.event_details,
         images: req.body.images,
         //   images:         req.body.images
@@ -70,3 +73,4 @@ router.post('/AdminAddEventAddData', (req, res) => {
 
 
 module.exports = router;
+

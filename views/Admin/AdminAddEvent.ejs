@@ -43,6 +43,27 @@
                     </div>
 
                     <div class="control-group">
+                        <label class="control-label"><b>Event Start Date</b></label>
+                        <div class="controls">
+                            <input type="text" id="event_start" name="event_start" class="span8">
+                            <span class="help-inline" id="msgseed_detail_name"
+                                  style="color:#F00;position:absolute"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Event End Date</b></label>
+                        <div class="controls">
+                            <input type="text" id="event_end" name="event_end" class="span8">
+                            <span class="help-inline" id="msgseed_detail_name"
+                                  style="color:#F00;position:absolute"></span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
                         <label class="control-label"><b>Event Details</b></label>
                         <div class="controls">
                             <textarea class="span8" rows="5" name="details" id="details"
@@ -83,6 +104,8 @@
                         <th>Update</th>
                         <th>Update Image</th>
                         <th>Event Name</th>
+                        <th>Event Start</th>
+                        <th>Event End</th>
                         <th>Description</th>
                         <th>Event type</th>
                         <th>Details</th>
@@ -95,7 +118,7 @@
                     <% for(var i = 0; i < AddEvent.length; i++){ %>
                     <tr class="odd gradeX">
 
-                        <td><a href=""><img src=""/></a></td>
+                        <td><a href=""><img src="/images/delete.png" /></a></td>
                         <td><a href=""><img src=""/></a></td>
                         <td><a href=""><img src=""/></a></td>
 
@@ -103,6 +126,8 @@
                         <td><%= AddEvent[i].event_name %></td>
                         <td><%= AddEvent[i].event_description %></td>
                         <td><%= AddEvent[i].event_type %></td>
+                        <td><%= AddEvent[i].event_start %></td>
+                        <td><%= AddEvent[i].event_end %></td>
                         <td><%= AddEvent[i].event_details %></td>
 
                     </tr>
@@ -116,6 +141,8 @@
                         <th>Update</th>
                         <th>Update Image</th>
                         <th>Event Name</th>
+                        <th>Event Start</th>
+                        <th>Event End</th>
                         <th>Description</th>
                         <th>Type</th>
                         <th>Details</th>
