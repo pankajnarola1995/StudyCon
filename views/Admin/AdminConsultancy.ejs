@@ -74,7 +74,7 @@
 
 </style>
 
-
+<!--Add Consultancy Details -->
 <div class="span9">
     <div class="content">
 
@@ -170,7 +170,7 @@
                     </thead>
                     <tbody>
 
-                    <% for(var i = 0; i < Consultancy.length; i++){ %>
+                    <% for(let i = 0; i < Consultancy.length; i++){ %>
                     <tr class="odd gradeX">
                         <td><a onclick="deleteConsultancy('<%= Consultancy[i]._id %>')"><img src="/images/delete.png"
                                                                                              style="height: 25px;width: 25px"/></a>
@@ -184,12 +184,17 @@
                                                                                                 id="myPopup"
                                                                                                 style="height: 25px;width: 25px"/></a>
                         </td>
-                        <td><a id="popup" onclick="div_showimages('<%= Consultancy[i]._id %>')"> <img
+                        <form method="post" action="/Admin/AdminConsultancy/AdminConsultancyUpdateGetImages">
+                        <td>
+                            <input type="hidden" value="<%= Consultancy[i]._id %>" name="cid">
+                            <button type="submit"><img
                                         src="/images/update.png"
-                                        id="myPopup"
-                                        style="height: 25px;width: 25px"/></a>
 
-                        <td><img src="/images/Consultancy_Flag/<%= Consultancy[i].flage_image %>"/></td>
+                                        style="height: 25px;width: 25px"/></button>
+                        </td>
+                        </form>
+                        <td><img height="75" width="75"
+                                 src="/images/Consultancy_Flag/<%= Consultancy[i].flage_image %>"/></td>
                         <td><%= Consultancy[i].country_name %></td>
                         <td><%= Consultancy[i].requirenment %></td>
                         <td><%= Consultancy[i].detail %></td>
@@ -242,14 +247,15 @@
                 Update Consultancy Details
                 <img id="close" src="/images/close.png" onclick="div_hide() " style="float: right;margin-left: 50px">
             </h1>
-            <form class="form-horizontal row-fluid" method="post" action="/Admin/AdminConsultancy/AdminConsultancyUpdateData" style="
-          max-width:100%;
-          min-width:100%;
-          padding:10px 50px;
-          border:2px solid gray;
-          border-radius:10px;
-          font-family:raleway;
-          background-color:#fff;
+            <form class="form-horizontal row-fluid" method="post" enctype="multipart/form-data"
+                  action="/Admin/AdminConsultancy/AdminConsultancyUpdateData" style="
+                                                                                      max-width:100%;
+                                                                                      min-width:100%;
+                                                                                      padding:10px 50px;
+                                                                                      border:2px solid gray;
+                                                                                      border-radius:10px;
+                                                                                      font-family:raleway;
+                                                                                      background-color:#fff;
 
       ">
                 <br/><br/><br/><br/>
@@ -269,11 +275,8 @@
                 <div class="control-group">
                     <label class="control-label"><b>Country Flag</b></label>
                     <div class="controls">
-                        <input type="file" id="flage_imageupdate" name="flage_imageupdate" class="span8">
-                        <textarea name="country_name" id="getResponseflage_image" placeholder="Type country name"
-                                  class="span8" style="resize: none"></textarea>
-
-                        <img src="/images/Consultancy_Flag/DSC00272.JPG" height="100" width="100"/>
+                        <input type="file" id="flage_image" name="flage_image" class="span8">
+                        <pre id="ima" style="height:100%;width: 75px"></pre>
                     </div>
                 </div>
 
@@ -299,63 +302,6 @@
                     <div class="controls">
                         <textarea class="span8" rows="5" name="important_link" id="getResponseimportant_link"
                                   placeholder="Enter important_link"></textarea>
-                    </div>
-                </div>
-
-
-                <div class="control-group">
-                    <div class="controls">
-                        <button type="submit" class="btn" name="add_seed" id="add_seed">Submit Form</button>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-        <!-- Popup Div Ends Here -->
-    </div>
-</div>
-<!--Update Images for Consultancy -->
-<div id="body" style="overflow:hidden;align-items:center;">
-
-    <div id="abcimage">
-        <!-- Popup Div Starts Here -->
-        <div id="popupContactimage">
-            <!-- Contact Us Form -->
-
-            <h1 style="
-        background-color:#FEFFED;
-        padding:20px 35px;
-        margin:-10px -50px;
-        text-align:center;
-        border-radius:10px 10px 0 0;
-        float: right">
-                Update Consultancy Images
-                <img id="close" src="/images/close.png" onclick="div_hideimage() "
-                     style="float: right;margin-left: 50px">
-            </h1>
-            <form class="form-horizontal row-fluid" method="post" action="/Admin/AdminConsultancy/AdminConsultancyUpdateData" style="
-          max-width:100%;
-          min-width:100%;
-          padding:10px 50px;
-          border:2px solid gray;
-          border-radius:10px;
-          font-family:raleway;
-          background-color:#fff;
-
-      ">
-                <br/><br/><br/><br/>
-
-                <div class="control-group">
-                    <label class="control-label"><b>Important Links</b></label>
-                    <div class="controls">
-                        <textarea class="span8" rows="5" name="important_link" id="getImages"
-                                  placeholder="Enter important_link"></textarea>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label"><b>Images</b></label>
-                    <div class="controls">
-                        <input type="file" id="image" name="image[]" class="span8" multiple>
                     </div>
                 </div>
 
@@ -406,33 +352,13 @@
         }).done(function (data) {
             $('#getResponseid').html(data.Consultancy[0]._id);
             $('#getResponsecountry_name').html(data.Consultancy[0].country_name);
-            $('#getResponseflage_image').html(data.Consultancy[0].flage_image);
             $('#getResponserequirenment').html(data.Consultancy[0].requirenment);
             $('#getResponsedetail').html(data.Consultancy[0].detail);
             $('#getResponseimportant_link').html(data.Consultancy[0].important_link);
+            $('#ima').html('<img height="75" width="75" src="/images/Consultancy_Flag/' + data.Consultancy[0].flage_image + '">');
         });
         document.getElementById('abc').style.display = "block";
         //console.log(data);
-
-    }
-
-    function div_showimages(cid) {
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:3000/Admin/AdminConsultancy/AdminConsultancyUpdateGetImages',
-            data: {"cid": cid},
-            dataType: 'json',
-        }).done(function (data) {
-
-            // $('#getImages').html.JSON.stringify(data);
-            for (var i = 0; i < Image.length; i++) {
-
-                //console.log(data.Image.length());
-            }
-
-        });
-
-        document.getElementById('abcimage').style.display = "block";
 
     }
 
@@ -441,10 +367,8 @@
         document.getElementById('abc').style.display = "none";
     }
 
-    function div_hideimage() {
-        document.getElementById('abcimage').style.display = "none";
-    }
+
 </script>
 
-
+<pre id="getImages"></pre>
 <% include partials/footer.ejs %>

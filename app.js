@@ -1,4 +1,3 @@
-
 let express = require('express');
 let app = express();
 let path = require('path');
@@ -33,13 +32,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'model')));
 
 //redirection of file to the particular pages
 app.use('/', require('./routes/index'));
-app.use('/demo', require('./routes/demo'));
-app.use('/users', require('./routes/users'));
-app.use('/home', require('./routes/home'));
 app.use('/contact', require('./routes/contact'));
 app.use('/websocket', require('./routes/websocket'));
 app.use('/signin', require('./routes/signin'));
@@ -48,6 +43,7 @@ app.use('/register', require('./routes/register'));
 app.use('/Admin', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/Admin/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
+//app.use('/Admin//AdminConsultancyMoreImages', require('./routes/Admin/AdminConsultancyMoreImages'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
 
