@@ -9,6 +9,7 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 let assert = require('assert');
 let fileUpload = require('express-fileupload');
+let session = require('express-session');
 
 //database connection
 let dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
@@ -20,7 +21,13 @@ if (dbConn) {
 } else {
     console.log('fail');
 }
-
+//Session
+app.use(session({
+    secret: '2C44-4D44-WppQ38S',
+    resave: true,
+    saveUninitialized: true,
+   // cookie: { secure: true }
+}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -29,7 +36,7 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -40,7 +47,9 @@ app.use('/websocket', require('./routes/websocket'));
 app.use('/signin', require('./routes/signin'));
 app.use('/register', require('./routes/register'));
 
-app.use('/Admin', require('./routes/Admin/AdminIndex'));
+app.use('/Admin', require('./routes/Admin/AdminLogin'));
+
+app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/Admin/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
 //app.use('/Admin//AdminConsultancyMoreImages', require('./routes/Admin/AdminConsultancyMoreImages'));

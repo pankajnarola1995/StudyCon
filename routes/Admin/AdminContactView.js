@@ -3,8 +3,12 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    //console.log("admin");
-    res.render('Admin/AdminContactView');
+    if (req.session.EmailId) {
+        //console.log("admin");
+        res.render('Admin/AdminContactView');
+    }else {
+        res.redirect('/Admin');
+    }
 });
 
 
