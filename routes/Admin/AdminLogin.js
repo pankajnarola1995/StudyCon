@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 let mongoose = require('mongoose');
 let assert = require('assert');
 let Schema = mongoose.Schema;

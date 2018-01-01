@@ -11,15 +11,16 @@ let assert = require('assert');
 let fileUpload = require('express-fileupload');
 let session = require('express-session');
 
+
 //database connection
 let dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
     /* other options */
 });
-if (dbConn) {
-    console.log('success');
-} else {
+if (!dbConn) {
     console.log('fail');
+} else {
+    console.log('success');
 }
 //Session
 app.use(session({
@@ -36,9 +37,10 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'model')));
 
 //redirection of file to the particular pages
 app.use('/', require('./routes/index'));
@@ -52,6 +54,7 @@ app.use('/Admin', require('./routes/Admin/AdminLogin'));
 app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/Admin/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
+app.use('/Admin/AdminConsultancy', require('./model/Admin/AdminConsultancy'));
 //app.use('/Admin//AdminConsultancyMoreImages', require('./routes/Admin/AdminConsultancyMoreImages'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
@@ -121,7 +124,7 @@ app.use(function (err, req, res, next) {
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

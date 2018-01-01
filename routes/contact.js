@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var assert = require('assert');
+let express = require('express');
+let router = express.Router();
+let mongoose = require('mongoose');
+let assert = require('assert');
 
 
 
@@ -42,10 +42,10 @@ router.post('/saveContact',  (req, res) => {
     });
 });
 /*router.get('/get-data',function (req,res,next) {
-    var resultArray = [];
+    let resultArray = [];
     mongo.connect(url,function (err,db) {
         assert.equal(null,err);
-       var cursor = db.collection('contact').find();
+       let cursor = db.collection('contact').find();
        cursor.forEach(function(doc,err){
            assert.equal(null,err);
            resultArray.push(doc);

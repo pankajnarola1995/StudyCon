@@ -1,22 +1,22 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const mongoose= require('mongoose');
 
 
-//var contact = mongoose.model('contact');
+//let contact = mongoose.model('contact');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-//var contact = mongoose.model('contact');
+//let contact = mongoose.model('contact');
 
 //database connection
-    var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
+    let dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
         useMongoClient: true,
         /* other options */
     });
 
-    var Consultancy = mongoose.model("Consultancy");
+    let Consultancy = mongoose.model("Consultancy");
     Consultancy.find(function (err,data) {
         if (data) {
 

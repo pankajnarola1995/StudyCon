@@ -1,32 +1,19 @@
-let express = require('express');
-let router = express.Router();
-let mongoose = require('mongoose');
-let assert = require('assert');
-let Schema = mongoose.Schema;
-let path = require('path');
-let fileUpload = require('express-fileupload');
-//let Consultancy = require('model/Admin/consultancy');
+let express = require('express'),
+    router = express.Router(),
+    Consultancy = require('../../model/Admin/AdminConsultancy'),
+    Image = require('../../model/Admin/AdminImages');
+const mongoose = require('mongoose');
 
+let assert = require('assert');
+let fileUpload = require('express-fileupload');
 router.use(fileUpload());
 
-let ConsultancySchema = mongoose.Schema({
-    _id: Schema.Types.ObjectId,
-    country_name: String,
-    flage_image: String,
-    requirenment: String,
-    detail: String,
-    important_link: String
 
-});
-let Consultancy = mongoose.model("Consultancy", ConsultancySchema);
+//let searchable = require('mongoose-searchable');
 
-let ImageSchema = mongoose.Schema({
-    //author: { type: Schema.Types.ObjectId, ref: 'Person' },
-    consultancy_id: String,//{ type: Schema.Types.ObjectId, ref: 'Consultancy' },
-    images_name: String,
+//let Consultancy = require('model/Admin/consultancy');
+//router.use('/Admin/AdminConsultancy', require('./Admin/AdminConsultancy'))
 
-});
-let Image = mongoose.model("Image", ImageSchema);
 
 
 /* GET Consultancy listing. */
