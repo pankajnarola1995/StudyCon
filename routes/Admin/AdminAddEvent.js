@@ -5,6 +5,8 @@ var assert = require('assert');
 let AddEventSchema = mongoose.Schema({
 
     event_name: String,
+    event_start: String,
+    event_end: String,
     event_description: String,
     event_type: String,
     event_details: String,
@@ -41,6 +43,7 @@ router.get('/', function (req, res, next) {
 
 
 
+
 router.post('/AdminAddEventAddData', (req, res) => {
     console.log("AdminAddEventAddData");
 
@@ -69,6 +72,121 @@ router.post('/AdminAddEventAddData', (req, res) => {
     }
 
 
+});
+
+
+//Addevent Delete data
+router.post('/AdminAddEventDeleteData', (req, res) => {
+
+    let cid = req.body.cid;
+    console.log(cid);
+    AddEvent.remove({_id: cid}, function (err) {
+        if (err) {
+            res.json({"err": err});
+        } else {
+            Image.remove({addEvent_id: cid}, function (err) {
+                res.json({success: true});
+            });
+        }
+
+    });
+    //AddEvent.findByIdAndRemove(cid).then((docs) => {});
+
+    //AddEvent.delete(function(err,Consultancy){
+    // if(err) throw err;
+    // console.log('the document is deleted');
+    //res.send(question);
+
+    //});
+
+
+});
+
+//AddEvent Update Get data
+router.post('/AdminAddEventUpdateGetData', (req, res) => {
+    console.log("Ajax working");
+
+
+    let eid = req.body.cid;
+    console.log(cid);
+    AddEvent.find({_id: eid}, function (err, data) {
+        if (err) {
+            res.json({"err": err});
+        } else {
+            //console.log(data);
+            res.send({AddEvent: data});
+        }
+
+    });
+});
+//AddEvent Update Get Images
+router.post('/AdminAddEventUpdateGetImages', (req, res) => {
+    console.log("Ajax working:AdminConsultancyUpdateGetImages ");
+
+
+    let cid = req.body.cid;
+    console.log(cid);
+    Image.find({consultancy_id: cid}, function (err, data) {
+        if (err) {
+            res.json({"err": err});
+        } else {
+            console.log(data);
+            res.send({Image: data});
+        }
+
+    });
+});
+
+// Update data
+router.post('/AdminAddEventUpdateData', (req, res) => {
+
+    //   images:         req.body.imagesnpm install googleapis --save
+
+    // console.log(addeventData);
+    // let images = req.files.images;
+    let flage_image1 = req.files;
+    let mul_newpath = new Array();
+    console.log(flage_image1);
+    let newpath = './public\\images\\Consultancy_Flag\\' + flage_image1.name;
+
+    event_image.mv(newpath, function (err) {
+        if (err)
+            return res.status(500).send(err);
+
+        console.log('File uploaded: Event Image!');
+    });
+    const doc = {
+        id: req.body.id,
+        country_name: req.body.country_name,
+        flage_image: flage_image1.name,
+        requirenment: req.body.requirenment,
+        detail: req.body.detail,
+        important_link: req.body.important_link,
+    };
+    console.log(doc);
+    AddEvent.update({_id: req.body.id}, doc, function (err, data) {
+
+        /*   let promise = Consultancy.update({'country_name': country_name},
+           {
+               $set: {
+                   'country_name': country_name,
+                   'flage_image': flage_image,
+                   'requirenment': requirenment,
+                   'detail': detail,
+                   'important_link': important_link
+               }
+           });
+       assert.ok(promise instanceof require('mpromise'));
+   */
+        if (!err) {
+            console.log("Event Updated");
+            res.redirect("/AdminAddEvent");
+        }
+        else {
+            console.log("error in updated Event");
+            res.send(err);
+        }
+    });
 });
 
 
