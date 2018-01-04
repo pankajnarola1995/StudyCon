@@ -78,13 +78,13 @@ router.post('/AdminAddEventAddData', (req, res) => {
 //Addevent Delete data
 router.post('/AdminAddEventDeleteData', (req, res) => {
 
-    let cid = req.body.cid;
-    console.log(cid);
-    AddEvent.remove({_id: cid}, function (err) {
+    let eid = req.body.eid;
+    console.log(eid);
+    AddEvent.remove({_id: eid}, function (err) {
         if (err) {
             res.json({"err": err});
         } else {
-            Image.remove({addEvent_id: cid}, function (err) {
+            Image.remove({addEvent_id: eid}, function (err) {
                 res.json({success: true});
             });
         }
@@ -107,8 +107,8 @@ router.post('/AdminAddEventUpdateGetData', (req, res) => {
     console.log("Ajax working");
 
 
-    let eid = req.body.cid;
-    console.log(cid);
+    let eid = req.body.eid;
+    console.log(eid);
     AddEvent.find({_id: eid}, function (err, data) {
         if (err) {
             res.json({"err": err});
@@ -121,12 +121,12 @@ router.post('/AdminAddEventUpdateGetData', (req, res) => {
 });
 //AddEvent Update Get Images
 router.post('/AdminAddEventUpdateGetImages', (req, res) => {
-    console.log("Ajax working:AdminConsultancyUpdateGetImages ");
+    console.log("Ajax working:AdminAddEventUpdateGetImages ");
 
 
-    let cid = req.body.cid;
-    console.log(cid);
-    Image.find({consultancy_id: cid}, function (err, data) {
+    let eid = req.body.eid;
+    console.log(eid);
+    Image.find({addEvent_id_id: eid}, function (err, data) {
         if (err) {
             res.json({"err": err});
         } else {
