@@ -1,6 +1,26 @@
 let express = require('express');
 let router = express.Router();
 const mongoose= require('mongoose');
+let assert = require('assert');
+let Schema = mongoose.Schema;
+let path = require('path');
+
+let RegisterSchema = mongoose.Schema({
+    name: String,
+    surname: String,
+    email: String,
+    date_of_birth: String,
+    address: String,
+    gender: String,
+    nationality: String,
+    highest_degree: String,
+    intended_study_field: String,
+    degree_sought: String,
+    password: String,
+    confirm_password: String,
+});
+
+
 
 
 //let contact = mongoose.model('contact');
