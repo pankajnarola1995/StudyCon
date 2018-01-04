@@ -1,0 +1,65 @@
+﻿
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<% include partials/TopHeader.ejs %>
+
+
+<a href=""><img src="/images/logo.png" alt="logo" style="width:130px;height:100px;margin-top:-50px;position:fixed;z-index:100000;"/></a>
+<div class="wrapper" >
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="module module-login span4 offset4">
+
+				<div class='alert alert-error' style='position:absolute;margin-left:0px;width:320px;height:23px' id='regimsg'>
+
+					<strong >Error !</strong> Enter valid Email and password.
+				</div>
+				<form class="form-vertical" method="post" action="/Admin/LoginCheck">
+
+
+				<div class="module-head">
+					<h3>Sign In</h3>
+				</div>
+
+				<div class="module-body">
+
+					<div class="control-group"  >
+						<b><label class="control-label" for="basicinput" >Email</label></b>
+						<div class="controls row-fluid" style="float:right">
+
+							<input class="span12" type="text" id="EmailID" name="EmailID" placeholder="Email Id" value="">
+						</div>
+					</div>
+					<div class="control-group">
+						<b><label class="control-label" for="basicinput">Password</label></b>
+						<div class="controls row-fluid">
+							<input class="span12" type="password" id="Password" name="Password" placeholder="Password" value="">
+						</div>
+					</div>
+				</div>
+				<div class="module-foot">
+					<div class="control-group">
+						<div class="controls clearfix">
+							<button type="submit" class="btn  pull-right" id="login" name="login">Login</button>
+							<label class="checkbox">
+								<input type="checkbox"> Remember me
+							</label>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div><!--/.wrapper-->
+
+
+    <% include partials/footer.ejs %>
+</body>
+</html>

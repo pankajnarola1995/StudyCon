@@ -1,0 +1,91 @@
+<% include partials/TopHeader.ejs %>
+
+<% include partials/header.ejs %>
+
+<!--Update Images for Consultancy -->
+<div class="span9">
+    <div class="content">
+
+        <div class="module">
+            <div class="module-head">
+                <h3>Update Images for Consultancy</h3>
+            </div>
+            <div class="module-body">
+
+
+                <form class="form-horizontal row-fluid" method="post"
+                      action="/Admin/AdminConsultancy/AdminConsultancyUpdateImages"
+                      enctype="multipart/form-data">
+
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Images</b></label>
+                        <div class="controls">
+                            <input type="file" id="images" name="images" class="span8" multiple required>
+                        </div>
+                    </div>
+
+                    <input type="hidden" value=" <%= cid %>" name="cid" />
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn" name="add_seed" id="add_seed">Submit Form</button>
+                        </div>
+                    </div>
+                    <% for(let i = 0; i < Image.length; i++){ %>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <a onclick="deleteImages('<%= Image[i]._id %>')">
+                                <img src="/images/delete.png"
+                                     style="height: 25px;width: 25px;"/>
+                            </a>
+                            <img src="/images/consultancy/<%= Image[i].images_name %>"
+                                 style="height:250px; width:250px"/>
+
+
+                        </div>
+                    </div>
+                    <% } %>
+
+                </form>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+            </div>
+        </div>
+
+
+        <br/>
+
+    </div><!--/.content-->
+</div><!--/.span9-->
+
+<script src="javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script>
+    function deleteImages(Iid) {
+        //console.log("de");
+        if (confirm("Are you sure you want to delete customer ")) {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/Admin/AdminConsultancy/AdminConsultancyDeleteImage',
+                data: {"Iid": Iid},
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+                        location.reload();
+
+                    }
+                }
+            });
+        }
+        else {
+            return false;
+        }
+    }
+
+
+</script>
+<% include partials/footer.ejs %>
