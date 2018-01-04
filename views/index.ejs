@@ -1,256 +1,11 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>youneed template by freethemeszone.com</title>
-    <link href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="stylesheets/animate.min.css" rel="stylesheet" type="text/css">
-    <link href="fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style>
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            font-family: Verdana, sans-serif;
-        }
-
-        .mySlides {
-            display: none
-        }
-
-        /* Slideshow container */
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
-
-        /* Caption text */
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Next & previous buttons */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-        }
-
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        /* On hover, add a black background color with a little bit see-through */
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* The dots/bullets/indicators */
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active {
-            background-color: #717171;
-        }
-
-        /* Fading animation */
-        .fade {
-            -webkit-animation-name: fade;
-            -webkit-animation-duration: 1.5s;
-            animation-name: fade;
-            animation-duration: 5s;
-        }
-
-        @-webkit-keyframes fade {
-            from {
-                opacity: .4
-            }
-            to {
-                opacity: 1
-            }
-        }
-
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
-            to {
-                opacity: 1
-            }
-        }
-
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-            .text {
-                font-size: 11px
-            }
-        }
-    </style>
-
-    <style>
-        /* Set a style for all buttons */
-        #fixedbutton {
-            position: fixed;
-            bottom: 0px;
-            right: 0px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 15%;
-            float: right;
-        }
-
-        form button {
-            width: 9%;
-            border: none;
-            padding: 10px;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        /* position the close button */
-
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0); /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-            padding-top: 60px;
-
-        }
-
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-            border: 1px solid #0d0d0d;
-            width: 35%; /* Could be more or less, depending on screen size */
-        }
-
-        #id01 {
-            position: sticky;
-            right: 0px;
-            width: 100%;
-            height: fit-content;
-            text-align: left;
-            top: auto;
-            padding-left: 400px;
-            padding-top: 100px;
-        }
-
-        /* The Close Button (x) */
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: red;
-            cursor: pointer;
-        }
-
-        /* Add Zoom Animation */
-        .animate {
-            -webkit-animation: animatezoom 0.6s;
-            animation: animatezoom 0.6s
-        }
-
-        @-webkit-keyframes animatezoom {
-            from {
-                -webkit-transform: scale(0)
-            }
-            to {
-                -webkit-transform: scale(1)
-            }
-        }
-
-        @keyframes animatezoom {
-            from {
-                transform: scale(0)
-            }
-            to {
-                transform: scale(1)
-            }
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="fontawesome\css\style.css">
-    <script src="http://code.jquery.com/jquery-3.0.0.slim.min.js"></script>
-</head>
-
+<% include partials/header.ejs %>
 <body>
 
 <!-----------------------------------------the homepage navigation-->
 
-<% include partials/header.ejs %>
 
 <!-----------------------------------------end homepage navigation-->
 
@@ -754,16 +509,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-
                 <!--       contact form -- the one thing that you need to customize is the placeholder or the value of the input button(submit button) -->
-                <form action="/saveContact" method="post" name="form1" id="contact-form">
+                <form onsubmit="saveContact()" method="post" name="form1" id="contact-form">
                     <input name="name" type="text" id="name" form="contact-form" placeholder="Your name">
                     <input name="subject" type="text" id="subject" form="contact-form" placeholder="Message subject">
                     <input name="email" required type="email" id="email" form="contact-form" placeholder="Your Email">
-                    <textarea name="message" required id="Message" form="contact-form"
+                    <textarea name="message" required id="message" form="contact-form"
                               placeholder="Your message"></textarea>
-                    <input name="submit" type="submit" class="btn btn-primary" id="submit" formaction="/saveContact"
-                           value="submit">
+                      <button type="submit" >submit</button>
                 </form>
                 <!--        end contact form-->
 
@@ -860,6 +613,8 @@
         </div>
     </form>
 </div>
+
+//Search Results
 <div id="body" style="overflow:hidden;align-items:center;">
 
     <div id="abc">
@@ -878,7 +633,7 @@
                 <img id="close" src="/images/close.png" onclick="div_hide() " style="float: right;margin-left: 50px">
             </h1>
             <form class="form-horizontal row-fluid" method="post" enctype="multipart/form-data"
-                  action="/Admin/AdminConsultancy/AdminConsultancyUpdateData" style="
+                  style="
                                                                                       max-width:100%;
                                                                                       min-width:100%;
                                                                                       padding:10px 50px;
@@ -937,19 +692,22 @@
     }
 
 
-
 </script>
 
 <script>
-    function UserSearch() {
-       let keyword = $('#keyword').val();
+  /*  function UserSearch() {
+        let keyword = $('#keyword').val();
         alert(keyword);
         $.ajax({
-            type: 'POST', url: "http://localhost:3000/search", data: {"keyword": keyword}, dataType: 'json', success: (data) => {
+            type: 'POST',
+            url: "http://localhost:3000/search",
+            data: {"keyword": keyword},
+            dataType: 'json',
+            success: (data) => {
                 let i, html;
                 html = '<ul>';
                 for (i = 0; i < data.length; i++) {
-                    html += "<li>" + data[i].url  +'</li>'+'</br><li>' + data[i].url  +'</li>';
+                    html += "<li>" + data[i]._id + '</li>' + '</br><li>' + data[i]. + '</li>';
                 }
                 html += '<ul>';
                 $("#SearchResult").html(html);
@@ -968,13 +726,15 @@
       });
 
 
- });*/
+ });
         document.getElementById('abc').style.display = "block";
     }
-
+*/
     function div_hide() {
         document.getElementById('abc').style.display = "none";
     }
+
+
 </script>
 </body>
 </html>

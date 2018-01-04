@@ -1,5 +1,7 @@
-let express = require('express');
-let router = express.Router();
+let express = require('express'),
+    router = express.Router(),
+    Consultancy = require('../model/Admin/AdminConsultancy'),
+    contact = require('../model/contact');
 const mongoose = require('mongoose');
 let Search = require('bing.search');
 let util = require('util');
@@ -62,7 +64,7 @@ router.post('/search', function (req, res, next) {
              res.render('index');
          }
 
-     });/*
+     });
 
     search.web('Tutta Bella Neapolitan Pizzeria',
         {top: 5},
@@ -75,11 +77,11 @@ router.post('/search', function (req, res, next) {
             res.send(results);
 
         }
-    );*/
+    );
 
 
     
-  /*  Consultancy.find( keyword, (err, data) => {
+    Consultancy.find( keyword, (err, data) => {
         if(err) console.log(err);
         console.log(data);
         res.send(data)
@@ -117,6 +119,7 @@ router.post('/search', function (req, res, next) {
             method : 'GET',
             hostname : host,
             path : path + '?q=' + encodeURIComponent(search),
+            top:10,
             headers : {
                 'Ocp-Apim-Subscription-Key' : subscriptionKey,
             }
@@ -137,4 +140,26 @@ router.post('/search', function (req, res, next) {
 
 });
 
+router.post('/saveContact',  (req, res) => {
+    console.log("postcontact");
+    /*let contactdata = new contact({
+        Name: req.body.name,
+        Subject: req.body.subject,
+        Email: req.body.email,
+        Message: req.body.message
+    });
+   */
+    let contactdata = new contact(req.body.contactdata);
+    contactdata.save(function (error, data) {
+        if (error) {
+            console.log("contact insert error ");
+            res.json(error);
+
+        }
+        else {
+            console.log("contact inserted ");
+            res.send("success");
+        }
+    });
+});
 module.exports = router;
