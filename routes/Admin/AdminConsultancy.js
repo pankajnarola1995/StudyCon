@@ -148,7 +148,7 @@ router.post('/AdminConsultancyAddData', (req, res) => {
     });
 //Consultancy Data Inserted
     let consultancyData = new Consultancy({
-        _id:  new mongoose.Types.ObjectId,
+        _id: new mongoose.Types.ObjectId,
         country_name: req.body.country_name,
         flage_image: flage_image1.name,
         requirenment: req.body.requirenment,
@@ -241,18 +241,18 @@ router.post('/AdminConsultancyUpdateGetData', (req, res) => {
 });
 //Consultancy Update Get Images
 router.post('/AdminConsultancyUpdateGetImages', (req, res) => {
-   // console.log("Ajax working:AdminConsultancyUpdateGetImages ");
+    // console.log("Ajax working:AdminConsultancyUpdateGetImages ");
 
 
     let cid = req.body.cid;
-   console.log(cid);
+    console.log(cid);
 
     Image.find({consultancy_id: cid}, function (err, data) {
         if (err) {
             res.json({"err": err});
         } else {
             console.log(data);
-           res.render('Admin/AdminConsultancyMoreImages', {Image: data, cid});
+            res.send(data);
 
             //res.send(data);
         }
@@ -268,7 +268,7 @@ router.post('/AdminConsultancyDeleteImage', (req, res) => {
         if (err) {
             res.json({"err": err});
         } else {
-            res.json({success: true});
+            res.redirect("/Admin/AdminConsultancy")
         }
 
     });
@@ -283,49 +283,69 @@ router.post('/AdminConsultancyDeleteImage', (req, res) => {
 
 
 });
+router.post('/AdminConsultancyDeleteAllImages', (req, res) => {
+   
+        let cid = req.body.cid;
+        console.log(cid);
+        Image.remove({consultancy_id: cid}, function (err) {
+            if (err) {
+                res.json({"err": err});
+            } else {
+                res.redirect("/Admin/AdminConsultancy")
+            }
+
+        });
+
+
+
+});
 
 
 //Consultancy Update New Multiple Images
 router.post('/AdminConsultancyUpdateImages', (req, res) => {
-    if (!req.files)
-        return res.status(400).send('No files were uploaded.');
+    if (req.files.images.length >= 2) {
 
-    let images = req.files.images;
-    let mul_newpath = new Array();
+        let images = req.files.images;
+        let mul_newpath = new Array();
 
         // var cid = req.body.cid.toString();
-     //mongoose.Types.ObjectId.isValid(req.body.cid);
+        //mongoose.Types.ObjectId.isValid(req.body.cid);
 
-    //console.log(consultancyData+"consultancyData");
+        console.log(req.body.cid);
 
 // For loop For Multiple File Uploading
-    for (let i = 0; i < req.files.images.length; i++) {
-        mul_newpath[i] = './public\\images\\Consultancy\\' + images[i].name;
-        console.log(mul_newpath[i]);
-        images[i].mv(mul_newpath[i], function (err) {
+        for (let i = 0; i < req.files.images.length; i++) {
+            mul_newpath[i] = './public\\images\\Consultancy\\' + images[i].name;
+            console.log(mul_newpath[i]);
+            images[i].mv(mul_newpath[i], function (err) {
 
-            let image_name = images[i].name;
-            let imagedata = new Image({
-                consultancy_id: req.body.cid,    // assign the _id from the person
-                images_name: image_name,
+                let image_name = images[i].name;
+                let imagedata = new Image({
+                    consultancy_id: req.body.cid,    // assign the _id from the person
+                    images_name: image_name,
+                });
+                console.log(imagedata);
+
+                let promise = imagedata.save();
+                assert.ok(promise instanceof require('mpromise'));
+                promise.then(function (result) {
+                    console.log("Multiple image inserted " + [i]);// "Stuff worked!"
+                }, function (err) {
+                    console.log(err); // Error: "It broke"
+                });
+
+
             });
-            console.log(imagedata);
-
-            let promise = imagedata.save();
-            assert.ok(promise instanceof require('mpromise'));
-            promise.then(function (result) {
-                console.log("Multiple image inserted " + [i]);// "Stuff worked!"
-            }, function (err) {
-                console.log(err); // Error: "It broke"
-            });
-
-
-        });
+        }
+        ;
+        console.log("Everything Done");
+        res.redirect("/Admin/AdminConsultancy");
     }
-    ;
-    console.log("Everything Done");
-    res.redirect("/Admin/AdminConsultancy");
+    else {
+        //   alert("Please Select 2 or More than 2 Files");
+        res.send("Please Select 2 or More than 2 Files To Upload Multiple Files");
 
+    }
 //location.reload();
 
 });
