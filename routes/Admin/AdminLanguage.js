@@ -125,73 +125,79 @@ router.post('/AdminLanguageAddData',  (req, res) => {
 });
 */
 router.post('/AdminLanguageAddData', (req, res) => {
-    if (req.session.EmailId) //&& (req.session.Password)
-    {
+        if (req.session.EmailId) //&& (req.session.Password)
+        {
 
-        if (!req.files)
-            return res.status(400).send('No files were uploaded.');
+            if (req.files.images.length >= 2) {
 
-        let images = req.files.images;
-        let flage_image1 = req.files.flage_image;
-        let mul_newpath = new Array();
-        let newpath = './public\\images\\Language_Flag\\' + flage_image1.name;
+                let images = req.files.images;
+                let flage_image1 = req.files.flage_image;
+                let mul_newpath = new Array();
+                let newpath = './public\\images\\Language_Flag\\' + flage_image1.name;
 
-        flage_image1.mv(newpath, function (err) {
-            if (err)
-                return res.status(500).send(err);
+                flage_image1.mv(newpath, function (err) {
+                    if (err)
+                        return res.status(500).send(err);
 
-            console.log('File uploaded: Flage Image Language!');
-        });
+                    console.log('File uploaded: Flage Image Language!');
+                });
 //Language Data Inserted
-        let LanguageData = new Language({
-            _id: new mongoose.Types.ObjectId,
-            Language_name: req.body.Language_name,
-            flage_image: flage_image1.name,
-            requirenment: req.body.requirenment,
-            detail: req.body.detail,
-            important_link: req.body.important_link,
-        });
-        console.log(LanguageData);
+                let LanguageData = new Language({
+                    _id: new mongoose.Types.ObjectId,
+                    Language_name: req.body.Language_name,
+                    flage_image: flage_image1.name,
+                    requirenment: req.body.requirenment,
+                    detail: req.body.detail,
+                    important_link: req.body.important_link,
+                });
+                console.log(LanguageData);
 
-        let promise = LanguageData.save();
-        assert.ok(promise instanceof require('mpromise'));
-        promise.then(function (result) {
-            console.log("inserted Language data"); // "Stuff worked!"
-        }, function (err) {
-            console.log(err); // Error: "It broke"
-        });
+                let promise = LanguageData.save();
+                assert.ok(promise instanceof require('mpromise'));
+                promise.then(function (result) {
+                    console.log("inserted Language data"); // "Stuff worked!"
+                }, function (err) {
+                    console.log(err); // Error: "It broke"
+                });
 // For loop For Multiple File Uploading
-        for (let i = 0; i < req.files.images.length; i++) {
-            mul_newpath[i] = './public\\images\\Language\\' + images[i].name;
-            console.log(mul_newpath[i]);
-            images[i].mv(mul_newpath[i], function (err) {
+                for (let i = 0; i < req.files.images.length; i++) {
+                    mul_newpath[i] = './public\\images\\Language\\' + images[i].name;
+                    console.log(mul_newpath[i]);
+                    images[i].mv(mul_newpath[i], function (err) {
 
-                let image_name = images[i].name;
-                let imagedata = new Image({
-                    Language_id: LanguageData._id,    // assign the _id from the person
-                    images_name: image_name,
-                });
-                imagedata.save(function (error, res) {
-                    if (error) {
-                        console.log("image insert error ");
-                        res.send(error);
+                        let image_name = images[i].name;
+                        let imagedata = new Image({
+                            Language_id: LanguageData._id,    // assign the _id from the person
+                            images_name: image_name,
+                        });
+                        imagedata.save(function (error, res) {
+                            if (error) {
+                                console.log("image insert error ");
+                                res.send(error);
 
-                    }
-                    else {
-                        console.log("Multiple image inserted " + [i]);
-                    }
-                });
-            });
+                            }
+                            else {
+
+                                console.log("Multiple image inserted " + [i]);
+                            }
+                        });
+                    });
+                }
+                ;
+                console.log("Everything Done");
+                res.redirect("/Admin/AdminLanguage");
+            }
+            else {
+                res.send("Please Select 2 or More than 2 Files To Upload Multiple Files");
+
+            }
         }
-        ;
-        console.log("Everything Done");
-        res.redirect("/Admin/AdminLanguage");
-    }
-    else {
-        res.redirect('/Admin');
-    }
+        else {
+            res.redirect('/Admin');
+        }
 
-});
+    }
+);
 
 //Language Delete data
 router.post('/AdminLanguageDeleteData', (req, res) => {
