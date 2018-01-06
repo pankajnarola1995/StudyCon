@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Create schema and modoles
-let ConsultancySchema = mongoose.Schema({
+let ConsultancySchema = Schema({
     _id: Schema.Types.ObjectId,
     country_name: String,
     flage_image: String,

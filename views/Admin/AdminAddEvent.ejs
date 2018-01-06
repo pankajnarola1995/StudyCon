@@ -1,3 +1,4 @@
+<% include partials/TopHeader.ejs %>
 <% include partials/header.ejs %>
 
 <div class="span9">
@@ -43,6 +44,27 @@
                     </div>
 
                     <div class="control-group">
+                        <label class="control-label"><b>Event Start Date</b></label>
+                        <div class="controls">
+                            <input type="text" id="event_start" name="event_start" class="span8">
+                            <span class="help-inline" id="msgseed_detail_name"
+                                  style="color:#F00;position:absolute"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Event End Date</b></label>
+                        <div class="controls">
+                            <input type="text" id="event_end" name="event_end" class="span8">
+                            <span class="help-inline" id="msgseed_detail_name"
+                                  style="color:#F00;position:absolute"></span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
                         <label class="control-label"><b>Event Details</b></label>
                         <div class="controls">
                             <textarea class="span8" rows="5" name="details" id="details"
@@ -81,8 +103,9 @@
 
                         <th>Delete</th>
                         <th>Update</th>
-                        <th>Update Image</th>
                         <th>Event Name</th>
+                        <th>Event Start</th>
+                        <th>Event End</th>
                         <th>Description</th>
                         <th>Event type</th>
                         <th>Details</th>
@@ -94,15 +117,21 @@
 
                     <% for(var i = 0; i < AddEvent.length; i++){ %>
                     <tr class="odd gradeX">
+                        <td><a onclick="deleteAddEvent('<%= AddEvent[i]._id %>')"><img src="/images/delete.png"
+                                                                                             style="height: 25px;width: 25px"/></a>
+                        </td>
+                        <td><a id="popup" onclick="div_show('<%= AddEvent[i]._id %>')"> <img src="/images/update.png"
+                                                                                                id="myPopup"
+                                                                                                style="height: 25px;width: 25px"/></a>
+                        </td>
 
-                        <td><a href=""><img src=""/></a></td>
-                        <td><a href=""><img src=""/></a></td>
-                        <td><a href=""><img src=""/></a></td>
 
 
                         <td><%= AddEvent[i].event_name %></td>
                         <td><%= AddEvent[i].event_description %></td>
                         <td><%= AddEvent[i].event_type %></td>
+                        <td><%= AddEvent[i].event_start %></td>
+                        <td><%= AddEvent[i].event_end %></td>
                         <td><%= AddEvent[i].event_details %></td>
 
                     </tr>
@@ -114,10 +143,11 @@
 
                         <th>Delete</th>
                         <th>Update</th>
-                        <th>Update Image</th>
                         <th>Event Name</th>
+                        <th>Event Start</th>
+                        <th>Event End</th>
                         <th>Description</th>
-                        <th>Type</th>
+                        <th>Event Type</th>
                         <th>Details</th>
 
                     </tr>
@@ -131,6 +161,83 @@
 
     </div><!--/.content-->
 </div><!--/.span9-->
+
+
+<script src="javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script>
+    function deleteAddEvent(eid) {
+        //console.log("de");
+        if (confirm("Are you sure you want to delete event entry ")) {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/Admin/AdminAddEvent/AdminAddEventDeleteData',
+                data: {"eid": eid},
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+                        location.reload();
+
+                    }
+                }
+            });
+        }
+        else {
+            return false;
+        }
+    }
+
+    // When the user clicks on div, open the popup
+
+    function div_show(eid) {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/Admin/AdminAddEvent/AdminAddEventUpdateGetData',
+            data: {"eid": eid},
+            dataType: 'json',
+        }).done(function (data) {
+            $('#getResponseid').html(data.AdminAddEvent[0]._id);
+            $('#getResponseevent_name').html(data.AdminAddEvent[0].event_name);
+            $('#getResponseevent_start').html(data.AdminAddEvent[0].event_start);
+            $('#getResponseevent_end').html(data.AdminAddEvent[0].event_end);
+            $('#getResponseevent_description').html(data.AdminAddEvent[0].event_description);
+            $('#getResponseevent_type').html(data.AdminAddEvent[0].event_type);
+            $('#getResponseevent_details').html(data.AdminAddEvent[0].event_details);
+
+        });
+        document.getElementById('abc').style.display = "block";
+        //console.log(data);
+
+    }
+
+    function div_showimages(eid) {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/Admin/AdminAddEvent/AdminAddeventUpdateGetImages',
+            data: {"eid": eid},
+            dataType: 'json',
+        }).done(function (data) {
+
+            // $('#getImages').html.JSON.stringify(data);
+            for (var i = 0; i < Image.length; i++) {
+
+                //console.log(data.Image.length());
+            }
+
+        });
+
+        document.getElementById('abcimage').style.display = "block";
+
+    }
+
+    //Function to Hide Popup
+    function div_hide() {
+        document.getElementById('abc').style.display = "none";
+    }
+
+    function div_hideimage() {
+        document.getElementById('abcimage').style.display = "none";
+    }
+</script>
 
 
 <% include partials/footer.ejs %>
