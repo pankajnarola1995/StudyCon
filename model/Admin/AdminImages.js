@@ -8,6 +8,7 @@ let ImageSchema = Schema({
     consultancy_id: String,//{ type: Schema.Types.ObjectId, ref: 'Consultancy' },
     Language_id:String,
     CallCenter_id:String,
+    PilotTraining_id:String,
     images_name: String,
 
 });
