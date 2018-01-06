@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Create schema and modoles
-let ConsultancySchema = Schema({
+let LanguageSchema = Schema({
     _id: Schema.Types.ObjectId,
     country_name: String,
     flage_image: String,
@@ -11,7 +11,7 @@ let ConsultancySchema = Schema({
     important_link: String
 
 });
-let Consultancy = mongoose.model("Consultancy", ConsultancySchema);
+let Language = mongoose.model("Language", LanguageSchema);
 
-module.exports = Consultancy;
+module.exports = Language;
 

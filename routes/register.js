@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-const mongoose = require('mongoose');
+
+let express = require('express');
+let router = express.Router();
+const mongoose= require('mongoose');
 let assert = require('assert');
 let Schema = mongoose.Schema;
 let path = require('path');
@@ -22,13 +23,11 @@ let RegisterSchema = mongoose.Schema({
 let Register = mongoose.model("Register", RegisterSchema);
 
 
-//var contact = mongoose.model('contact');
+router.get('/', function(req, res, next) {
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
 
-    var Consultancy = mongoose.model("Consultancy");
-    Consultancy.find(function (err, data) {
+    let Consultancy = mongoose.model("Consultancy");
+    Consultancy.find(function (err,data) {
         if (data) {
 
             console.log("Get Counsultancy Details Data Fetched for menu :User ");

@@ -1,9 +1,9 @@
-var express = require('express');
-var path = require('path');
+let express = require('express');
+let path = require('path');
 //router object
-var mongoose = require('mongoose');
-var url = 'mongodb://localhost:27017/StudyConDb';
-var router = express.Router();
+let mongoose = require('mongoose');
+let url = 'mongodb://localhost:27017/StudyConDb';
+let router = express.Router();
 
     app = express(),
     http = require('http').Server(app),
