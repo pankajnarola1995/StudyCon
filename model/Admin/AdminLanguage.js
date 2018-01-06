@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 //Create schema and modoles
 let LanguageSchema = Schema({
     _id: Schema.Types.ObjectId,
-    country_name: String,
+    Language_name: String,
     flage_image: String,
     requirenment: String,
     detail: String,

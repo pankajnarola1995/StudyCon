@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 let ImageSchema = Schema({
     //author: { type: Schema.Types.ObjectId, ref: 'Person' },
     consultancy_id: String,//{ type: Schema.Types.ObjectId, ref: 'Consultancy' },
+    Language_id:String,
     images_name: String,
 
 });
