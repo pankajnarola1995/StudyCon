@@ -56,6 +56,7 @@ app.use('/Admin/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
 app.use('/Admin/AdminCallCenter', require('./routes/Admin/AdminCallCenter'));
 app.use('/Admin/AdminPilotTraining', require('./routes/Admin/AdminPilotTraining'));
+app.use('/Admin/AdminHomeBanner', require('./routes/Admin/AdminHomeBanner'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
 
 app.use(fileUpload());

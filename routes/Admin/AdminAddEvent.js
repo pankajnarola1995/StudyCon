@@ -81,9 +81,8 @@ router.post('/AdminAddEventDeleteData', (req, res) => {
         if (err) {
             res.json({"err": err});
         } else {
-            Image.remove({addEvent_id: eid}, function (err) {
                 res.json({success: true});
-            });
+
         }
 
     });
