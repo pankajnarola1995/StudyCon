@@ -2,11 +2,16 @@ let express = require('express'),
     router = express.Router(),
     AddEvent = require('../../model/Admin/AdminAddEvent');
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 
 var assert = require('assert');
 
 
 //Admin Event handling
+=======
+let assert = require('assert');
+
+>>>>>>> b8e9e30b45d7e4b08b0fac7b23e6daf8321cdee2
 
 
 /* GET users listing. */

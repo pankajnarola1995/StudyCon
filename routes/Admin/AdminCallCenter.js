@@ -1,6 +1,6 @@
 let express = require('express'),
     router = express.Router(),
-    Consultancy = require('../../model/Admin/AdminConsultancy'),
+    CallCenter = require('../../model/Admin/AdminCallCenter'),
     Image = require('../../model/Admin/AdminImages');
 const mongoose = require('mongoose');
 
@@ -11,20 +11,20 @@ router.use(fileUpload());
 
 //let searchable = require('mongoose-searchable');
 
-//let Consultancy = require('model/Admin/consultancy');
-//router.use('/Admin/AdminConsultancy', require('./Admin/AdminConsultancy'))
+//let CallCenter = require('model/Admin/CallCenter');
+//router.use('/Admin/AdminCallCenter', require('./Admin/AdminCallCenter'))
 
 
-/* GET Consultancy listing. */
+/* GET CallCenter listing. */
 router.get('/', function (req, res, next) {
     if (req.session.EmailId) //&& (req.session.Password)
     {
 
-        Consultancy.find(function (err, Consultancydata) {
-            if (Consultancydata) {
-                console.log("Consultancy Data Fetched: Admin");
+        CallCenter.find(function (err, CallCenterdata) {
+            if (CallCenterdata) {
+                console.log("CallCenter Data Fetched: Admin");
 
-                res.render('Admin/AdminConsultancy', {Consultancy: Consultancydata});
+                res.render('Admin/AdminCallCenter', {CallCenter: CallCenterdata});
             }
             else {
                 res.status(400).send(err);
@@ -37,9 +37,9 @@ router.get('/', function (req, res, next) {
     }
 });
 
-//Consultancy Insert data
-/*  router.post('/AdminConsultancyAddData', function (req, res) {
-      console.log("AdminConsultancyAddData");
+//CallCenter Insert data
+/*  router.post('/AdminCallCenterAddData', function (req, res) {
+      console.log("AdminCallCenterAddData");
 
       if (!req.files)
           return res.status(400).send('No files were uploaded.');
@@ -52,38 +52,38 @@ router.get('/', function (req, res, next) {
           if (err)
               return res.status(500).send(err);
 
-          console.log('File uploaded Flage Image Consultancy!');
+          console.log('File uploaded Flage Image CallCenter!');
       });
 
 
-      let consultancyData = new Consultancy({
-          country_name: req.body.country_name,
+      let CallCenterData = new CallCenter({
+          CallCenter_name: req.body.CallCenter_name,
           flage_image: flage_image1.name,
           requirenment: req.body.requirenment,
           detail: req.body.detail,
           important_link: req.body.important_link,
           images: images.name
       });
-      console.log(consultancyData);
+      console.log(CallCenterData);
 
-      let promise = consultancyData.save();
+      let promise = CallCenterData.save();
       assert.ok(promise instanceof require('mpromise'));
 
       if (promise) {
-          console.log("inserted country data");
-          res.redirect("/AdminConsultancy");
+          console.log("inserted CallCenter data");
+          res.redirect("/AdminCallCenter");
       }
       else {
-          console.log("error in insert country");
-          res.redirect("/AdminConsultancy");
+          console.log("error in insert CallCenter");
+          res.redirect("/AdminCallCenter");
 
       }
   });
 */
 
-//Consultancy Insert data
+//CallCenter Insert data
 /*
-router.post('/AdminConsultancyAddData',  (req, res) => {
+router.post('/AdminCallCenterAddData',  (req, res) => {
 
     let images = req.files.images.length;
     console.log(images);
@@ -109,12 +109,12 @@ router.post('/AdminConsultancyAddData',  (req, res) => {
                 }
             });
 
-            console.log('File uploaded Flage Image Consultancy!');
+            console.log('File uploaded Flage Image CallCenter!');
 
 
         });
     };
-    res.redirect("/AdminConsultancy");
+    res.redirect("/AdminCallCenter");
 
 
     //console.log(req.files.images);
@@ -124,7 +124,7 @@ router.post('/AdminConsultancyAddData',  (req, res) => {
 
 });
 */
-router.post('/AdminConsultancyAddData', (req, res) => {
+router.post('/AdminCallCenterAddData', (req, res) => {
     if (req.session.EmailId) //&& (req.session.Password)
     {
 
@@ -133,41 +133,41 @@ router.post('/AdminConsultancyAddData', (req, res) => {
             let images = req.files.images;
             let flage_image1 = req.files.flage_image;
             let mul_newpath = new Array();
-            let newpath = './public\\images\\Consultancy_Flag\\' + flage_image1.name;
+            let newpath = './public\\images\\CallCenter_Flag\\' + flage_image1.name;
 
             flage_image1.mv(newpath, function (err) {
                 if (err)
                     return res.status(500).send(err);
 
-                console.log('File uploaded: Flage Image Consultancy!');
+                console.log('File uploaded: Flage Image CallCenter!');
             });
-//Consultancy Data Inserted
-            let consultancyData = new Consultancy({
+//CallCenter Data Inserted
+            let CallCenterData = new CallCenter({
                 _id: new mongoose.Types.ObjectId,
-                country_name: req.body.country_name,
+                CallCenter_name: req.body.CallCenter_name,
                 flage_image: flage_image1.name,
                 requirenment: req.body.requirenment,
                 detail: req.body.detail,
                 important_link: req.body.important_link,
             });
-            console.log(consultancyData);
+            console.log(CallCenterData);
 
-            let promise = consultancyData.save();
+            let promise = CallCenterData.save();
             assert.ok(promise instanceof require('mpromise'));
             promise.then(function (result) {
-                console.log("inserted Consultancy data"); // "Stuff worked!"
+                console.log("inserted CallCenter data"); // "Stuff worked!"
             }, function (err) {
                 console.log(err); // Error: "It broke"
             });
 // For loop For Multiple File Uploading
             for (let i = 0; i < req.files.images.length; i++) {
-                mul_newpath[i] = './public\\images\\Consultancy\\' + images[i].name;
+                mul_newpath[i] = './public\\images\\CallCenter\\' + images[i].name;
                 console.log(mul_newpath[i]);
                 images[i].mv(mul_newpath[i], function (err) {
 
                     let image_name = images[i].name;
                     let imagedata = new Image({
-                        consultancy_id: consultancyData._id,    // assign the _id from the person
+                        CallCenter_id: CallCenterData._id,    // assign the _id from the person
                         images_name: image_name,
                     });
                     imagedata.save(function (error, res) {
@@ -184,9 +184,10 @@ router.post('/AdminConsultancyAddData', (req, res) => {
             }
             ;
             console.log("Everything Done");
-            res.redirect("/Admin/AdminConsultancy");
-        }else {
+            res.redirect("/Admin/AdminCallCenter");
+        } else {
             res.send("Please Select 2 or More than 2 Files To Upload Multiple Files");
+
         }
     }
     else {
@@ -195,16 +196,16 @@ router.post('/AdminConsultancyAddData', (req, res) => {
 
 });
 
-//Consultancy Delete data
-router.post('/AdminConsultancyDeleteData', (req, res) => {
+//CallCenter Delete data
+router.post('/AdminCallCenterDeleteData', (req, res) => {
     if (req.session.EmailId) {
         let cid = req.body.cid;
         console.log(cid);
-        Consultancy.remove({_id: cid}, function (err) {
+        CallCenter.remove({_id: cid}, function (err) {
             if (err) {
                 res.json({"err": err});
             } else {
-                Image.remove({consultancy_id: cid}, function (err) {
+                Image.remove({CallCenter_id: cid}, function (err) {
                     res.json({success: true});
                 });
             }
@@ -215,9 +216,9 @@ router.post('/AdminConsultancyDeleteData', (req, res) => {
         res.redirect('/Admin');
     }
 
-    //Consultancy.findByIdAndRemove(cid).then((docs) => {});
+    //CallCenter.findByIdAndRemove(cid).then((docs) => {});
 
-    //Consultancy.delete(function(err,Consultancy){
+    //CallCenter.delete(function(err,CallCenter){
     // if(err) throw err;
     // console.log('the document is deleted');
     //res.send(question);
@@ -227,19 +228,19 @@ router.post('/AdminConsultancyDeleteData', (req, res) => {
 
 });
 
-//Consultancy Update Get data
-router.post('/AdminConsultancyUpdateGetData', (req, res) => {
+//CallCenter Update Get data
+router.post('/AdminCallCenterUpdateGetData', (req, res) => {
     console.log("Ajax working");
     if (req.session.EmailId) {
 
         let cid = req.body.cid;
         console.log(cid);
-        Consultancy.find({_id: cid}, function (err, data) {
+        CallCenter.find({_id: cid}, function (err, data) {
             if (err) {
                 res.json({"err": err});
             } else {
                 //console.log(data);
-                res.send({Consultancy: data});
+                res.send({CallCenter: data});
             }
 
         });
@@ -247,15 +248,15 @@ router.post('/AdminConsultancyUpdateGetData', (req, res) => {
         res.redirect("/Admin");
     }
 });
-//Consultancy Update Get Images
-router.post('/AdminConsultancyUpdateGetImages', (req, res) => {
-    // console.log("Ajax working:AdminConsultancyUpdateGetImages ");
+//CallCenter Update Get Images
+router.post('/AdminCallCenterUpdateGetImages', (req, res) => {
+    // console.log("Ajax working:AdminCallCenterUpdateGetImages ");
 
     if (req.session.EmailId) {
         let cid = req.body.cid;
         console.log(cid);
 
-        Image.find({consultancy_id: cid}, function (err, data) {
+        Image.find({CallCenter_id: cid}, function (err, data) {
             if (err) {
                 res.json({"err": err});
             } else {
@@ -269,8 +270,8 @@ router.post('/AdminConsultancyUpdateGetImages', (req, res) => {
         res.redirect('/Admin');
     }
 });
-//Consultancy multiple Delete Images
-router.post('/AdminConsultancyDeleteImage', (req, res) => {
+//CallCenter multiple Delete Images
+router.post('/AdminCallCenterDeleteImage', (req, res) => {
     if (req.session.EmailId) {
         let Iid = req.body.Iid;
         console.log(Iid);
@@ -278,7 +279,7 @@ router.post('/AdminConsultancyDeleteImage', (req, res) => {
             if (err) {
                 res.json({"err": err});
             } else {
-                res.redirect("/Admin/AdminConsultancy")
+                res.redirect("/Admin/AdminCallCenter")
             }
 
         });
@@ -287,15 +288,15 @@ router.post('/AdminConsultancyDeleteImage', (req, res) => {
     }
 
 });
-router.post('/AdminConsultancyDeleteAllImages', (req, res) => {
+router.post('/AdminCallCenterDeleteAllImages', (req, res) => {
 
     let cid = req.body.cid;
     console.log(cid);
-    Image.remove({consultancy_id: cid}, function (err) {
+    Image.remove({CallCenter_id: cid}, function (err) {
         if (err) {
             res.json({"err": err});
         } else {
-            res.redirect("/Admin/AdminConsultancy")
+            res.redirect("/Admin/AdminCallCenter")
         }
 
     });
@@ -304,8 +305,8 @@ router.post('/AdminConsultancyDeleteAllImages', (req, res) => {
 });
 
 
-//Consultancy Update New Multiple Images
-router.post('/AdminConsultancyUpdateImages', (req, res) => {
+//CallCenter Update New Multiple Images
+router.post('/AdminCallCenterUpdateImages', (req, res) => {
 
 
     if (req.session.EmailId) {
@@ -317,13 +318,13 @@ router.post('/AdminConsultancyUpdateImages', (req, res) => {
 
 // For loop For Multiple File Uploading
             for (let i = 0; i < req.files.images.length; i++) {
-                mul_newpath[i] = './public\\images\\Consultancy\\' + images[i].name;
+                mul_newpath[i] = './public\\images\\CallCenter\\' + images[i].name;
                 console.log(mul_newpath[i]);
                 images[i].mv(mul_newpath[i], function (err) {
 
                     let image_name = images[i].name;
                     let imagedata = new Image({
-                        consultancy_id: req.body.cid1,    // assign the _id from the person
+                        CallCenter_id: req.body.cid1,    // assign the _id from the person
                         images_name: image_name,
                     });
                     console.log(imagedata);
@@ -340,7 +341,7 @@ router.post('/AdminConsultancyUpdateImages', (req, res) => {
             }
             ;
             console.log("Everything Done");
-            res.redirect("/Admin/AdminConsultancy");
+            res.redirect("/Admin/AdminCallCenter");
 
         }
         else {
@@ -357,25 +358,25 @@ router.post('/AdminConsultancyUpdateImages', (req, res) => {
 });
 
 
-//Consultancy Update data
-router.post('/AdminConsultancyUpdateData', (req, res) => {
+//CallCenter Update data
+router.post('/AdminCallCenterUpdateData', (req, res) => {
     if (req.session.EmailId) {
         if (req.files.flage_image) {
             let flage_image1 = req.files.flage_image;
             let mul_newpath = new Array();
             console.log(flage_image1);
-            let newpath = './public\\images\\Consultancy_Flag\\' + flage_image1.name;
+            let newpath = './public\\images\\CallCenter_Flag\\' + flage_image1.name;
 
             flage_image1.mv(newpath, function (err) {
                 if (err)
                     return res.status(500).send(err);
 
-                console.log('File uploaded: Flage Image Consultancy!');
+                console.log('File uploaded: Flage Image CallCenter!');
             });
             const flage_img = {
                 flage_image: flage_image1.name,
             };
-            Consultancy.update({_id: req.body.id}, flage_img, function (err, data) {
+            CallCenter.update({_id: req.body.id}, flage_img, function (err, data) {
                 console.log("Flage Image Updated");
 
             });
@@ -383,17 +384,17 @@ router.post('/AdminConsultancyUpdateData', (req, res) => {
         }
         const doc = {
             id: req.body.id,
-            country_name: req.body.country_name,
+            CallCenter_name: req.body.CallCenter_name,
             requirenment: req.body.requirenment,
             detail: req.body.detail,
             important_link: req.body.important_link,
         };
-        Consultancy.update({_id: req.body.id}, doc, function (err, data) {
+        CallCenter.update({_id: req.body.id}, doc, function (err, data) {
 
-            /*   let promise = Consultancy.update({'country_name': country_name},
+            /*   let promise = CallCenter.update({'CallCenter_name': CallCenter_name},
                {
                    $set: {
-                       'country_name': country_name,
+                       'CallCenter_name': CallCenter_name,
                        'flage_image': flage_image,
                        'requirenment': requirenment,
                        'detail': detail,
@@ -403,11 +404,11 @@ router.post('/AdminConsultancyUpdateData', (req, res) => {
            assert.ok(promise instanceof require('mpromise'));
        */
             if (!err) {
-                console.log("updated Consultancy data");
-                res.redirect("/Admin/AdminConsultancy");
+                console.log("updated CallCenter data");
+                res.redirect("/Admin/AdminCallCenter");
             }
             else {
-                console.log("error in updated Consultancy");
+                console.log("error in updated CallCenter");
                 res.send(err);
             }
         });

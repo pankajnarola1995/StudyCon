@@ -50,10 +50,10 @@ router.get('/', function (req, res, next) {
 
 router.post('/search', function (req, res, next) {
 
-    var keyword = req.body.keyword;
+    let keyword = req.body.keyword;
     console.log(keyword);
 //alert('he');
-    /* var Consultancy = mongoose.model("Consultancy");
+    /* let Consultancy = mongoose.model("Consultancy");
      Consultancy.find(function (err, data) {
          if (data) {
 
@@ -98,14 +98,24 @@ router.post('/search', function (req, res, next) {
         });
         response.on('end', function () {
             console.log('\nRelevant Headers:\n');
-            for (var header in response.headers)
+            for (let header in response.headers)
                 // header keys are lower-cased by Node.js
                 if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
+           // body = JSON.stringify(JSON.parse(body), null, '  ');
+           let parsedBody = JSON.parse(body);
+            body = JSON.stringify(parsedBody, null, '  ');
+
+            let urls = parsedBody.webPages.value.map(function(item){
+                return item.url;
+            })
+            let name = parsedBody.webPages.value.map(function(item){
+                return item.name;
+            })
+
             console.log('\nJSON Response:\n');
-            console.log(body);
-            res.send(body);
+            console.log(name);
+            res.send(urls);
 
         });
         response.on('error', function (e) {

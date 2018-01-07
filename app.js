@@ -53,8 +53,9 @@ app.use('/Admin', require('./routes/Admin/AdminLogin'));
 app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));
 app.use('/Admin/AdminContactView', require('./routes/Admin/AdminContactView'));
 app.use('/Admin/AdminConsultancy', require('./routes/Admin/AdminConsultancy'));
-app.use('/Admin/AdminConsultancy', require('./model/Admin/AdminConsultancy'));
 app.use('/Admin/AdminLanguage', require('./routes/Admin/AdminLanguage'));
+app.use('/Admin/AdminCallCenter', require('./routes/Admin/AdminCallCenter'));
+app.use('/Admin/AdminPilotTraining', require('./routes/Admin/AdminPilotTraining'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
 
 app.use(fileUpload());
