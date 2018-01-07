@@ -2,9 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e0131fc-08fb-4015-ad74-18f081a68a2e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/CallCenter/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/CallCenter_Flag/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Language/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Language_Flag/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/PilotTraining/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/PilotTraining_Flag/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Admin/AdminCallCenter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Admin/AdminPilotTraining.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/Admin/AdminCallCenter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/Admin/AdminPilotTraining.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/Admin/AdminCallCenter.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/Admin/AdminPilotTraining.ejs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/11226177_1486660934974733_8600504941608740818_n.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/12994550_1524775251163301_7422210193602533878_n.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/DSC_0106.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/DSC_0107.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy_Flag/DSC_0107.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy_Flag/oj.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/Admin/AdminConsultancyMoreImages.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/MoreDetailsConsultancy.ejs" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/Consultancy/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Consultancy/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/Consultancy_Flag/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Consultancy_Flag/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Admin/AdminImages.js" afterPath="$PROJECT_DIR$/model/Admin/AdminImages.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Admin/AdminLanguage.js" afterPath="$PROJECT_DIR$/model/Admin/AdminLanguage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/Admin/AdminConsultancy.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminConsultancy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/Admin/AdminLanguage.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminLanguage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/register.js" afterPath="$PROJECT_DIR$/routes/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Admin/AdminConsultancy.ejs" afterPath="$PROJECT_DIR$/views/Admin/AdminConsultancy.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Admin/AdminLanguage.ejs" afterPath="$PROJECT_DIR$/views/Admin/AdminLanguage.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Admin/partials/header.ejs" afterPath="$PROJECT_DIR$/views/Admin/partials/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/header.ejs" afterPath="$PROJECT_DIR$/views/partials/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/register.ejs" afterPath="$PROJECT_DIR$/views/register.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +57,15 @@
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="969">
-              <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
-              <folding />
+              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+              <folding>
+                <marker date="1515331720795" expanded="true" signature="2196:2518" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2236:2481" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2256:2411" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2425:2475" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2597:2675" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2734:2992" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminAddEvent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminAddEvent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/Admin/AdminAddEvent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="-408">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -73,7 +115,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="7038">
               <caret line="414" column="27" lean-forward="false" selection-start-line="414" selection-start-column="27" selection-end-line="414" selection-end-column="27" />
-              <folding />
+              <folding>
+                <marker date="1515331720920" expanded="true" signature="11565:12604" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="11645:12158" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1515331720920" expanded="true" signature="12169:12534" ph="/*...*/" />
+                <marker date="1515331720920" expanded="true" signature="12633:13802" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="12662:12830" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="12868:13235" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1515331720920" expanded="true" signature="13059:13225" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="13246:13796" ph="/*...*/" />
+                <marker date="1515331720920" expanded="true" signature="13828:13898" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,7 +140,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-595">
@@ -114,10 +166,10 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1515331430072" expanded="true" signature="36147:36366" ph="..." />
-                <marker date="1515331430072" expanded="true" signature="36147:36379" ph="..." />
-                <marker date="1515331430072" expanded="true" signature="36147:36394" ph="..." />
-                <marker date="1515331430072" expanded="true" signature="36148:36348" ph="..." />
+                <marker date="1515331892152" expanded="true" signature="48477:48519" ph="..." />
+                <marker date="1515331892152" expanded="true" signature="48477:48537" ph="..." />
+                <marker date="1515331892152" expanded="true" signature="48477:48550" ph="..." />
+                <marker date="1515331892152" expanded="true" signature="48477:48565" ph="..." />
               </folding>
             </state>
           </provider>
@@ -137,9 +189,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" />
         <option value="$PROJECT_DIR$/views/Admin/AdminIndex.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" />
       </list>
     </option>
   </component>
@@ -257,15 +309,16 @@
       <workItem from="1514887678628" duration="15000000" />
       <workItem from="1515057441776" duration="4905000" />
       <workItem from="1515278748228" duration="8091000" />
-      <workItem from="1515326359869" duration="597000" />
+      <workItem from="1515326359869" duration="751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47099000" />
+    <option name="totallyTimeSpent" value="47253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14583333" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -285,6 +338,25 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21779549" sideWeight="0.5038023" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733223" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21767594" sideWeight="0.49619773" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14583333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -297,7 +369,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/Admin/AdminConsultancy.js</url>
-          <line>32</line>
+          <line>31</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1" />
@@ -316,7 +388,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1515331720795" expanded="true" signature="2196:2518" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2236:2481" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2256:2411" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2425:2475" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2597:2675" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2734:2992" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -560,7 +639,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7038">
           <caret line="414" column="27" lean-forward="false" selection-start-line="414" selection-start-column="27" selection-end-line="414" selection-end-column="27" />
-          <folding />
+          <folding>
+            <marker date="1515331720920" expanded="true" signature="11565:12604" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="11645:12158" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1515331720920" expanded="true" signature="12169:12534" ph="/*...*/" />
+            <marker date="1515331720920" expanded="true" signature="12633:13802" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="12662:12830" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="12868:13235" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1515331720920" expanded="true" signature="13059:13225" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="13246:13796" ph="/*...*/" />
+            <marker date="1515331720920" expanded="true" signature="13828:13898" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -584,35 +673,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1515331430072" expanded="true" signature="36147:36366" ph="..." />
-            <marker date="1515331430072" expanded="true" signature="36147:36379" ph="..." />
-            <marker date="1515331430072" expanded="true" signature="36147:36394" ph="..." />
-            <marker date="1515331430072" expanded="true" signature="36148:36348" ph="..." />
+            <marker date="1515331892152" expanded="true" signature="48477:48519" ph="..." />
+            <marker date="1515331892152" expanded="true" signature="48477:48537" ph="..." />
+            <marker date="1515331892152" expanded="true" signature="48477:48550" ph="..." />
+            <marker date="1515331892152" expanded="true" signature="48477:48565" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Admin/AdminAddEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
-          <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/Admin/AdminAddEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+          <folding>
+            <marker date="1515331720795" expanded="true" signature="2196:2518" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2236:2481" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2256:2411" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2425:2475" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2597:2675" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2734:2992" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -644,6 +724,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-595">
           <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Admin/AdminAddEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/Admin/AdminAddEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

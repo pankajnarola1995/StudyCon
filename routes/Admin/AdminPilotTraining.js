@@ -1,6 +1,6 @@
 let express = require('express'),
     router = express.Router(),
-    Language = require('../../model/Admin/AdminLanguage'),
+    PilotTraining = require('../../model/Admin/AdminPilotTraining'),
     Image = require('../../model/Admin/AdminImages');
 const mongoose = require('mongoose');
 
@@ -11,20 +11,20 @@ router.use(fileUpload());
 
 //let searchable = require('mongoose-searchable');
 
-//let Language = require('model/Admin/Language');
-//router.use('/Admin/AdminLanguage', require('./Admin/AdminLanguage'))
+//let PilotTraining = require('model/Admin/PilotTraining');
+//router.use('/Admin/AdminPilotTraining', require('./Admin/AdminPilotTraining'))
 
 
-/* GET Language listing. */
+/* GET PilotTraining listing. */
 router.get('/', function (req, res, next) {
     if (req.session.EmailId) //&& (req.session.Password)
     {
 
-        Language.find(function (err, Languagedata) {
-            if (Languagedata) {
-                console.log("Language Data Fetched: Admin");
+        PilotTraining.find(function (err, PilotTrainingdata) {
+            if (PilotTrainingdata) {
+                console.log("PilotTraining Data Fetched: Admin");
 
-                res.render('Admin/AdminLanguage', {Language: Languagedata});
+                res.render('Admin/AdminPilotTraining', {PilotTraining: PilotTrainingdata});
             }
             else {
                 res.status(400).send(err);
@@ -37,9 +37,9 @@ router.get('/', function (req, res, next) {
     }
 });
 
-//Language Insert data
-/*  router.post('/AdminLanguageAddData', function (req, res) {
-      console.log("AdminLanguageAddData");
+//PilotTraining Insert data
+/*  router.post('/AdminPilotTrainingAddData', function (req, res) {
+      console.log("AdminPilotTrainingAddData");
 
       if (!req.files)
           return res.status(400).send('No files were uploaded.');
@@ -52,38 +52,38 @@ router.get('/', function (req, res, next) {
           if (err)
               return res.status(500).send(err);
 
-          console.log('File uploaded Flage Image Language!');
+          console.log('File uploaded Flage Image PilotTraining!');
       });
 
 
-      let LanguageData = new Language({
-          Language_name: req.body.Language_name,
+      let PilotTrainingData = new PilotTraining({
+          PilotTraining_name: req.body.PilotTraining_name,
           flage_image: flage_image1.name,
           requirenment: req.body.requirenment,
           detail: req.body.detail,
           important_link: req.body.important_link,
           images: images.name
       });
-      console.log(LanguageData);
+      console.log(PilotTrainingData);
 
-      let promise = LanguageData.save();
+      let promise = PilotTrainingData.save();
       assert.ok(promise instanceof require('mpromise'));
 
       if (promise) {
-          console.log("inserted Language data");
-          res.redirect("/AdminLanguage");
+          console.log("inserted PilotTraining data");
+          res.redirect("/AdminPilotTraining");
       }
       else {
-          console.log("error in insert Language");
-          res.redirect("/AdminLanguage");
+          console.log("error in insert PilotTraining");
+          res.redirect("/AdminPilotTraining");
 
       }
   });
 */
 
-//Language Insert data
+//PilotTraining Insert data
 /*
-router.post('/AdminLanguageAddData',  (req, res) => {
+router.post('/AdminPilotTrainingAddData',  (req, res) => {
 
     let images = req.files.images.length;
     console.log(images);
@@ -109,12 +109,12 @@ router.post('/AdminLanguageAddData',  (req, res) => {
                 }
             });
 
-            console.log('File uploaded Flage Image Language!');
+            console.log('File uploaded Flage Image PilotTraining!');
 
 
         });
     };
-    res.redirect("/AdminLanguage");
+    res.redirect("/AdminPilotTraining");
 
 
     //console.log(req.files.images);
@@ -124,7 +124,7 @@ router.post('/AdminLanguageAddData',  (req, res) => {
 
 });
 */
-router.post('/AdminLanguageAddData', (req, res) => {
+router.post('/AdminPilotTrainingAddData', (req, res) => {
         if (req.session.EmailId) //&& (req.session.Password)
         {
 
@@ -133,41 +133,41 @@ router.post('/AdminLanguageAddData', (req, res) => {
                 let images = req.files.images;
                 let flage_image1 = req.files.flage_image;
                 let mul_newpath = new Array();
-                let newpath = './public\\images\\Language_Flag\\' + flage_image1.name;
+                let newpath = './public\\images\\PilotTraining_Flag\\' + flage_image1.name;
 
                 flage_image1.mv(newpath, function (err) {
                     if (err)
                         return res.status(500).send(err);
 
-                    console.log('File uploaded: Flage Image Language!');
+                    console.log('File uploaded: Flage Image PilotTraining!');
                 });
-//Language Data Inserted
-                let LanguageData = new Language({
+//PilotTraining Data Inserted
+                let PilotTrainingData = new PilotTraining({
                     _id: new mongoose.Types.ObjectId,
-                    Language_name: req.body.Language_name,
+                    PilotTraining_name: req.body.PilotTraining_name,
                     flage_image: flage_image1.name,
                     requirenment: req.body.requirenment,
                     detail: req.body.detail,
                     important_link: req.body.important_link,
                 });
-                console.log(LanguageData);
+                console.log(PilotTrainingData);
 
-                let promise = LanguageData.save();
+                let promise = PilotTrainingData.save();
                 assert.ok(promise instanceof require('mpromise'));
                 promise.then(function (result) {
-                    console.log("inserted Language data"); // "Stuff worked!"
+                    console.log("inserted PilotTraining data"); // "Stuff worked!"
                 }, function (err) {
                     console.log(err); // Error: "It broke"
                 });
 // For loop For Multiple File Uploading
                 for (let i = 0; i < req.files.images.length; i++) {
-                    mul_newpath[i] = './public\\images\\Language\\' + images[i].name;
+                    mul_newpath[i] = './public\\images\\PilotTraining\\' + images[i].name;
                     console.log(mul_newpath[i]);
                     images[i].mv(mul_newpath[i], function (err) {
 
                         let image_name = images[i].name;
                         let imagedata = new Image({
-                            Language_id: LanguageData._id,    // assign the _id from the person
+                            PilotTraining_id: PilotTrainingData._id,    // assign the _id from the person
                             images_name: image_name,
                         });
                         imagedata.save(function (error, res) {
@@ -185,7 +185,7 @@ router.post('/AdminLanguageAddData', (req, res) => {
                 }
                 ;
                 console.log("Everything Done");
-                res.redirect("/Admin/AdminLanguage");
+                res.redirect("/Admin/AdminPilotTraining");
             }
             else {
                 res.send("Please Select 2 or More than 2 Files To Upload Multiple Files");
@@ -199,16 +199,16 @@ router.post('/AdminLanguageAddData', (req, res) => {
     }
 );
 
-//Language Delete data
-router.post('/AdminLanguageDeleteData', (req, res) => {
+//PilotTraining Delete data
+router.post('/AdminPilotTrainingDeleteData', (req, res) => {
     if (req.session.EmailId) {
-        let lid = req.body.lid;
-        console.log(lid);
-        Language.remove({_id: lid}, function (err) {
+        let pid = req.body.pid;
+        console.log(pid);
+        PilotTraining.remove({_id: pid}, function (err) {
             if (err) {
                 res.json({"err": err});
             } else {
-                Image.remove({Language_id: lid}, function (err) {
+                Image.remove({PilotTraining_id: pid}, function (err) {
                     res.json({success: true});
                 });
             }
@@ -219,9 +219,9 @@ router.post('/AdminLanguageDeleteData', (req, res) => {
         res.redirect('/Admin');
     }
 
-    //Language.findByIdAndRemove(lid).then((docs) => {});
+    //PilotTraining.findByIdAndRemove(pid).then((docs) => {});
 
-    //Language.delete(function(err,Language){
+    //PilotTraining.delete(function(err,PilotTraining){
     // if(err) throw err;
     // console.log('the document is deleted');
     //res.send(question);
@@ -231,19 +231,19 @@ router.post('/AdminLanguageDeleteData', (req, res) => {
 
 });
 
-//Language Update Get data
-router.post('/AdminLanguageUpdateGetData', (req, res) => {
+//PilotTraining Update Get data
+router.post('/AdminPilotTrainingUpdateGetData', (req, res) => {
     console.log("Ajax working");
     if (req.session.EmailId) {
 
-        let lid = req.body.lid;
-        console.log(lid);
-        Language.find({_id: lid}, function (err, data) {
+        let pid = req.body.pid;
+        console.log(pid);
+        PilotTraining.find({_id: pid}, function (err, data) {
             if (err) {
                 res.json({"err": err});
             } else {
                 //console.log(data);
-                res.send({Language: data});
+                res.send({PilotTraining: data});
             }
 
         });
@@ -251,15 +251,15 @@ router.post('/AdminLanguageUpdateGetData', (req, res) => {
         res.redirect("/Admin");
     }
 });
-//Language Update Get Images
-router.post('/AdminLanguageUpdateGetImages', (req, res) => {
-    // console.log("Ajax working:AdminLanguageUpdateGetImages ");
+//PilotTraining Update Get Images
+router.post('/AdminPilotTrainingUpdateGetImages', (req, res) => {
+    // console.log("Ajax working:AdminPilotTrainingUpdateGetImages ");
 
     if (req.session.EmailId) {
-        let lid = req.body.lid;
-        console.log(lid);
+        let pid = req.body.pid;
+        console.log(pid);
 
-        Image.find({Language_id: lid}, function (err, data) {
+        Image.find({PilotTraining_id: pid}, function (err, data) {
             if (err) {
                 res.json({"err": err});
             } else {
@@ -273,8 +273,8 @@ router.post('/AdminLanguageUpdateGetImages', (req, res) => {
         res.redirect('/Admin');
     }
 });
-//Language multiple Delete Images
-router.post('/AdminLanguageDeleteImage', (req, res) => {
+//PilotTraining multiple Delete Images
+router.post('/AdminPilotTrainingDeleteImage', (req, res) => {
     if (req.session.EmailId) {
         let Iid = req.body.Iid;
         console.log(Iid);
@@ -282,7 +282,7 @@ router.post('/AdminLanguageDeleteImage', (req, res) => {
             if (err) {
                 res.json({"err": err});
             } else {
-                res.redirect("/Admin/AdminLanguage")
+                res.redirect("/Admin/AdminPilotTraining")
             }
 
         });
@@ -291,15 +291,15 @@ router.post('/AdminLanguageDeleteImage', (req, res) => {
     }
 
 });
-router.post('/AdminLanguageDeleteAllImages', (req, res) => {
+router.post('/AdminPilotTrainingDeleteAllImages', (req, res) => {
 
-    let lid = req.body.lid;
-    console.log(lid);
-    Image.remove({Language_id: lid}, function (err) {
+    let pid = req.body.pid;
+    console.log(pid);
+    Image.remove({PilotTraining_id: pid}, function (err) {
         if (err) {
             res.json({"err": err});
         } else {
-            res.redirect("/Admin/AdminLanguage")
+            res.redirect("/Admin/AdminPilotTraining")
         }
 
     });
@@ -308,8 +308,8 @@ router.post('/AdminLanguageDeleteAllImages', (req, res) => {
 });
 
 
-//Language Update New Multiple Images
-router.post('/AdminLanguageUpdateImages', (req, res) => {
+//PilotTraining Update New Multiple Images
+router.post('/AdminPilotTrainingUpdateImages', (req, res) => {
 
 
     if (req.session.EmailId) {
@@ -317,17 +317,17 @@ router.post('/AdminLanguageUpdateImages', (req, res) => {
 
             let images = req.files.images;
             let mul_newpath = new Array();
-            console.log(req.body.lid1);
+            console.log(req.body.pid1);
 
 // For loop For Multiple File Uploading
             for (let i = 0; i < req.files.images.length; i++) {
-                mul_newpath[i] = './public\\images\\Language\\' + images[i].name;
+                mul_newpath[i] = './public\\images\\PilotTraining\\' + images[i].name;
                 console.log(mul_newpath[i]);
                 images[i].mv(mul_newpath[i], function (err) {
 
                     let image_name = images[i].name;
                     let imagedata = new Image({
-                        Language_id: req.body.lid1,    // assign the _id from the person
+                        PilotTraining_id: req.body.pid1,    // assign the _id from the person
                         images_name: image_name,
                     });
                     console.log(imagedata);
@@ -344,7 +344,7 @@ router.post('/AdminLanguageUpdateImages', (req, res) => {
             }
             ;
             console.log("Everything Done");
-            res.redirect("/Admin/AdminLanguage");
+            res.redirect("/Admin/AdminPilotTraining");
 
         }
         else {
@@ -361,25 +361,25 @@ router.post('/AdminLanguageUpdateImages', (req, res) => {
 });
 
 
-//Language Update data
-router.post('/AdminLanguageUpdateData', (req, res) => {
+//PilotTraining Update data
+router.post('/AdminPilotTrainingUpdateData', (req, res) => {
     if (req.session.EmailId) {
         if (req.files.flage_image) {
             let flage_image1 = req.files.flage_image;
             let mul_newpath = new Array();
             console.log(flage_image1);
-            let newpath = './public\\images\\Language_Flag\\' + flage_image1.name;
+            let newpath = './public\\images\\PilotTraining_Flag\\' + flage_image1.name;
 
             flage_image1.mv(newpath, function (err) {
                 if (err)
                     return res.status(500).send(err);
 
-                console.log('File uploaded: Flage Image Language!');
+                console.log('File uploaded: Flage Image PilotTraining!');
             });
             const flage_img = {
                 flage_image: flage_image1.name,
             };
-            Language.update({_id: req.body.id}, flage_img, function (err, data) {
+            PilotTraining.update({_id: req.body.id}, flage_img, function (err, data) {
                 console.log("Flage Image Updated");
 
             });
@@ -387,17 +387,17 @@ router.post('/AdminLanguageUpdateData', (req, res) => {
         }
         const doc = {
             id: req.body.id,
-            Language_name: req.body.Language_name,
+            PilotTraining_name: req.body.PilotTraining_name,
             requirenment: req.body.requirenment,
             detail: req.body.detail,
             important_link: req.body.important_link,
         };
-        Language.update({_id: req.body.id}, doc, function (err, data) {
+        PilotTraining.update({_id: req.body.id}, doc, function (err, data) {
 
-            /*   let promise = Language.update({'Language_name': Language_name},
+            /*   let promise = PilotTraining.update({'PilotTraining_name': PilotTraining_name},
                {
                    $set: {
-                       'Language_name': Language_name,
+                       'PilotTraining_name': PilotTraining_name,
                        'flage_image': flage_image,
                        'requirenment': requirenment,
                        'detail': detail,
@@ -407,11 +407,11 @@ router.post('/AdminLanguageUpdateData', (req, res) => {
            assert.ok(promise instanceof require('mpromise'));
        */
             if (!err) {
-                console.log("updated Language data");
-                res.redirect("/Admin/AdminLanguage");
+                console.log("updated PilotTraining data");
+                res.redirect("/Admin/AdminPilotTraining");
             }
             else {
-                console.log("error in updated Language");
+                console.log("error in updated PilotTraining");
                 res.send(err);
             }
         });

@@ -419,12 +419,13 @@
             type: 'POST', url: "http://localhost:3000/search",
             data: {'keyword': keyword},
             dataType: 'json',
-            success: (data) => {
-                $('#myserachResults').html(data);
+            success: (body) => {
+
+              //  $('#myserachResults').html(urls);
                 let i, html;
                 html = '<ul>';
-                for (i = 0; i < data.length; i++) {
-                    html += "<li>" + data[i] + '</li>';
+                for (i = 0; i < body.length; i++) {
+                    html += "<li>" + body[i] + a + '</li>';
                 }
                 html += '<ul>';
                 $("#SearchResult").html(html);
