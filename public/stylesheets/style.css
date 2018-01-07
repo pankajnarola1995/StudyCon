@@ -453,6 +453,8 @@ ul#filters li span:hover {
 	color: #ffffff;
 	border-top: 2px solid #fff;
 	outline:10px solid #000;
+
+
 }
 
 #footer .col-md-4 {
@@ -465,9 +467,10 @@ ul#filters li span:hover {
 
 #footer .footer-brand {
 	color: #ffffff;
-	font-size: 42px;
-	font-weight: 900;
-	margin-top: 5px;
+	font-size: 20px;
+	font-weight: 100;
+	margin-top: 0px;
+    margin-bottom: 0px;
 }
 .footer-brand a {
 	color: #FFFFFF;
@@ -484,20 +487,21 @@ ul#filters li span:hover {
 	width: 100%;
 }
 #newsletter-form input {
-	height: 50px;
-	border: 4px solid #fff;
-	margin-bottom: 20px;
+	height: 20px;
+	border: 2px solid #fff;
+	margin-bottom: 5px;
 	background-color: #8E282F;
 	padding-left: 20px;
 }
 #newsletter-form #newsletter-submit {
-	width: 160px;
-	height: 55px;
+	width: 100px;
+	height: 40px;
 	padding-left: 0px;
 	padding-right: 0px;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 12px;
+	padding-top: 5px;
+    text-align: center;
 }
 .copyright {
 	font-size: 16px;
@@ -573,7 +577,7 @@ ul#filters li span:hover {
 	border-left: 4px solid #FFFFFF;
 }
 }
-<<<<<<< HEAD
+
 /* Sign in page */
 
 #login-form {
@@ -647,12 +651,13 @@ ul#filters li span:hover {
 }
 
 .signin-btn {
-	margin-left: 10px;
+	margin-left: 0px;
 	border: 0px;
 	padding: 6px 20px;
 	color: #fff;
 	background: #8e282f;
 	border-radius: 5px;
+    width: 100px;
 	box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
 	transition: all .3s;
 }
@@ -664,11 +669,13 @@ ul#filters li span:hover {
 }
 
 .create-new {
+	margin-left: 0px;
 	border: 0px;
 	padding: 6px 10px;
 	color: #fff;
 	background: #d81a27;
 	border-radius: 5px;
+    width: 200px;
 	box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
 	transition: all .3s;
 }
@@ -679,6 +686,7 @@ ul#filters li span:hover {
 
 .c-white {
 	color: #fff;
+
 }
 
 .create-new a {
@@ -693,7 +701,7 @@ ul#filters li span:hover {
 
 
 
-=======
+
 
 /*Registration Page*/
 
@@ -723,12 +731,13 @@ ul#filters li span:hover {
 .sub-btn2 {
 	color: #eee;
 	padding: 7px 30px;
-	margin-left: 10px;
+	margin-left: 0px;
 	margin-bottom: 10px;
 	background: #8e282f;
 	border: 0px;
 	border-radius: 10px;
 	outline: none;
+    width: 100px;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	transition: all 0.3s ease;
 }
@@ -769,4 +778,4 @@ option {
 	background: #F4F6F6;
 	height: 100%;
 }
->>>>>>> origin
+

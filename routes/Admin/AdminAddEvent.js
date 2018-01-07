@@ -2,16 +2,40 @@ let express = require('express'),
     router = express.Router(),
     AddEvent = require('../../model/Admin/AdminAddEvent');
 const mongoose = require('mongoose');
-<<<<<<< HEAD
+
 
 var assert = require('assert');
 
 
 //Admin Event handling
-=======
+
+
+var assert = require('assert');
+let AddEventSchema = mongoose.Schema({
+
+    event_name: String,
+    event_start: String,
+    event_end: String,
+    event_description: String,
+    event_type: String,
+    event_details: String,
+    images: String,
+    // images:String
+
+});
+
+//Admin Event handling
+
+
+
+
+
+
+
 let assert = require('assert');
 
->>>>>>> b8e9e30b45d7e4b08b0fac7b23e6daf8321cdee2
+
+
 
 
 /* GET users listing. */

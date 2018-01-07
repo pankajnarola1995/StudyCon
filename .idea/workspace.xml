@@ -2,16 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e0131fc-08fb-4015-ad74-18f081a68a2e" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/CallCenter/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/CallCenter_Flag/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Language/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Language_Flag/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/PilotTraining/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/PilotTraining_Flag/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Admin/AdminCallCenter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Admin/AdminPilotTraining.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/Admin/AdminCallCenter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/Admin/AdminPilotTraining.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/Admin/AdminCallCenter.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/Admin/AdminPilotTraining.ejs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/11226177_1486660934974733_8600504941608740818_n.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/12994550_1524775251163301_7422210193602533878_n.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/DSC_0106.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy/DSC_0107.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy_Flag/DSC_0107.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/Consultancy_Flag/oj.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/Admin/AdminConsultancyMoreImages.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/MoreDetailsConsultancy.ejs" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/Consultancy/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Consultancy/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/Consultancy_Flag/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Consultancy_Flag/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Admin/AdminImages.js" afterPath="$PROJECT_DIR$/model/Admin/AdminImages.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Admin/AdminLanguage.js" afterPath="$PROJECT_DIR$/model/Admin/AdminLanguage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/Admin/AdminConsultancy.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminConsultancy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/Admin/AdminLanguage.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminLanguage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/register.js" afterPath="$PROJECT_DIR$/routes/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Admin/AdminConsultancy.ejs" afterPath="$PROJECT_DIR$/views/Admin/AdminConsultancy.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Admin/AdminLanguage.ejs" afterPath="$PROJECT_DIR$/views/Admin/AdminLanguage.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Admin/partials/header.ejs" afterPath="$PROJECT_DIR$/views/Admin/partials/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/header.ejs" afterPath="$PROJECT_DIR$/views/partials/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/register.ejs" afterPath="$PROJECT_DIR$/views/register.ejs" />
+>>>>>>> frontend
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
+<<<<<<< HEAD
     <list default="true" id="7f925f6a-9981-493c-bfa9-2a5367087eef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyCon" afterPath="$PROJECT_DIR$/StudyCon" />
     </list>
 
+=======
+>>>>>>> frontend
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,19 +63,36 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
 
+=======
+>>>>>>> frontend
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="111">
               <caret line="57" column="63" lean-forward="true" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
               <folding />
+=======
+            <state relative-caret-position="969">
+              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+              <folding>
+                <marker date="1515331720795" expanded="true" signature="2196:2518" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2236:2481" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2256:2411" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2425:2475" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2597:2675" ph="{...}" />
+                <marker date="1515331720795" expanded="true" signature="2734:2992" ph="{...}" />
+              </folding>
+>>>>>>> frontend
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/home.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -40,92 +101,189 @@
               <folding>
                 <element signature="e#133#608#0" expanded="false" />
               </folding>
+=======
+      <file leaf-file-name="AdminAddEvent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/Admin/AdminAddEvent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+>>>>>>> frontend
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="websocket.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/websocket.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+=======
+      <file leaf-file-name="AdminAddEvent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/Admin/AdminAddEvent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-408">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+>>>>>>> frontend
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="header.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/partials/header.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="7038">
               <caret line="414" column="27" lean-forward="false" selection-start-line="414" selection-start-column="27" selection-end-line="414" selection-end-column="27" />
+=======
+      <file leaf-file-name="AdminIndex.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Admin/AdminIndex.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+>>>>>>> frontend
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AdminAddEvent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/Admin/AdminAddEvent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="77">
               <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+=======
+      <file leaf-file-name="TopHeader.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Admin/partials/TopHeader.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="52" />
+>>>>>>> frontend
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
               <caret line="504" column="34" lean-forward="false" selection-start-line="504" selection-start-column="34" selection-end-line="504" selection-end-column="34" />
               <folding />
+=======
+      <file leaf-file-name="header.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/header.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7038">
+              <caret line="414" column="27" lean-forward="false" selection-start-line="414" selection-start-column="27" selection-end-line="414" selection-end-column="27" />
+              <folding>
+                <marker date="1515331720920" expanded="true" signature="11565:12604" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="11645:12158" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1515331720920" expanded="true" signature="12169:12534" ph="/*...*/" />
+                <marker date="1515331720920" expanded="true" signature="12633:13802" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="12662:12830" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="12868:13235" ph="{&quot;type&quot;: 'POST'...}" />
+                <marker date="1515331720920" expanded="true" signature="13059:13225" ph="{...}" />
+                <marker date="1515331720920" expanded="true" signature="13246:13796" ph="/*...*/" />
+                <marker date="1515331720920" expanded="true" signature="13828:13898" ph="{...}" />
+              </folding>
+>>>>>>> frontend
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AdminIndex.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/Admin/AdminIndex.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+=======
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8568">
+              <caret line="504" column="34" lean-forward="false" selection-start-line="504" selection-start-column="34" selection-end-line="504" selection-end-column="34" />
+>>>>>>> frontend
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AdminIndex.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/Admin/AdminIndex.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+=======
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-595">
+              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="4" />
+>>>>>>> frontend
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AdminAddEvent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/Admin/AdminAddEvent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-68">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+      <file leaf-file-name="footer.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Admin/partials/footer.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+>>>>>>> frontend
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2516">
               <caret line="148" column="30" lean-forward="false" selection-start-line="148" selection-start-column="30" selection-end-line="148" selection-end-column="30" />
               <folding />
+=======
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1515331892152" expanded="true" signature="48477:48519" ph="..." />
+                <marker date="1515331892152" expanded="true" signature="48477:48537" ph="..." />
+                <marker date="1515331892152" expanded="true" signature="48477:48550" ph="..." />
+                <marker date="1515331892152" expanded="true" signature="48477:48565" ph="..." />
+              </folding>
+>>>>>>> frontend
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>foote</find>
+    </findStrings>
+  </component>
+>>>>>>> frontend
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -133,10 +291,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/views/Admin/AdminIndex.ejs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+>>>>>>> frontend
         <option value="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
 
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -144,6 +308,12 @@
 
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+=======
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+>>>>>>> frontend
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -151,12 +321,19 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="7">
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+>>>>>>> frontend
     <option name="x" value="158" />
     <option name="width" value="672" />
     <option name="height" value="547" />
   </component>
+<<<<<<< HEAD
 
+=======
+>>>>>>> frontend
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -188,30 +365,51 @@
             <path>
               <item name="StudyCon" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyCon" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+>>>>>>> frontend
             </path>
             <path>
               <item name="StudyCon" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyCon" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+>>>>>>> frontend
             </path>
             <path>
               <item name="StudyCon" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyCon" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+>>>>>>> frontend
             </path>
             <path>
               <item name="StudyCon" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyCon" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+>>>>>>> frontend
             </path>
             <path>
               <item name="StudyCon" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyCon" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+>>>>>>> frontend
             </path>
           </expand>
           <select />
@@ -220,16 +418,22 @@
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
+<<<<<<< HEAD
 
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+>>>>>>> frontend
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+<<<<<<< HEAD
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+=======
+>>>>>>> frontend
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -258,6 +462,7 @@
       <workItem from="1514817826863" duration="2065000" />
       <workItem from="1514887678628" duration="15000000" />
       <workItem from="1515057441776" duration="4905000" />
+<<<<<<< HEAD
       <workItem from="1515072570564" duration="602000" />
       <workItem from="1515075397598" duration="2609000" />
       <changelist id="7f925f6a-9981-493c-bfa9-2a5367087eef" name="Default" comment="" />
@@ -266,14 +471,25 @@
       <option name="presentableId" value="Default" />
       <updated>1515079414566</updated>
       <workItem from="1515079423128" duration="15000" />
+=======
+      <workItem from="1515278748228" duration="8091000" />
+      <workItem from="1515326359869" duration="751000" />
+>>>>>>> frontend
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="41906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+=======
+    <option name="totallyTimeSpent" value="47253000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+>>>>>>> frontend
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14583333" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -292,6 +508,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="15000" />
   </component>
   <component name="ToolWindowManager">
@@ -315,6 +532,29 @@
 
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+=======
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21779549" sideWeight="0.5038023" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733223" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21767594" sideWeight="0.49619773" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14583333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+>>>>>>> frontend
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -323,10 +563,24 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
+<<<<<<< HEAD
     <breakpoint-manager />
     <watches-manager />
   </component>
 
+=======
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/routes/Admin/AdminConsultancy.js</url>
+          <line>31</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+>>>>>>> frontend
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/views/Admin/partials/TopHeader.ejs">
       <provider selected="true" editor-type-id="text-editor">
@@ -339,7 +593,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+<<<<<<< HEAD
           <folding />
+=======
+          <folding>
+            <marker date="1515331720795" expanded="true" signature="2196:2518" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2236:2481" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2256:2411" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2425:2475" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2597:2675" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2734:2992" ph="{...}" />
+          </folding>
+>>>>>>> frontend
         </state>
       </provider>
     </entry>
@@ -454,6 +719,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/Admin/partials/TopHeader.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -461,6 +727,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> frontend
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -489,6 +757,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+<<<<<<< HEAD
           <folding>
             <marker date="1515072184635" expanded="true" signature="1273:1342" ph="..." />
           </folding>
@@ -499,6 +768,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+=======
+>>>>>>> frontend
         </state>
       </provider>
     </entry>
@@ -514,9 +785,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2074">
           <caret line="132" column="21" lean-forward="false" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#1349#1582#0" expanded="false" />
           </folding>
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/websocket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+>>>>>>> frontend
         </state>
       </provider>
     </entry>
@@ -541,9 +822,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#133#608#0" expanded="false" />
           </folding>
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/Admin/AdminIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+>>>>>>> frontend
         </state>
       </provider>
     </entry>
@@ -581,10 +872,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> frontend
     <entry file="file://$PROJECT_DIR$/views/partials/header.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7038">
           <caret line="414" column="27" lean-forward="false" selection-start-line="414" selection-start-column="27" selection-end-line="414" selection-end-column="27" />
+<<<<<<< HEAD
           <folding />
         </state>
       </provider>
@@ -601,6 +903,34 @@
         <state relative-caret-position="2516">
           <caret line="148" column="30" lean-forward="false" selection-start-line="148" selection-start-column="30" selection-end-line="148" selection-end-column="30" />
           <folding />
+=======
+          <folding>
+            <marker date="1515331720920" expanded="true" signature="11565:12604" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="11645:12158" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1515331720920" expanded="true" signature="12169:12534" ph="/*...*/" />
+            <marker date="1515331720920" expanded="true" signature="12633:13802" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="12662:12830" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="12868:13235" ph="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1515331720920" expanded="true" signature="13059:13225" ph="{...}" />
+            <marker date="1515331720920" expanded="true" signature="13246:13796" ph="/*...*/" />
+            <marker date="1515331720920" expanded="true" signature="13828:13898" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8568">
+          <caret line="504" column="34" lean-forward="false" selection-start-line="504" selection-start-column="34" selection-end-line="504" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/contact.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+>>>>>>> frontend
         </state>
       </provider>
     </entry>
@@ -609,6 +939,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <marker date="1515080989506" expanded="true" signature="25844:25868" ph="..." />
             <marker date="1515080989506" expanded="true" signature="25844:25885" ph="..." />
             <marker date="1515080989506" expanded="true" signature="25844:25903" ph="..." />
@@ -677,10 +1008,17 @@
             <marker date="1515080989506" expanded="true" signature="41919:41992" ph="..." />
             <marker date="1515080989506" expanded="true" signature="41919:41979" ph="..." />
             <marker date="1515080989506" expanded="true" signature="41919:41961" ph="..." />
+=======
+            <marker date="1515331892152" expanded="true" signature="48477:48519" ph="..." />
+            <marker date="1515331892152" expanded="true" signature="48477:48537" ph="..." />
+            <marker date="1515331892152" expanded="true" signature="48477:48550" ph="..." />
+            <marker date="1515331892152" expanded="true" signature="48477:48565" ph="..." />
+>>>>>>> frontend
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -701,46 +1039,102 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="57" column="63" lean-forward="true" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
+=======
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+          <folding>
+            <marker date="1515331720795" expanded="true" signature="2196:2518" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2236:2481" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2256:2411" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2425:2475" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2597:2675" ph="{...}" />
+            <marker date="1515331720795" expanded="true" signature="2734:2992" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Admin/partials/TopHeader.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="52" />
+>>>>>>> frontend
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/model/Admin/AdminAddEvent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-68">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/views/Admin/AdminIndex.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+>>>>>>> frontend
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/routes/Admin/AdminAddEvent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/views/Admin/partials/footer.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+>>>>>>> frontend
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="504" column="34" lean-forward="false" selection-start-line="504" selection-start-column="34" selection-end-line="504" selection-end-column="34" />
+=======
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-595">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="4" />
+>>>>>>> frontend
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/Admin/AdminIndex.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+=======
+    <entry file="file://$PROJECT_DIR$/model/Admin/AdminAddEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> frontend
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/routes/Admin/AdminIndex.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+=======
+    <entry file="file://$PROJECT_DIR$/routes/Admin/AdminAddEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+>>>>>>> frontend
           <folding />
         </state>
       </provider>
