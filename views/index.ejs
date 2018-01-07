@@ -4,8 +4,6 @@
 <% include partials/header.ejs %>
 <body>
 
-/* position the close button */
-
 
 <!-----------------------------------------the homepage navigation-->
 
@@ -18,25 +16,15 @@
 <section class="container-fluid text-center section" id="heroarea">
     <div class="heroarea-caption">
         <div class="slideshow-container">
+            <% for(let i = 0; i < HomeBanner.length; i++){ %>
 
             <div class="mySlides fade">
                 <div class="numbertext">1 / 3</div>
-                <img src="images\aleksandra-boguslawska-595.jpg" style="width:100%">
+                <img src="/images/HomeBanner/<%= HomeBanner[i].BannerName %>" style="width:100px;height: 100px">
                 <div class="text">Caption Text</div>
             </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="images\ales-krivec-434.jpg" style="width:100%">
-                <div class="text">Caption Two</div>
-            </div>
-
-            <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
-                <img src="images\ales-krivec-1881.jpg" style="width:100%">
-                <div class="text">Caption Three</div>
-            </div>
-
+            <% } %>
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
