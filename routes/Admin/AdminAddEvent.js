@@ -5,12 +5,6 @@ const mongoose = require('mongoose');
 
 
 var assert = require('assert');
-
-
-//Admin Event handling
-
-
-var assert = require('assert');
 let AddEventSchema = mongoose.Schema({
 
     event_name: String,
@@ -31,9 +25,7 @@ let AddEventSchema = mongoose.Schema({
 
 
 
-
 let assert = require('assert');
-
 
 
 
