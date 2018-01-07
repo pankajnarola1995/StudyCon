@@ -19,10 +19,10 @@ let AddEventSchema = mongoose.Schema({
 
 //Admin Event handling
 
-let AddEvent = mongoose.model("AddEvent", AddEventSchema);
 
 
-let assert = require('assert');
+
+
 
 
 
