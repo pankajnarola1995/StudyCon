@@ -30,7 +30,7 @@ router.post('/LoginCheck', function (req, res, next) {
         if (err) {
             res.json({"err": err});
         } else {
-            if (data.length == 1) {
+            if (data.length === 1) {
                 console.log(data);
                req.session.EmailId = req.body.EmailID;
                req.session.Password = req.body.Password;
