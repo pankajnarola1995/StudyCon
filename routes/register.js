@@ -1,11 +1,9 @@
-<<<<<<< HEAD
+
 let express = require('express');
 let router = express.Router();
-=======
 
-var express = require('express');
-var router = express.Router();
->>>>>>> b8e9e30b45d7e4b08b0fac7b23e6daf8321cdee2
+
+
 const mongoose = require('mongoose');
 let assert = require('assert');
 let Schema = mongoose.Schema;
@@ -30,7 +28,7 @@ let Register = mongoose.model("Register", RegisterSchema);
 
 //let contact = mongoose.model('contact');
 
-<<<<<<< HEAD
+
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
@@ -49,9 +47,8 @@ router.get('/', function (req, res, next) {
     });
 });
 
-=======
 
->>>>>>> b8e9e30b45d7e4b08b0fac7b23e6daf8321cdee2
+
 router.get('/', function (req, res, next) {
 
     var Consultancy = mongoose.model("Consultancy");
