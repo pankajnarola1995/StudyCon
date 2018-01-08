@@ -1,6 +1,11 @@
 let express = require('express'),
     router = express.Router(),
     Consultancy = require('../model/Admin/AdminConsultancy'),
+    Language = require('../model/Admin/AdminLanguage'),
+    PilotTraining = require('../model/Admin/AdminPilotTraining'),
+    CallCenter = require('../model/Admin/AdminCallCenter'),
+    HomeBanner = require('../model/Admin/AdminHomeBanner'),
+    AdminEvent = require('../model/Admin/AdminAddEvent'),
     contact = require('../model/contact');
 const mongoose = require('mongoose');
 let Search = require('bing.search');
@@ -35,19 +40,36 @@ let path = '/bing/v7.0/search';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    Consultancy.find(function (err, data) {
-        if (data) {
+    Consultancy.find(function (err, Consultancydata) {
+        Language.find(function (err, Languagedata) {
+            PilotTraining.find(function (err, PilotTrainingdata) {
+                CallCenter.find(function (err, CallCenterdata) {
+                    HomeBanner.find(function (err, HomeBannerdata) {
+                        AdminEvent.find(function (err, AdminEventdata) {
 
-            console.log("Get Counsultancy Details Data Fetched for menu :User ");
-            res.render('index', {Consultancy: data});
-        }
-        else {
-            res.render('index');
-        }
+                            if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
 
+                                console.log("Get Counsultancy Details Data Fetched for menu :User ");
+                                res.render('index', {
+                                    Consultancy: Consultancydata,
+                                    Language: Languagedata,
+                                    PilotTraining: PilotTrainingdata,
+                                    CallCenter: CallCenterdata,
+                                    HomeBanner: HomeBannerdata,
+                                    AdminEvent: AdminEventdata,
+                                });
+                            }
+                            else {
+                                res.render('index');
+                            }
+
+                        });
+                    });
+                });
+            });
+        });
     });
 });
-
 router.post('/search', function (req, res, next) {
 
     let keyword = req.body.keyword;
@@ -80,7 +102,7 @@ router.post('/search', function (req, res, next) {
     );
 
 
-    
+
     Consultancy.find( keyword, (err, data) => {
         if(err) console.log(err);
         console.log(data);
@@ -102,14 +124,14 @@ router.post('/search', function (req, res, next) {
                 // header keys are lower-cased by Node.js
                 if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
                     console.log(header + ": " + response.headers[header]);
-           // body = JSON.stringify(JSON.parse(body), null, '  ');
-           let parsedBody = JSON.parse(body);
+            // body = JSON.stringify(JSON.parse(body), null, '  ');
+            let parsedBody = JSON.parse(body);
             body = JSON.stringify(parsedBody, null, '  ');
 
-            let urls = parsedBody.webPages.value.map(function(item){
+            let urls = parsedBody.webPages.value.map(function (item) {
                 return item.url;
             })
-            let name = parsedBody.webPages.value.map(function(item){
+            let name = parsedBody.webPages.value.map(function (item) {
                 return item.name;
             })
 
@@ -123,15 +145,15 @@ router.post('/search', function (req, res, next) {
         });
     };
 
-    let bing_web_search =    function (search) {
+    let bing_web_search = function (search) {
         console.log('Searching the Web for: ' + term);
         let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + '?q=' + encodeURIComponent(search),
-            top:10,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            method: 'GET',
+            hostname: host,
+            path: path + '?q=' + encodeURIComponent(search),
+            top: 10,
+            headers: {
+                'Ocp-Apim-Subscription-Key': subscriptionKey,
             }
         };
 
@@ -150,7 +172,7 @@ router.post('/search', function (req, res, next) {
 
 });
 
-router.post('/saveContact',  (req, res) => {
+router.post('/saveContact', (req, res) => {
     console.log("postcontact");
     /*let contactdata = new contact({
         Name: req.body.name,
@@ -167,8 +189,8 @@ router.post('/saveContact',  (req, res) => {
 
         }
         else {
-            console.log("contact inserted ");
-            res.send("success");
+            console.log("Contacted Successfully ! Will Get You Back Soon... ");
+            res.send("true");
         }
     });
 });

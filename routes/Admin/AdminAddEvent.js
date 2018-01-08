@@ -5,30 +5,6 @@ const mongoose = require('mongoose');
 
 
 var assert = require('assert');
-let AddEventSchema = mongoose.Schema({
-
-    event_name: String,
-    event_start: String,
-    event_end: String,
-    event_description: String,
-    event_type: String,
-    event_details: String,
-    images: String,
-    // images:String
-
-});
-
-//Admin Event handling
-
-
-
-
-
-
-
-
-
-
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -105,9 +81,8 @@ router.post('/AdminAddEventDeleteData', (req, res) => {
         if (err) {
             res.json({"err": err});
         } else {
-            Image.remove({addEvent_id: eid}, function (err) {
                 res.json({success: true});
-            });
+
         }
 
     });

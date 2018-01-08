@@ -365,26 +365,38 @@
                 <div class="dropdown">
                     <li><a href="#blog">Languages</a></li>
                     <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <%
+                        if(locals.Language)
+                        for(var i = 0; i < Language.length; i++){ %>
+
+                        <a href="#"><%= Language[i].Language_name %></a>
+
+                        <% } %>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <li><a href="#works">Pilot Training</a></li>
                     <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <%
+                        if(locals.PilotTraining)
+                        for(var i = 0; i < PilotTraining.length; i++){ %>
+
+                        <a href="#"><%= PilotTraining[i].PilotTraining_name %></a>
+
+                        <% } %>
                     </div>
                 </div>
                 <div class="dropdown">
                     <li><a href="#portfolio">Call Center</a></li>
                     <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <%
+                        if(locals.CallCenter)
+                        for(var i = 0; i < CallCenter.length; i++){ %>
+
+                        <a href="#"><%= CallCenter[i].CallCenter_name %></a>
+
+                        <% } %>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -421,7 +433,7 @@
             dataType: 'json',
             success: (body) => {
 
-              //  $('#myserachResults').html(urls);
+                //  $('#myserachResults').html(urls);
                 let i, html;
                 html = '<ul>';
                 for (i = 0; i < body.length; i++) {
@@ -454,18 +466,21 @@
             Name: $('#name').val(),
             Subject: $('#subject').val(),
             Email: $('#email').val(),
-            Message: $('#message').val()
+            Message: $('#message').val(),
+            Date: Date.now()
         };
 
-        alert("a");
         $.ajax({
             type: 'POST',
             url: "http://localhost:3000/saveContact",
             data: {'contactdata': contactdata},
             dataType: 'json',
-            success: (data) => {
-                $("#contact").load(location.href + "http://localhost:3000/", "");
-                // $("#contact").load(location.href + " #contact");
+            success: () => {
+                alert("Contacted Successfully ! Will Get You Back Soon... ");
+
+                //  $("#contact").load(location.href + "http://localhost:3000/", "");
+                $('#ContactDiv').load("http://localhost:3000/ #ContactDiv");
+// $("#contact").load(location.href + " #contact");
 
             }
         });

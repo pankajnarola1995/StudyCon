@@ -1,4 +1,5 @@
 
+
 let express = require('express');
 let router = express.Router();
 
@@ -25,27 +26,7 @@ let RegisterSchema = mongoose.Schema({
 });
 let Register = mongoose.model("Register", RegisterSchema);
 
-
 //let contact = mongoose.model('contact');
-
-
-/* GET home page. */
-
-router.get('/', function (req, res, next) {
-
-//let contact = mongoose.model('contact');
-
-//database connection
-    let dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
-        useMongoClient: true,
-        /* other options */
-    });
-
-    let Consultancy = mongoose.model("Consultancy");
-    Consultancy.find(function (err, data) {
-
-    });
-});
 
 
 

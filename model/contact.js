@@ -3,16 +3,17 @@ const Schema = mongoose.Schema;
 
 //Create schema and modoles
 
-let contactSchema = Schema({
+let ContactSchema = Schema({
 
     Name: String,
     Subject: String,
     Email: String,
-    Message: String
+    Message: String,
+    Date:Date
 
 });
 
-let contact = mongoose.model("contact", contactSchema);
+let Contact = mongoose.model("Contact", ContactSchema);
 
-module.exports = contact;
+module.exports = Contact;
 
