@@ -1,6 +1,5 @@
-
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const mongoose = require('mongoose');
 let assert = require('assert');
 let Schema = mongoose.Schema;
@@ -22,8 +21,7 @@ let RegisterSchema = mongoose.Schema({
 });
 let Register = mongoose.model("Register", RegisterSchema);
 
-
-//let contact = mongoose.model('contact');
+/* GET home page. */
 
 
 router.get('/', function (req, res, next) {
