@@ -1,12 +1,11 @@
-<<<<<<< HEAD
+
+
 let express = require('express');
 let router = express.Router();
-const mongoose= require('mongoose');
-=======
-var express = require('express');
-var router = express.Router();
+
+
+
 const mongoose = require('mongoose');
->>>>>>> origin/stylecss
 let assert = require('assert');
 let Schema = mongoose.Schema;
 let path = require('path');
@@ -27,29 +26,15 @@ let RegisterSchema = mongoose.Schema({
 });
 let Register = mongoose.model("Register", RegisterSchema);
 
-
 //let contact = mongoose.model('contact');
 
-/* GET home page. */
-<<<<<<< HEAD
-router.get('/', function(req, res, next) {
 
-//let contact = mongoose.model('contact');
 
-//database connection
-    let dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
-        useMongoClient: true,
-        /* other options */
-    });
-
-    let Consultancy = mongoose.model("Consultancy");
-    Consultancy.find(function (err,data) {
-=======
 router.get('/', function (req, res, next) {
 
     var Consultancy = mongoose.model("Consultancy");
     Consultancy.find(function (err, data) {
->>>>>>> origin/stylecss
+
         if (data) {
 
             console.log("Get Counsultancy Details Data Fetched for menu :User ");

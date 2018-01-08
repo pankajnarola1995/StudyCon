@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Create schema and modoles
-let LanguageSchema = Schema({
+let PilotTrainingSchema = Schema({
     _id: Schema.Types.ObjectId,
-    Language_name: String,
+    PilotTraining_name: String,
     flage_image: String,
     requirenment: String,
     detail: String,
     important_link: String
 
 });
-let Language = mongoose.model("Language", LanguageSchema);
+let PilotTraining = mongoose.model("PilotTraining", PilotTrainingSchema);
 
-module.exports = Language;
+module.exports = PilotTraining;
 
