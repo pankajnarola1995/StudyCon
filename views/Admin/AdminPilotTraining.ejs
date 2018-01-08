@@ -1,0 +1,492 @@
+<% include partials/TopHeader.ejs %>
+<% include partials/header.ejs %>
+<style>
+    #abc {
+        width: 100%;
+        height: 100%;
+        opacity: .95;
+        top: 0;
+        left: 0;
+        display: none;
+        position: fixed;
+        background-color: #313131;
+        overflow: auto;
+        align-content: center;
+    }
+
+    #abcImage {
+        width: 100%;
+        height: 100%;
+        opacity: .95;
+        top: 0;
+        left: 0;
+        display: none;
+        position: fixed;
+        background-color: #313131;
+        overflow: auto;
+        align-content: center;
+    }
+
+    img #close {
+        position: absolute;
+        right: -14px;
+        top: -14px;
+        cursor: pointer
+    }
+
+    div#popupContact {
+        position: absolute;
+        left: 50%;
+        top: 17%;
+        margin-left: -202px;
+        font-family: 'Raleway', sans-serif
+    }
+
+    div#popupContactImage {
+        position: absolute;
+        left: 50%;
+        top: 17%;
+        margin-left: -202px;
+        font-family: 'Raleway', sans-serif
+    }
+
+    p {
+        margin-top: 30px
+    }
+
+    h2 {
+        background-color: #FEFFED;
+        padding: 20px 35px;
+        margin: -10px -50px;
+        text-align: center;
+        border-radius: 10px 10px 0 0
+    }
+
+    hr {
+        margin: 10px -50px;
+        border: 0;
+        border-top: 1px sopid #ccc
+    }
+
+    span {
+        color: red;
+        font-weight: 700
+    }
+
+</style>
+
+<!--Add PilotTraining Details -->
+<div class="span9">
+    <div class="content">
+
+        <div class="module">
+            <div class="module-head">
+                <h3>PilotTraining Detail Add</h3>
+            </div>
+            <div class="module-body">
+
+
+                <form class="form-horizontal row-fluid" method="post"
+                      action="/Admin/AdminPilotTraining/AdminPilotTrainingAddData"
+                      enctype="multipart/form-data">
+
+                    <div class="control-group">
+                        <label class="control-label"><b>PilotTraining Name</b></label>
+                        <div class="controls">
+
+                            <input type="text" name="PilotTraining_name" id="PilotTraining_name"
+                                   placeholder="Type PilotTraining name"
+                                   class="span8" required>
+
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"><b>PilotTraining Flag</b></label>
+                        <div class="controls">
+                            <input type="file" id="flag_image" name="flage_image" class="span8" required>
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Requirenment</b></label>
+                        <div class="controls">
+                            <textarea class="span8" rows="5" name="requirenment" id="requirenment"
+                                      placeholder="Enter requirenment" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Details</b></label>
+                        <div class="controls">
+                            <textarea class="span8" rows="5" name="detail" id="detail"
+                                      placeholder="Enter detail" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Important Links</b></label>
+                        <div class="controls">
+                            <textarea class="span8" rows="5" name="important_link" id="important_link"
+                                      placeholder="Enter important_link" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Images</b></label>
+                        <div class="controls">
+                            <input type="file" id="images" name="images" class="span8" multiple required min="2">
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn " name="add_seed" id="add_seed">Submit Form</button>
+                        </div>
+                    </div>
+
+                </form>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div id="BannerDataTable">
+                    <table cellpadding="0" cellspacing="0" border="0"
+                           class="datatable-1 table table-bordered table-striped	 display" width="100%"
+                           style="font-size:13px;">
+                        <thead>
+                        <tr>
+
+                            <th>Delete</th>
+                            <th>Update</th>
+                            <th>Update Image</th>
+                            <th>Flag</th>
+                            <th>PilotTraining Name</th>
+                            <th>Requirenment</th>
+                            <th>Details</th>
+                            <th>Important Links</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <% for(let i = 0; i < PilotTraining.length; i++){ %>
+                        <tr class="odd gradeX">
+                            <td><a onclick="deletePilotTraining('<%= PilotTraining[i]._id %>')"><img
+                                            src="/images/delete.png"
+                                            style="height: 25px;width: 25px"/></a>
+                            </td>
+
+
+                            <!-- Display Popup Button -->
+
+
+                            <td><a id="popup" onclick="div_show('<%= PilotTraining[i]._id %>')"> <img
+                                            src="/images/update.png"
+                                            id="myPopup"
+                                            style="height: 25px;width: 25px"/></a>
+                            </td>
+                            <td>
+                                <input type="hidden" value="<%= PilotTraining[i]._id %>" name="pid">
+                                <a id="popupImage" onclick="div_show1('<%= PilotTraining[i]._id %>')"><img
+                                            src="/images/update.png"
+
+                                            style="height: 25px;width: 25px"/></a>
+                            </td>
+                            <td><img height="75" width="75"
+                                     src="/images/PilotTraining_Flag/<%= PilotTraining[i].flage_image %>"/></td>
+                            <td><%= PilotTraining[i].PilotTraining_name %></td>
+                            <td><%= PilotTraining[i].requirenment %></td>
+                            <td><%= PilotTraining[i].detail %></td>
+                            <td><%= PilotTraining[i].important_link %></td>
+
+                        </tr>
+                        <% } %>
+
+                        </tbody>
+                        <tfoot>
+                        <tr>
+
+                            <th>Delete</th>
+                            <th>Update</th>
+                            <th>Update Image</th>
+                            <th>Flag</th>
+                            <th>PilotTraining Name</th>
+                            <th>Requirenment</th>
+                            <th>Details</th>
+                            <th>Important Links</th>
+
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <br/>
+
+    </div><!--/.content-->
+</div><!--/.span9-->
+
+
+<!--Update PilotTraining Details  -->
+<div id="body" style="overflow:hidden;align-items:center;">
+
+    <div id="abc">
+        <!-- Popup Div Starts Here -->
+        <div id="popupContact">
+            <!-- Contact Us Form -->
+
+            <h1 style="
+        background-color:#FEFFED;
+        padding:20px 35px;
+        margin:-10px -50px;
+        text-align:center;
+        border-radius:10px 10px 0 0;
+        float: right">
+                Update PilotTraining Details
+                <img id="close" src="/images/close.png" onclick="div_hide() " style="float: right;margin-left: 50px">
+            </h1>
+            <form class="form-horizontal row-fluid" method="post" enctype="multipart/form-data"
+                  action="/Admin/AdminPilotTraining/AdminPilotTrainingUpdateData" style="
+                                                                                      max-width:100%;
+                                                                                      min-width:100%;
+                                                                                      padding:10px 50px;
+                                                                                      border:2px sopid gray;
+                                                                                      border-radius:10px;
+                                                                                      font-family:raleway;
+                                                                                      background-color:#fff;
+
+      ">
+                <br/><br/><br/><br/>
+
+                <div class="control-group">
+                    <label class="control-label"><b>PilotTraining Name</b></label>
+                    <div class="controls">
+                        <textarea name="PilotTraining_name" id="getResponsePilotTraining_name"
+                                  placeholder="Type PilotTraining name"
+                                  class="span8" style="resize: none"></textarea>
+                        <textarea name="id" id="getResponseid" placeholder="Type PilotTraining name"
+                                  class="span8" style="resize: none;display: none"></textarea>
+
+
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"><b>PilotTraining Flag</b></label>
+                    <div class="controls">
+                        <input type="file" id="flage_image" name="flage_image" class="span8">
+                        <pre id="ima" style="height:100%;width: 75px"></pre>
+                    </div>
+                </div>
+
+
+                <div class="control-group">
+                    <label class="control-label"><b>Requirenment</b></label>
+                    <div class="controls">
+                        <textarea class="span8" rows="5" name="requirenment" id="getResponserequirenment"
+                                  placeholder="Enter requirenment"></textarea>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"><b>Details</b></label>
+                    <div class="controls">
+                        <textarea class="span8" rows="5" name="detail" id="getResponsedetail"
+                                  placeholder="Enter detail"></textarea>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"><b>Important Links</b></label>
+                    <div class="controls">
+                        <textarea class="span8" rows="5" name="important_link" id="getResponseimportant_link"
+                                  placeholder="Enter important_link"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn" name="add_seed" id="add_seed">Submit Form</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!-- Popup Div Ends Here -->
+    </div>
+</div>
+
+<!--Update PilotTraining Image Details  -->
+<div id="body" style="overflow:hidden;align-items:center;">
+
+    <div id="abcImage">
+        <!-- Popup Div Starts Here -->
+        <div id="popupContactImage">
+            <!-- Contact Us Form -->
+
+            <h1 style="
+        background-color:#FEFFED;
+        padding:20px 35px;
+        margin:-10px -50px;
+        text-align:center;
+        border-radius:10px 10px 0 0;
+        float: right">
+                Update PilotTraining Details
+                <img id="close" src="/images/close.png" onclick="div_hideImage() "
+                     style="float: right;margin-left: 50px">
+            </h1>
+            <div style="
+                                                                                      max-width:100%;
+                                                                                      min-width:100%;
+                                                                                      padding:10px 50px;
+                                                                                      border:2px sopid gray;
+                                                                                      border-radius:10px;
+                                                                                      font-family:raleway;
+                                                                                      background-color:#fff;
+
+      ">
+                <form class="form-horizontal row-fluid" method="post" enctype="multipart/form-data"
+                      action="/Admin/AdminPilotTraining/AdminPilotTrainingUpdateImages">
+                    <br/><br/><br/><br/>
+
+                    <div class="control-group">
+                        <label class="control-label"><b>Images</b></label>
+                        <div class="controls">
+                            <input type="file" id="images" name="images" class="span8" multiple required>
+                        </div>
+                    </div>
+                    <textarea id="pidForNewImages" name="pid1" style="visibility: hidden"></textarea>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn" name="add_seed" id="add_seed">Submit Form</button>
+                        </div>
+                    </div>
+
+                </form>
+                <form class="form-horizontal row-fluid" method="post" enctype="multipart/form-data"
+                      action="/Admin/AdminPilotTraining/AdminPilotTrainingDeleteAllImages" style="margin: 10%">
+                    <textarea id="pid" name="pid" style="visibility: hidden"></textarea>
+                    <button type="submit" class="btn" name="add_seed" id="add_seed"
+                            style="color: #0e0e0e;text-decoration: dotted">Delete All Images
+                    </button>
+                </form>
+                <div id="SearchResult" style="background: #fff;margin-top: 10%;align-content: center"></div>
+
+            </div>
+        </div>
+        <!-- Popup Div Ends Here -->
+    </div>
+</div>
+
+<script src="javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+
+<script>
+    function deletePilotTraining(pid) {
+        //console.log("de");
+        if (confirm("Are you sure you want to delete customer ")) {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/Admin/AdminPilotTraining/AdminPilotTrainingDeleteData',
+                data: {"pid": pid},
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+                        $('#BannerDataTable').load("http://localhost:3000/Admin/AdminPilotTraining #BannerDataTable");
+
+                    }
+                }
+            });
+        }
+        else {
+            return false;
+        }
+    }
+
+    // When the user clicks on div, open the popup
+
+    function div_show(pid) {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/Admin/AdminPilotTraining/AdminPilotTrainingUpdateGetData',
+            data: {"pid": pid},
+            dataType: 'json',
+        }).done(function (data) {
+            $('#getResponseid').html(data.PilotTraining[0]._id);
+            $('#getResponsePilotTraining_name').html(data.PilotTraining[0].PilotTraining_name);
+            $('#getResponserequirenment').html(data.PilotTraining[0].requirenment);
+            $('#getResponsedetail').html(data.PilotTraining[0].detail);
+            $('#getResponseimportant_link').html(data.PilotTraining[0].important_link);
+            $('#ima').html('<img height="75" width="75" src="/images/PilotTraining_Flag/' + data.PilotTraining[0].flage_image + '">');
+        });
+        document.getElementById('abc').style.display = "block";
+        //console.log(data);
+
+    }
+
+    //Function to Hide Popup
+    function div_hide() {
+        document.getElementById('abc').style.display = "none";
+    }
+
+    function div_show1(pid) {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/Admin/AdminPilotTraining/AdminPilotTrainingUpdateGetImages',
+            data: {"pid": pid},
+            dataType: 'json',
+        }).done(function (data) {
+            let i, html, a;
+            html = '<div>';
+            for (i = 0; i < data.length; i++) {
+                a = data[i]._id;
+
+                html += '<form method="post"   action="/Admin/AdminPilotTraining/AdminPilotTrainingDeleteImage" ><input name="Iid" value="' + data[i]._id + '" hidden /><img height="300" width="300" src="/images/PilotTraining/' + data[i].images_name + '" /><button class="btn" type="submit" style="align:center" >DELETE </button></form>' + ' \n' +
+                    '                    </br></br>';
+            }
+            html += '<div>';
+
+            $("#SearchResult").html(html);
+            $("#pid").html(pid);
+            $("#pidForNewImages").html(pid);
+            // $('#ima').html('<img height="75" width="75" src="/images/PilotTraining_Flag/' + data.PilotTraining[0].flage_image + '">');
+        });
+        document.getElementById('abcImage').style.display = "block";
+        //console.log(data);
+
+    }
+
+    //Function to Hide Popup
+    function div_hideImage() {
+        document.getElementById('abcImage').style.display = "none";
+    }
+
+    function deleteImages(Iid) {
+        // console.log("de");
+        if (confirm("Are you sure you want to delete customer ")) {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/Admin/AdminPilotTraining/AdminPilotTrainingDeleteImage',
+                data: {"Iid": Iid},
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+                        location.reload();
+
+                    }
+                }
+            });
+        }
+        else {
+
+        }
+    }
+
+</script>
+
+<% include partials/footer.ejs %>

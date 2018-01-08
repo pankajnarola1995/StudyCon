@@ -3,9 +3,11 @@
 var express = require('express');
 var router = express.Router();
 
+var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
+
 router.get('/adminURL', function(req, res, next) {
     //console.log("admin");
-    res.render('views/Admin/adminchat');
+    res.render('Admin/adminchat');
 });
 // Initialize variables
 var $window = $(window);
