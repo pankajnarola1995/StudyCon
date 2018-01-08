@@ -470,15 +470,17 @@
             Date: Date.now()
         };
 
-        alert("a");
         $.ajax({
             type: 'POST',
             url: "http://localhost:3000/saveContact",
             data: {'contactdata': contactdata},
             dataType: 'json',
-            success: (data) => {
-                $("#contact").load(location.href + "http://localhost:3000/", "");
-                // $("#contact").load(location.href + " #contact");
+            success: () => {
+                alert("Contacted Successfully ! Will Get You Back Soon... ");
+
+                //  $("#contact").load(location.href + "http://localhost:3000/", "");
+                $('#ContactDiv').load("http://localhost:3000/ #ContactDiv");
+// $("#contact").load(location.href + " #contact");
 
             }
         });

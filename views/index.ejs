@@ -23,18 +23,20 @@
                 <img src="/images/HomeBanner/<%= HomeBanner[i].BannerName %>" style="width:100px;height: 100px">
                 <div class="text">Caption Text</div>
             </div>
-
             <% } %>
+
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
         </div>
+
         <br>
 
         <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+            <%  for(let i = 1; i <= HomeBanner.length; i++){ %>
+
+            <span class="dot" onclick="currentSlide(<%= i %>)"></span>
+            <% } %>
         </div>
 
         <script>
@@ -71,13 +73,7 @@
         </script>
 
         <!--    replace the # in href bellow with the link of the destination page-->
-        <a href="#" class="btn btn-primary">
-
-            <!--    the button text-->
-            read more
-            <!--    end button text-->
-
-        </a></div>
+       </div>
 </section>
 
 <!-----------------------------------------end hero area-->
@@ -87,65 +83,37 @@
 
 <section id="services" class="container section text-center">
     <div class="row">
-        <div class="col-md-4">
-            <div class="service">
-
-                <!--      customize the icon go to fontawesome website to find the complete list of icons-->
-                <span class="fa fa-apple"></span>
-                <!--       end icon-->
-
-                <h3 class="underlined">
-                    <!--        customize the column heading-->
-                    responsive design
-                    <!--        end heading-->
-                </h3>
-                <p>
-                    <!--        customize the column text-->
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    <!--        end column text-->
-                </p>
-            </div>
-        </div>
+        <%
+        if(locals.Consultancy)
+            for(var i = 0; i < Consultancy.length; i++){
+            %>
 
         <div class="col-md-4">
             <div class="service">
 
                 <!--      customize the icon go to fontawesome website to find the complete list of icons-->
-                <span class="fa fa-globe"></span>
+                <img src="/images/Consultancy_Flag/<%= Consultancy[i].flage_image %>" style="height: 50px;width: 50px" />
+
                 <!--       end icon-->
 
                 <h3 class="underlined">
                     <!--        customize the column heading-->
-                    unlimited support
+                    <%= Consultancy[i].country_name %>
                     <!--        end heading-->
                 </h3>
                 <p>
+                    <b>Requirenment</b></br>
                     <!--        customize the column text-->
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    <%= Consultancy[i].requirenment %>
                     <!--        end column text-->
                 </p>
             </div>
         </div>
+<% if (i > 3){
+    %><%
+}
+} %>
 
-        <div class="col-md-4">
-            <div class="service">
-
-                <!--      customize the icon go to fontawesome website to find the complete list of icons-->
-                <span class="fa fa-archive"></span>
-                <!--       end icon-->
-
-                <h3 class="underlined">
-                    <!--        customize the column heading-->
-                    easy to customize
-                    <!--        end heading-->
-                </h3>
-                <p>
-                    <!--        customize the column text-->
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    <!--        end column text-->
-                </p>
-            </div>
-        </div>
 
     </div>
 </section>
@@ -493,6 +461,7 @@
 <!--######################################begin contact us-->
 
 <!--to change the reception email address open nd edit the info-->
+<div id="ContactDiv">
 <section class="section container-fluid" id="contact">
     <div class="section-title text-center text-uppercase">
         <h2 class="underlined">contact us</h2>
@@ -507,28 +476,29 @@
                     <input name="email" required type="email" id="email" form="contact-form" placeholder="Your Email">
                     <textarea name="message" required id="message" form="contact-form"
                               placeholder="Your message"></textarea>
-                      <button type="submit" >submit</button>
+                    <input name="submit" type="submit" class="btn btn-primary" id="submit" formaction="saveContact()" value="submit">
+
                 </form>
                 <!--        end contact form-->
 
                 <ul class="info list-unstyled">
                     <!--         the list of contact information under contact form-->
-                    <li><strong>phone</strong> : 00-11-4477777</li>
-                    <li><strong>email</strong> : city@country.com</li>
-                    <li><strong>Address</strong> : 22, my city, home california</li>
+                    <li><strong>phone</strong> :+49 176 56 99 28 43</li>
+                    <li><strong>email</strong> : Info@StudyCon.com</li>
+                    <li><strong>Address</strong> : Fachhochschule Kiel, Sokratesplatz, Kiel</li>
                     <!--          end list-->
                 </ul>
             </div>
 
             <!--      the map container don't remove it if you want to display the map-->
             <div class="col-md-6">
-                <div id="map"></div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2326.383208762723!2d10.178792815365203!3d54.33253470808531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41620151589bf8cb%3A0x67eb759431c88232!2sFachhochschule+Kiel!5e0!3m2!1sen!2sde!4v1515371724843" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <!--      end map container-->
         </div>
     </div>
 </section>
-
+</div>
 <!--end contact form-->
 
 

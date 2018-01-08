@@ -2,7 +2,7 @@ let express = require('express'),
     router = express.Router(),
     Consultancy = require('../model/Admin/AdminConsultancy'),
     Language = require('../model/Admin/AdminLanguage'),
-    PilotTraining = require('../model/Admin/AdminConsultancy'),
+    PilotTraining = require('../model/Admin/AdminPilotTraining'),
     CallCenter = require('../model/Admin/AdminCallCenter'),
     HomeBanner = require('../model/Admin/AdminHomeBanner'),
     AdminEvent = require('../model/Admin/AdminAddEvent'),
@@ -189,8 +189,8 @@ router.post('/saveContact', (req, res) => {
 
         }
         else {
-            console.log("contact inserted ");
-            res.send("success");
+            console.log("Contacted Successfully ! Will Get You Back Soon... ");
+            res.send("true");
         }
     });
 });
