@@ -7,8 +7,10 @@ let AddEventSchema = mongoose.Schema({
     event_name: String,
     event_description: String,
     event_type: String,
+    event_start:Date,
+    event_end: Date,
     event_details: String,
-    images: String,
+
     // images:String
 
 });

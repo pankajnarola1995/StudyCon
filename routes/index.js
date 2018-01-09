@@ -128,16 +128,14 @@ router.post('/search', function (req, res, next) {
             let parsedBody = JSON.parse(body);
             body = JSON.stringify(parsedBody, null, '  ');
 
-            let urls = parsedBody.webPages.value.map(function (item) {
-                return item.url;
-            })
+
             let name = parsedBody.webPages.value.map(function (item) {
                 return item.name;
             })
 
             console.log('\nJSON Response:\n');
             console.log(name);
-            res.send(urls);
+            res.send(name);
 
         });
         response.on('error', function (e) {

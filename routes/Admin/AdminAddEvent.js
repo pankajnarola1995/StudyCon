@@ -1,34 +1,18 @@
 let express = require('express'),
     router = express.Router(),
-    AddEvent = require('../../model/Admin/AdminAddEvent');
+    AddEvent = require('../../model/Admin/AdminAddEvent'),
+    Image = require('../../model/Admin/AdminImages');
 const mongoose = require('mongoose');
 
+let assert = require('assert');
+let fileUpload = require('express-fileupload');
+router.use(fileUpload());
 
-var assert = require('assert');
-let AddEventSchema = mongoose.Schema({
 
-    event_name: String,
-    event_start: String,
-    event_end: String,
-    event_description: String,
-    event_type: String,
-    event_details: String,
-    images: String,
-    // images:String
-
-});
-
-//Admin Event handling
-
-/* GET users listing. */
+/* GET AddEvent listing. */
 router.get('/', function (req, res, next) {
-    //console.log("admin");
-
     if (req.session.EmailId) //&& (req.session.Password)
     {
-        //console.log("admin");
-
-        var AddEvent = mongoose.model("AddEvent");
 
         AddEvent.find(function (err, AddEventdata) {
             if (AddEventdata) {
@@ -39,70 +23,105 @@ router.get('/', function (req, res, next) {
             else {
                 res.status(400).send(err);
             }
+        });
+
+    }
+    else {
+        res.redirect('/Admin');
+    }
+});
+
+router.post('/AdminAddEventAddData', (req, res) => {
+        if (req.session.EmailId) //&& (req.session.Password)
+        {
+
+            if (req.files.images.length >= 2) {
+
+                let images = req.files.images;
+                let mul_newpath = new Array();
+
+//AddEvent Data Inserted
+                let AddEventData = new AddEvent({
+                    _id: new mongoose.Types.ObjectId,
+                    event_name: req.body.event_name,
+                    event_description: req.body.event_description,
+                    event_type: req.body.event_type,
+                    event_start: req.body.event_start,
+                    event_end: req.body.event_end,
+                    event_details: req.body.event_details,
+                });
+                console.log(AddEventData);
+
+                let promise = AddEventData.save();
+                assert.ok(promise instanceof require('mpromise'));
+                promise.then(function (result) {
+                    console.log("inserted AddEvent data"); // "Stuff worked!"
+                }, function (err) {
+                    console.log(err); // Error: "It broke"
+                });
+// For loop For Multiple File Uploading
+                for (let i = 0; i < req.files.images.length; i++) {
+                    mul_newpath[i] = './public\\images\\AddEvent\\' + images[i].name;
+                    console.log(mul_newpath[i]);
+                    images[i].mv(mul_newpath[i], function (err) {
+
+                        let image_name = images[i].name;
+                        let imagedata = new Image({
+                            AddEvent_id: AddEventData._id,    // assign the _id from the person
+                            images_name: image_name,
+                        });
+                        imagedata.save(function (error, res) {
+                            if (error) {
+                                console.log("image insert error ");
+                                res.send(error);
+
+                            }
+                            else {
+
+                                console.log("Multiple image inserted " + [i]);
+                            }
+                        });
+                    });
+                }
+                ;
+                console.log("Everything Done");
+                res.redirect("/Admin/AdminAddEvent");
+            }
+            else {
+                res.send("Please Select 2 or More than 2 Files To Upload Multiple Files");
+
+            }
+        }
+        else {
+            res.redirect('/Admin');
+        }
+
+    }
+);
+
+//AddEvent Delete data
+router.post('/AdminAddEventDeleteData', (req, res) => {
+    if (req.session.EmailId) {
+        let eid = req.body.eid;
+        console.log(eid);
+        AddEvent.remove({_id: eid}, function (err) {
+            if (err) {
+                res.json({"err": err});
+            } else {
+                Image.remove({AddEvent_id: eid}, function (err) {
+                    res.json({success: true});
+                });
+            }
 
         });
     }
     else {
         res.redirect('/Admin');
     }
-});
 
+    //AddEvent.findByIdAndRemove(eid).then((docs) => {});
 
-
-
-router.post('/AdminAddEventAddData', (req, res) => {
-    console.log("AdminAddEventAddData");
-    if(req.session.EmailId) //&& (req.session.Password)
-    {
-        //console.log("admin");
-    let AddEventData = new AddEvent({
-        event_name: req.body.event_name,
-        event_description: req.body.event_description,
-        event_type: req.body.event_type,
-        event_start: req.body.event_start,
-        event_end: req.body.event_end,
-        event_details: req.body.event_details,
-        images: req.body.images,
-        //   images:         req.body.images
-    });
-    console.log(AddEventData);
-    let promise = AddEventData.save();
-    assert.ok(promise instanceof require('mpromise'));
-
-    if (promise) {
-        console.log("inserted event data");
-        res.redirect("/Admin/AdminAddEvent");
-    }
-    else {
-        console.log("error in insert event");
-        res.redirect("/Admin/AdminAddEvent");
-
-    }
-    }
-    else {
-        res.redirect('/Admin');
-    }
-
-});
-
-
-//Addevent Delete data
-router.post('/AdminAddEventDeleteData', (req, res) => {
-
-    let eid = req.body.eid;
-    console.log(eid);
-    AddEvent.remove({_id: eid}, function (err) {
-        if (err) {
-            res.json({"err": err});
-        } else {
-                res.json({success: true});
-
-        }
-
-    });
-    //AddEvent.findByIdAndRemove(cid).then((docs) => {});
-
-    //AddEvent.delete(function(err,Consultancy){
+    //AddEvent.delete(function(err,AddEvent){
     // if(err) throw err;
     // console.log('the document is deleted');
     //res.send(question);
@@ -115,90 +134,174 @@ router.post('/AdminAddEventDeleteData', (req, res) => {
 //AddEvent Update Get data
 router.post('/AdminAddEventUpdateGetData', (req, res) => {
     console.log("Ajax working");
+    if (req.session.EmailId) {
 
+        let eid = req.body.eid;
+        console.log(eid);
+        AddEvent.find({_id: eid}, function (err, data) {
+            if (err) {
+                res.json({"err": err});
+            } else {
+                console.log(data);
+                res.send({AddEvent: data});
+            }
 
-    let eid = req.body.eid;
-    console.log(eid);
-    AddEvent.find({_id: eid}, function (err, data) {
-        if (err) {
-            res.json({"err": err});
-        } else {
-            //console.log(data);
-            res.send({AddEvent: data});
-        }
-
-    });
+        });
+    } else {
+        res.redirect("/Admin");
+    }
 });
 //AddEvent Update Get Images
 router.post('/AdminAddEventUpdateGetImages', (req, res) => {
-    console.log("Ajax working:AdminAddEventUpdateGetImages ");
+    // console.log("Ajax working:AdminAddEventUpdateGetImages ");
 
+    if (req.session.EmailId) {
+        let eid = req.body.eid;
+        console.log(eid);
+
+        Image.find({AddEvent_id: eid}, function (err, data) {
+            if (err) {
+                res.json({"err": err});
+            } else {
+                console.log(data);
+                res.send(data);
+
+                //res.send(data);
+            }
+        });
+    } else {
+        res.redirect('/Admin');
+    }
+});
+//AddEvent multiple Delete Images
+router.post('/AdminAddEventDeleteImage', (req, res) => {
+    if (req.session.EmailId) {
+        let Iid = req.body.Iid;
+        console.log(Iid);
+        Image.remove({_id: Iid}, function (err) {
+            if (err) {
+                res.json({"err": err});
+            } else {
+                res.redirect("/Admin/AdminAddEvent")
+            }
+
+        });
+    } else {
+        res.redirect('/Admin');
+    }
+
+});
+router.post('/AdminAddEventDeleteAllImages', (req, res) => {
 
     let eid = req.body.eid;
     console.log(eid);
-    Image.find({addEvent_id_id: eid}, function (err, data) {
+    Image.remove({AddEvent_id: eid}, function (err) {
         if (err) {
             res.json({"err": err});
         } else {
-            console.log(data);
-            res.send({Image: data});
+            res.redirect("/Admin/AdminAddEvent")
         }
 
     });
+
+
 });
 
-// Update data
-router.post('/AdminAddEventUpdateData', (req, res) => {
 
-    //   images:         req.body.imagesnpm install googleapis --save
+//AddEvent Update New Multiple Images
+router.post('/AdminAddEventUpdateImages', (req, res) => {
 
-    // console.log(addeventData);
-    // let images = req.files.images;
-    let flage_image1 = req.files;
-    let mul_newpath = new Array();
-    console.log(flage_image1);
-    let newpath = './public\\images\\Consultancy_Flag\\' + flage_image1.name;
 
-    event_image.mv(newpath, function (err) {
-        if (err)
-            return res.status(500).send(err);
+    if (req.session.EmailId) {
+        if (req.files.images.length >= 2) {
 
-        console.log('File uploaded: Event Image!');
-    });
-    const doc = {
-        id: req.body.id,
-        country_name: req.body.country_name,
-        flage_image: flage_image1.name,
-        requirenment: req.body.requirenment,
-        detail: req.body.detail,
-        important_link: req.body.important_link,
-    };
-    console.log(doc);
-    AddEvent.update({_id: req.body.id}, doc, function (err, data) {
+            let images = req.files.images;
+            let mul_newpath = new Array();
+            console.log(req.body.eid1);
 
-        /*   let promise = Consultancy.update({'country_name': country_name},
-           {
-               $set: {
-                   'country_name': country_name,
-                   'flage_image': flage_image,
-                   'requirenment': requirenment,
-                   'detail': detail,
-                   'important_link': important_link
-               }
-           });
-       assert.ok(promise instanceof require('mpromise'));
-   */
-        if (!err) {
-            console.log("Event Updated");
-            res.redirect("/AdminAddEvent");
+// For loop For Multiple File Uploading
+            for (let i = 0; i < req.files.images.length; i++) {
+                mul_newpath[i] = './public\\images\\AddEvent\\' + images[i].name;
+                console.log(mul_newpath[i]);
+                images[i].mv(mul_newpath[i], function (err) {
+
+                    let image_name = images[i].name;
+                    let imagedata = new Image({
+                        AddEvent_id: req.body.eid1,    // assign the _id from the person
+                        images_name: image_name,
+                    });
+                    console.log(imagedata);
+
+                    let promise = imagedata.save();
+                    assert.ok(promise instanceof require('mpromise'));
+                    promise.then(function (result) {
+                        console.log("Multiple image inserted " + [i]);// "Stuff worked!"
+                    }, function (err) {
+                        console.log(err); // Error: "It broke"
+                    });
+
+                });
+            }
+            ;
+            console.log("Everything Done");
+            res.redirect("/Admin/AdminAddEvent");
+
         }
         else {
-            console.log("error in updated Event");
-            res.send(err);
+            //   alert("Please Select 2 or More than 2 Files");
+            res.send("Please Select 2 or More than 2 Files To Upload Multiple Files");
+
         }
-    });
+
+    } else {
+        res.redirect('/Admin');
+    }
+//location.reload();
+
 });
 
 
-module.exports = router;
+//AddEvent Update data
+router.post('/AdminAddEventUpdateData', (req, res) => {
+    if (req.session.EmailId) {
+       const doc = {
+            id: req.body.eid,
+           event_name: req.body.event_name,
+           event_description: req.body.event_description,
+           event_type: req.body.event_type,
+           event_start: req.body.event_start,
+           event_end: req.body.event_end,
+           event_details: req.body.event_details,
+       };
+        AddEvent.update({_id: req.body.eid}, doc, function (err, data) {
 
+            /*   let promise = AddEvent.update({'AddEvent_name': AddEvent_name},
+               {
+                   $set: {
+                       'AddEvent_name': AddEvent_name,
+                       'flage_image': flage_image,
+                       'requirenment': requirenment,
+                       'detail': detail,
+                       'important_link': important_link
+                   }
+               });
+           assert.ok(promise instanceof require('mpromise'));
+       */
+            if (!err) {
+                console.log("updated AddEvent data");
+                res.redirect("/Admin/AdminAddEvent");
+            }
+            else {
+                console.log("error in updated AddEvent");
+                res.send(err);
+            }
+        });
+
+    }
+    else {
+        res.redirect('/Admin');
+    }
+
+});
+
+module.exports = router;

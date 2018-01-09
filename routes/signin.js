@@ -1,22 +1,12 @@
-let express = require('express');
-let router = express.Router();
-const mongoose= require('mongoose');
-
+let express = require('express'),
+    router = express.Router(),
+    Consultancy = require('../model/Admin/AdminConsultancy'),
+    Register = require('../model//Register');
 
 //let contact = mongoose.model('contact');
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-//let contact = mongoose.model('contact');
-
-//database connection
-    let dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
-        useMongoClient: true,
-        /* other options */
-    });
-
-    let Consultancy = mongoose.model("Consultancy");
     Consultancy.find(function (err,data) {
         if (data) {
 
@@ -32,4 +22,34 @@ router.get('/', function(req, res, next) {
 
     });
 });
+router.post('/UserLogin', function(req, res, next) {
+
+    Register.find({email:req.body.email,password:req.body.password},function (err,data) {
+        if (err) {
+            res.json({"err": err});
+        } else {
+            if (data.length === 1) {
+                console.log(data);
+                req.session.email = req.body.email;
+                console.log(req.session.email);
+
+                res.redirect('/');
+            } else {
+                console.log(data);
+                console.log("username or password do not match");
+               // window.alert("username or password do not match");
+               // JSAlert.alert("username or password do not match");
+                res.redirect('/signin');
+            }
+        }
+    });
+});
+router.get('/logout', function(req, res, next) {
+
+    req.session.destroy();
+
+                res.redirect('/');
+
+});
+
 module.exports = router;

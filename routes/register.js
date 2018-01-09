@@ -1,25 +1,11 @@
-let express = require('express');
-let router = express.Router();
+let express = require('express'),
+    router = express.Router(),
+    Consultancy = require('../model/Admin/AdminConsultancy'),
+    Register = require('../model/Register');
 const mongoose = require('mongoose');
 let assert = require('assert');
 let Schema = mongoose.Schema;
 let path = require('path');
-
-let RegisterSchema = mongoose.Schema({
-    name: String,
-    surname: String,
-    email: String,
-    date_of_birth: String,
-    address: String,
-    gender: String,
-    nationality: String,
-    highest_degree: String,
-    intended_study_field: String,
-    degree_sought: String,
-    password: String,
-    confirm_password: String,
-});
-let Register = mongoose.model("Register", RegisterSchema);
 
 /* GET home page. */
 
@@ -61,30 +47,27 @@ router.post('/Add_User', function (req, res, next) {
 
     });
     console.log(AddUserData);
-    Register.find({email: req.body.email, password: req.body.password}, function (err, data) {
+
+    let promise = AddUserData.save();
+    assert.ok(promise instanceof require('mpromise'));
+    promise.then(function (result) {
+        console.log("inserted user data"); // "Stuff worked!"
+        res.redirect('/signin');
+    }, function (err) {
+        console.log(err); // Error: "It broke"
+        res.redirect('/register');
+    });
+
+
+});
+
+router.post('/VerifyUser', function (req, res, next) {
+
+    Register.find({email: req.body.email}, function (err, data) {
         if (err) {
             res.json({"err": err});
         } else {
-            if (data.length == 1) {
-                console.log(data);
-                res.send("username is already there");
-
-            } else {
-                let promise = AddUserData.save();
-                assert.ok(promise instanceof require('mpromise'));
-                promise.then(function (result) {
-                    console.log("inserted user data"); // "Stuff worked!"
-                }, function (err) {
-                    console.log(err); // Error: "It broke"
-                });
-                console.log(data);
-                req.session.email = req.body.email;
-                console.log(req.session.EmailId);
-
-                res.redirect('/');
-
-            }
-            //res.send(data);
+            res.send(data);
         }
     });
 });

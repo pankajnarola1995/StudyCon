@@ -29,6 +29,11 @@ app.use(session({
     saveUninitialized: true,
    // cookie: { secure: true }
 }));
+app.use(function(req, res, next) {
+    res.locals.email = req.session.email;
+    res.locals.EmailId =req.session.EmailId;
+    next();
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -58,6 +63,7 @@ app.use('/Admin/AdminCallCenter', require('./routes/Admin/AdminCallCenter'));
 app.use('/Admin/AdminPilotTraining', require('./routes/Admin/AdminPilotTraining'));
 app.use('/Admin/AdminHomeBanner', require('./routes/Admin/AdminHomeBanner'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
+app.use('/Admin/AdminUserProfile', require('./routes/Admin/AdminUserProfile'));
 
 app.use(fileUpload());
 

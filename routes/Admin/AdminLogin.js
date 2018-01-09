@@ -33,9 +33,7 @@ router.post('/LoginCheck', function (req, res, next) {
             if (data.length === 1) {
                 console.log(data);
                req.session.EmailId = req.body.EmailID;
-               req.session.Password = req.body.Password;
                 console.log(req.session.EmailId);
-                console.log(req.session.Password);
 
                 res.redirect('/AdminIndex');
             } else {
