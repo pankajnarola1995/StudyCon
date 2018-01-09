@@ -173,7 +173,7 @@
                         </thead>
                         <tbody>
 
-                        <% for(let i = 0; i < Consultancy.length; i++){ %>
+                        <% for(let i = 0; i <  Consultancy.length; i++){ %>
                         <tr class="odd gradeX">
                             <td><a onclick="deleteConsultancy('<%= Consultancy[i]._id %>')"><img
                                             src="/images/delete.png"
@@ -395,6 +395,7 @@
                 dataType: 'json',
                 success: function (result) {
                     if (result) {
+
                         $('#BannerDataTable').load("http://localhost:3000/Admin/AdminConsultancy #BannerDataTable");
 
                     }

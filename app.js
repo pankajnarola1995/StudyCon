@@ -15,7 +15,6 @@ var btoa = require('btoa');
 var _ = require('underscore')
 var session = require('express-session');
 var server = require('http').Server(app);
-var $ = require('jquery');
 //database connection
 var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
@@ -44,6 +43,11 @@ app.use(session({
     saveUninitialized: true,
    // cookie: { secure: true }
 }));
+app.use(function(req, res, next) {
+    res.locals.email = req.session.email;
+    res.locals.EmailId =req.session.EmailId;
+    next();
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -62,6 +66,8 @@ app.use('/', require('./routes/index'));
 app.use('/signin', require('./routes/signin'));
 app.use('/register', require('./routes/register'));
 
+app.use('/home', require('./routes/home'));
+app.use('/MoreDetails', require('./routes/MoreDetails'));
 
 app.use('/Admin', require('./routes/Admin/AdminLogin'));
 app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));
@@ -73,6 +79,8 @@ app.use('/Admin/AdminPilotTraining', require('./routes/Admin/AdminPilotTraining'
 app.use('/Admin/AdminHomeBanner', require('./routes/Admin/AdminHomeBanner'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
 app.use('/Admin/adminURL', require('./routes/Admin/adminchat'));
+app.use('/Admin/AdminUserProfile', require('./routes/Admin/AdminUserProfile'));
+
 app.use(fileUpload());
 
 

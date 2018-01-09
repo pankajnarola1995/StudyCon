@@ -1,10 +1,9 @@
+
 #!/usr/bin/env node
 
 /**
  * Module dependencies.
  */
-
-var io = require('socket.io')();
 var app = require('../app');
 var debug = require('debug')('link-try:server');
 var http = require('http');

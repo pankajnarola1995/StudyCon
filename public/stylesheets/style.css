@@ -641,6 +641,7 @@ ul#filters li span:hover {
 	position: absolute;
 	left: 0;
 	top: 5px;
+margin-left: 190px;
 	padding: 7px 22px;
 	color: #aaa;
 	transition: all .3s;
@@ -779,3 +780,12 @@ option {
 	height: 100%;
 }
 
+body {
+	padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+	body {
+		padding-top: 56px;
+	}
+}

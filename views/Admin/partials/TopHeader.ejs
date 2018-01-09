@@ -38,8 +38,7 @@
             </a>
 
 
-
-
+            <% if(locals.EmailId) { %>
             <div class="nav-collapse collapse navbar-inverse-collapse">
 
                 <ul class="nav pull-right">
@@ -48,6 +47,19 @@
                         </a></li>
                 </ul>
             </div>
+
+            <%}else {%>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+
+                <ul class="nav pull-right">
+                    <li><a href="/Admin/AdminLogout">
+                            Login
+                        </a></li>
+                </ul>
+            </div>
+            <%}%>
+
+
 
 
         </div>

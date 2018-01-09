@@ -230,8 +230,8 @@
             <!--     search form-->
             <form class="navbar-form navbar-right" role="search" id="popup" method="post" onsubmit="UserSearch()">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Search here...">
-                    <button type="submit">s</button>
+                    <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Search here..." required>
+
                 </div>
             </form>
             <!--      end search form-->
@@ -299,6 +299,13 @@
                     <li><a href="#contact">contact</a></li>
 
                 </div>
+                <% if(locals.email) { %>
+                <div class="dropdown">
+                    <li><a href="/signin/logout">Logout</a></li>
+
+                </div>
+
+<%}else {%>
                 <div class="dropdown">
                     <li><a href="/register">Register</a></li>
 
@@ -307,9 +314,7 @@
                     <li><a href="/signin">Sign In</a></li>
 
                 </div>
-
-
-                <!--        end menu list-->
+         <%}%>       <!--        end menu list-->
 
             </ul>
 
@@ -320,9 +325,58 @@
 </nav>
 <div id="myserachResults"></div>
 <script>
+    function RegisterUser() {
+
+        password = $('#password').val();
+        cpasswrod = $('#cpassword').val();
+        if (password === cpasswrod) {
+            let email = $('#email').val();
+            alert(email);
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost:3000/register/VerifyUser",
+                data: {'email': email},
+                dataType: 'json',
+                success: (data) => {
+                    if (data.length === 1) {
+                        alert("username is already there");
+                    }
+                    else {
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "http://localhost:3000/register/Add_User",
+                            data: {
+                                name: $('#name').val(),
+                                surname: $('#surname').val(),
+                                email: $('#email').val(),
+                                date_of_birth: $('#date_of_birth').val(),
+                                address: $('#address').val(),
+                                gender: $('#gender').val(),
+                                nationality: $('#nationality').val(),
+                                highest_degree: $('#highest_degree').val(),
+                                intended_study_field: $('#intended_study_field').val(),
+                                degree_sought: $('#degree_sought').val(),
+                                password: $('#password').val(),
+                            },
+                            dataType: 'json',
+                            success: (data) => {
+                                alert("success");
+                            }
+                        });
+                    }
+
+                }
+            });
+        } else {
+
+            alert("Confirm Password Doesn't Match !!!");
+        }
+    }
+
+
     function UserSearch() {
         keyword = $('#keyword').val();
-        alert(keyword);
         $.ajax({
             type: 'POST', url: "http://localhost:3000/search",
             data: {'keyword': keyword},
@@ -333,7 +387,7 @@
                 let i, html;
                 html = '<ul>';
                 for (i = 0; i < body.length; i++) {
-                    html += "<li>" + body[i] + a + '</li>';
+                    html += "<li>" + body[i] + '</li>';
                 }
                 html += '<ul>';
                 $("#SearchResult").html(html);

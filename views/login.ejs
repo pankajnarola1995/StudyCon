@@ -1,10 +1,8 @@
 <!doctype html>
 <html>
 
-
-
 <% include partials/header.ejs %>
-
+<body>
 <section class="container-fluid">
     <div class="container">
         <div id="login-form">
@@ -12,21 +10,38 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="signin" id="signin">
                         <h3 class="text-center c-white">Sign In</h3>
-                        <form id="signin-form" class="signin-form">
+                        <form method="post" action="/signin/UserLogin"  id="signin-form" class="signin-form">
 
-                            <div class="username">
-                                <input type="text" name="username" placeholder="email">
-                                <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <div class="username">
+                                        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+
+                                        <input type="email" id="email" name="email" placeholder="email" required>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="username">
-                                <input type="text" name="password" placeholder="Password">
-                                <i class="fa fa-unlock-alt fa-lg fa-fw" aria-hidden="true"></i>
+
+
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <div class="username">
+                                        <input type="password" id="password" name="password" placeholder="Password"
+                                               required>
+                                        <i class="fa fa-unlock-alt fa-lg fa-fw" aria-hidden="true"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="signin-btn" type="submit">Sign in</button>
+
+                            <button class="signin-btn" type="submit" >Sign in</button>
                             <p class="text-center p-t-10 c-white">Forgot your password?</p>
-                            <div class="flexy">
-                                <button class="create-new"><a href="/register">Create a new Account</a></button>
+                            <div class="flexy" style="margin-top: 50px;margin-bottom: 20%">
+                                <button class="create-new" type="submit"><a href="/register">Create a new Account</a>
+                                </button>
                             </div>
+
                         </form>
                     </div>
                 </div>
@@ -34,23 +49,16 @@
         </div>
     </div>
 </section>
-
+</body>
 <% include partials/footer.ejs %>
 
+<script>
+
+
+</script>
 <!--end footer-->
 <!--    works modals-->
 
-<div class="modal fade" id="modal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">My best work</h4>
-            </div>
-            <div class="modal-body"> <img class="img-responsive" src="images/moment-1481334217954-c5d87e2a1bc6.jpg" alt=""/> </div>
-        </div>
-    </div>
-</div>
 <!--	         end modal-->
 <script src="javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script src="javascripts/jquery.mixitup.min.js" type="text/javascript"></script>
@@ -59,23 +67,4 @@
 <script type="text/javascript" src="javascripts/jquery.waypoints.js"></script>
 <script src="javascripts/main.js" type="text/javascript"></script>
 
-<!-- ###########################################google map -->
-<script type="text/javascript">
-
-
-    function initMap() {
-//		change the uluru variable with the latitude and longitude of the loaction you want to show in the map {lat:somethging,lng:something}
-//		you must also enter a google map key in the following script
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
-        });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-        });
-    }
-
-</script>
 </html>

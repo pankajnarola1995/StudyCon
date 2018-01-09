@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "alert-node": "^0.2.1",
     "bing.search": "^1.0.1",
     "body-parser": "~1.18.2",
     "btoa": "^1.1.2",
@@ -18,7 +19,6 @@
     "finalhandler": "^1.1.0",
     "http": "0.0.0",
     "jquery": "^3.2.1",
-    "jsdom": "^11.5.1",
     "mongoose": "^4.13.3",
     "mongoose-searchable": "^1.0.0",
     "morgan": "~1.9.0",

@@ -9,6 +9,7 @@ let ImageSchema = Schema({
     Language_id:String,
     CallCenter_id:String,
     PilotTraining_id:String,
+    AddEvent_id:String,
     images_name: String,
 
 });

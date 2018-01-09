@@ -7,6 +7,7 @@ let express = require('express'),
     HomeBanner = require('../model/Admin/AdminHomeBanner'),
     AdminEvent = require('../model/Admin/AdminAddEvent'),
     contact = require('../model/contact');
+
 const mongoose = require('mongoose');
 let Search = require('bing.search');
 let util = require('util');
@@ -66,6 +67,21 @@ router.get('/', function (req, res, next) {
 
                             }
 
+                                if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
+
+                                    console.log("Get Counsultancy Details Data Fetched for menu :User ");
+                                    res.render('index', {
+                                        Consultancy: Consultancydata,
+                                        Language: Languagedata,
+                                        PilotTraining: PilotTrainingdata,
+                                        CallCenter: CallCenterdata,
+                                        HomeBanner: HomeBannerdata,
+                                        AdminEvent: AdminEventdata,
+                                    });
+                                }
+                                else {
+                                    res.render('index');
+                                }
                         });
                     });
                 });
@@ -131,16 +147,14 @@ router.post('/search', function (req, res, next) {
             let parsedBody = JSON.parse(body);
             body = JSON.stringify(parsedBody, null, '  ');
 
-            let urls = parsedBody.webPages.value.map(function (item) {
-                return item.url;
-            })
+
             let name = parsedBody.webPages.value.map(function (item) {
                 return item.name;
             })
 
             console.log('\nJSON Response:\n');
             console.log(name);
-            res.send(urls);
+            res.send(name);
 
         });
         response.on('error', function (e) {
