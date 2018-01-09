@@ -1,60 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dadacdc0-e610-4618-a663-b676cf792b90" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/moredetails.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/model/Register.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/images/AddEvent/25520955_1753953061362695_582708055_o.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/images/AddEvent/Thumbs.db" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/images/AddEvent/pp.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/images/Consultancy/11226177_1486660934974733_8600504941608740818_n.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/images/Consultancy/12994550_1524775251163301_7422210193602533878_n.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/images/Consultancy_Flag/sHINE ART.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/moredetails.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/routes/Admin/AdminUserProfile.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/routes/MoreDetails.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-grid.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-grid.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-reboot.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-reboot.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.bundle.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.bundle.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/jquery/jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/jquery/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/views/Admin/AdminUserProfile.ejs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/views/MoreDetails.ejs" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
-      <change beforePath="$PROJECT_DIR$/model/Admin/AdminAddEvent.js" afterPath="$PROJECT_DIR$/model/Admin/AdminAddEvent.js" />
-      <change beforePath="$PROJECT_DIR$/model/Admin/AdminImages.js" afterPath="$PROJECT_DIR$/model/Admin/AdminImages.js" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/public/images/Consultancy/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Consultancy/Thumbs.db" />
-      <change beforePath="$PROJECT_DIR$/public/images/Consultancy_Flag/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/Consultancy_Flag/Thumbs.db" />
-      <change beforePath="$PROJECT_DIR$/public/images/HomeBanner/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/HomeBanner/Thumbs.db" />
-      <change beforePath="$PROJECT_DIR$/public/images/PilotTraining/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/PilotTraining/Thumbs.db" />
-      <change beforePath="$PROJECT_DIR$/public/images/PilotTraining_Flag/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/PilotTraining_Flag/Thumbs.db" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change beforePath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminAddEvent.js" />
-      <change beforePath="$PROJECT_DIR$/routes/Admin/AdminLogin.js" afterPath="$PROJECT_DIR$/routes/Admin/AdminLogin.js" />
-      <change beforePath="$PROJECT_DIR$/routes/Admin/adminchat.js" afterPath="$PROJECT_DIR$/routes/Admin/adminchat.js" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change beforePath="$PROJECT_DIR$/routes/register.js" afterPath="$PROJECT_DIR$/routes/register.js" />
-      <change beforePath="$PROJECT_DIR$/routes/signin.js" afterPath="$PROJECT_DIR$/routes/signin.js" />
-      <change beforePath="$PROJECT_DIR$/views/Admin/AdminAddEvent.ejs" afterPath="$PROJECT_DIR$/views/Admin/AdminAddEvent.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/Admin/AdminConsultancy.ejs" afterPath="$PROJECT_DIR$/views/Admin/AdminConsultancy.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/Admin/partials/TopHeader.ejs" afterPath="$PROJECT_DIR$/views/Admin/partials/TopHeader.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/Admin/partials/header.ejs" afterPath="$PROJECT_DIR$/views/Admin/partials/header.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/login.ejs" afterPath="$PROJECT_DIR$/views/login.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.ejs" afterPath="$PROJECT_DIR$/views/partials/header.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/register.ejs" afterPath="$PROJECT_DIR$/views/register.ejs" />
-    </list>
+    <list default="true" id="dadacdc0-e610-4618-a663-b676cf792b90" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/views/Admin/adminchat.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1292">
-              <caret line="117" column="28" lean-forward="true" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+              <caret line="117" column="28" lean-forward="false" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -100,7 +47,7 @@
             <state relative-caret-position="21">
               <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="33" />
               <folding>
-                <marker date="1515528313079" expanded="true" signature="19386:19422" ph="{...}" />
+                <marker date="1515529089119" expanded="true" signature="19386:19422" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -110,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2027">
-              <caret line="316" column="39" lean-forward="true" selection-start-line="316" selection-start-column="39" selection-end-line="316" selection-end-column="39" />
+              <caret line="316" column="39" lean-forward="false" selection-start-line="316" selection-start-column="39" selection-end-line="316" selection-end-column="39" />
               <folding>
                 <element signature="e#1095#1209#0" expanded="false" />
                 <element signature="e#3156#3414#0" expanded="false" />
@@ -133,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/routes/Admin/adminchat.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -176,7 +123,6 @@
       <find>login</find>
       <find>notifyadmin</find>
       <find>client</find>
-      <find>client</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -213,7 +159,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1011" />
     <option name="width" value="911" />
     <option name="height" value="1038" />
@@ -338,15 +284,15 @@
       <workItem from="1515495239686" duration="1179000" />
       <workItem from="1515504818038" duration="3700000" />
       <workItem from="1515511230695" duration="4645000" />
-      <workItem from="1515525615820" duration="2152000" />
+      <workItem from="1515525615820" duration="2405000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28474000" />
+    <option name="totallyTimeSpent" value="28727000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23486045" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -721,7 +667,7 @@
         <state relative-caret-position="21">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="33" />
           <folding>
-            <marker date="1515528313079" expanded="true" signature="19386:19422" ph="{...}" />
+            <marker date="1515529089119" expanded="true" signature="19386:19422" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -745,7 +691,7 @@
     <entry file="file://$PROJECT_DIR$/views/Admin/adminchat.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1292">
-          <caret line="117" column="28" lean-forward="true" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+          <caret line="117" column="28" lean-forward="false" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -753,7 +699,7 @@
     <entry file="file://$PROJECT_DIR$/routes/Admin/adminchat.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -777,7 +723,7 @@
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2027">
-          <caret line="316" column="39" lean-forward="true" selection-start-line="316" selection-start-column="39" selection-end-line="316" selection-end-column="39" />
+          <caret line="316" column="39" lean-forward="false" selection-start-line="316" selection-start-column="39" selection-end-line="316" selection-end-column="39" />
           <folding>
             <element signature="e#1095#1209#0" expanded="false" />
             <element signature="e#3156#3414#0" expanded="false" />
