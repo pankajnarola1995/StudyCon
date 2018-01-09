@@ -4,7 +4,6 @@
 <% include partials/header.ejs %>
 <body>
 
-
 <!-----------------------------------------the homepage navigation-->
 
 
@@ -27,6 +26,7 @@
             <img src="images/post.png" alt="Third" class="slide" />
         </div>
     </div>
+
     <script>
         (function() {
 
@@ -95,9 +95,6 @@
 
         })();
     </script>
-
-
-
 
 </section>
 
@@ -710,7 +707,7 @@
     var $Typing = $(".typing") //Typing notification
     var $newMsg = $('.msg_push_new'); //Dummy to push new msgs
     var $oldMsg = $('.msg_push_old'); //Dummy to push msg history
-
+    var $msgbox = $('.msg_box');
     var socket = io(); //io socket
     var typing = false; //Boolean to check if user is typing
     var timeout = undefined; //Timeout to monitor typing
@@ -820,6 +817,10 @@
         var $messageDiv = $('<div class="msg_a">' + text + '<span class="timestamp">' +
             (time.toLocaleString().substr(15, 6)) + '</span></div>').insertBefore($newMsg);
         $messages[0].scrollTop = $messages[0].scrollHeight;
+    });
+
+    socket.on('admin log message', function (text) {
+        $msgbox.hide();
     });
 
     socket.on('disconnect', function () {

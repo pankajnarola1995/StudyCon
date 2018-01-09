@@ -38,6 +38,7 @@ let host = 'api.cognitive.microsoft.com';
 let path = '/bing/v7.0/search';
 
 
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
     Consultancy.find(function (err, Consultancydata) {
@@ -50,6 +51,7 @@ router.get('/', function (req, res, next) {
                             if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
 
                                 console.log("Get Counsultancy Details Data Fetched for menu :User ");
+
                                 res.render('index', {
                                     Consultancy: Consultancydata,
                                     Language: Languagedata,
@@ -61,6 +63,7 @@ router.get('/', function (req, res, next) {
                             }
                             else {
                                 res.render('index');
+
                             }
 
                         });

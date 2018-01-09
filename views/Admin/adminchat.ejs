@@ -1,8 +1,11 @@
 <!doctype html>
 <html>
+
 <head>
-<link rel="stylesheet" href="/stylesheets/adminchatstyle.css">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="/stylesheets/adminchatstyle.css">
 </head>
+
 <body>
 <ul class="pages">
     <li class="chat page">
@@ -14,27 +17,22 @@
             </ul>
         </div>
     </li>
-    <li class="login page">
-        <div class="form">
-            <h3 class="title">What's your nickname?</h3>
-            <input class="usernameInput" type="text" maxlength="14" />
-            <h3 class="title">Password</h3>
-            <input class="passwordInput" type="password" maxlength="10" />
-        </div>
-    </li>
     <li class="error page" style="display: none">
         <div class="form">
             <h3 class="title">Reconnecting...</h3>
         </div>
     </li>
 </ul>
+
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
 <script>
     var $window = $(window);
     var $newUser = $('#windowSound')[0];
     //var $newChat = $('#chatSound')[0];
-    var $pokeAdmin = $('#pokeSound')[0];
+    //var $pokeAdmin = $('#pokeSound')[0];
     var $usernameInput = $('.usernameInput'); // Input for username
     var $passwordInput = $('.passwordInput'); //Input for password
     var $loginPage = $('.login.page'); // The login page
@@ -42,7 +40,7 @@
     var $chatPage = $('.chat.page'); // The chat page
     var $userList = $('.adminList'); // List of online admins
     var $inputMessage; // Input message input box
-    var $messages; // Messages area
+    //var $messages; // Messages area
 
     var username;	//Store admin username
     var authenticated = false; //Boolean to check if admin is authenticated
@@ -54,13 +52,14 @@
     $usernameInput.focus();
     Notification.requestPermission();
 
+    socket.emit('login', {
+    });
     socket.on('loginPage', function (data) {
-        alert('login done');
+        //alert('login done');
         $userList.empty();
         authenticated = data.login;
         console.log(data.login);
-        if (authenticated) {
-            $loginPage.fadeOut();
+            //$loginPage.fadeOut();
             $chatPage.show();
             socket.emit('add admin', {
                 admin: username,
@@ -68,13 +67,7 @@
             });
             $userList.append('<li id=' + username + '>' + username + '</li>');
             connected = true;
-        } else {
-            alert(data.err);
-            $usernameInput.val('');
-            $passwordInput.val('');
-            username = null;
-            $usernameInput.focus();
-        }
+
     })
 
     socket.on('chat message', function (data) {
@@ -126,14 +119,13 @@
         }
         if (!data.justJoined) {
             //$newUser.play();
-            notifyAdmin("New Client", "Hey there!" + data.details[0] + " needs help!");
+            notifyAdmin("New Client", "Hey there!" + data.details[0].Name + " needs help!");
             $parent.css('border', '2px solid red')
             $inputMessage = $('#' + data.roomID);
             $inputMessage.on("focus", function () {
                 //$newUser.pause();
                 $parent.css('border', '1px solid black')
                 $inputMessage.off('focus');
-                socket.emit('client ack', {});
             });
         }
         $inputMessage.on('keypress', function () {
@@ -186,10 +178,6 @@
         $window.alert("Disconnected from chat.")
     });
 
-    $passwordInput.keypress(function (event) {
-        if (event.which === 13)
-            setUsername();
-    });
 
     function sendMessage(id) {
         $inputMessage = $('#' + id);
@@ -261,18 +249,6 @@
             "</ul><div class='typing'></div><input class='inputMessage' id='" + id + "'' placeholder='Type here...'/></div>");
     }
 
-    function setUsername() {
-        username = cleanInput($usernameInput.val().trim());
-        username = username.toLowerCase();
-        var password = $passwordInput.val();
-        if (username) {
-            // If the username is valid
-            socket.emit('login', {
-                admin: username,
-                password: password
-            });
-        }
-    }
 
     function notifyAdmin(title, body) {
         if (Notification.permission !== "granted")

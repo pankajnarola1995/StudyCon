@@ -15,6 +15,7 @@ var btoa = require('btoa');
 var _ = require('underscore')
 var session = require('express-session');
 var server = require('http').Server(app);
+var $ = require('jquery');
 //database connection
 var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
@@ -30,9 +31,12 @@ if (dbConn) {
         'pingInterval': 15000,
         'pingTimeout': 15000
     });
+
 } else {
-    console.log('success');
+    console.log('fail');
+
 }
+
 //Session
 app.use(session({
     secret: '2C44-4D44-WppQ38S',
@@ -91,6 +95,7 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
+
 var AddUserSchema = new mongoose.Schema({
     Name:String,
     Email:String,
@@ -109,36 +114,14 @@ var AddMsg = mongoose.model('AddMsg',MessageSchema);
 var admins = {};
 var users = {};
 
+
+
 io.on('connection', function(socket) {
     //Login Admin
-    socket.on('login', function(data) {
-        if (btoa(data.password) != 'cGFzc3dvcmQ=')
-            socket.emit('login', {
-                login: false,
-                err: "Invalid Login"
-            })
-        else {
-            if (_.find('admin', function(admin) {
-                    return ('admin' == data.admin);
-                })) {
-                if (admins[data.admin]) {
-                    socket.emit('login', {
-                        login: false,
-                        err: "Already Logged In"
-                    })
-                } else {
+    socket.on('login', function() {
                     socket.emit('loginPage', {
                         login: true
                     })
-                }
-
-            } else {
-                socket.emit('login', {
-                    login: false,
-                    err: "Invalid Login"
-                })
-            }
-        }
     });
     //Init admin
     socket.on('add admin', function(data) {
@@ -215,7 +198,7 @@ io.on('connection', function(socket) {
                 if (Object.keys(admins).length == 0) {
 
                     //Tell user he will be contacted asap and send admin email
-                    socket.emit('log message', "Thank you for reaching us." +
+                    socket.emit('admin log message', "Thank you for reaching us." +
                         " Please leave your message here and we will get back to you shortly.");
                     /*mail.alertMail();*/
                 } else {
