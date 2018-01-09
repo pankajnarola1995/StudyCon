@@ -48,6 +48,7 @@ app.use('/websocket', require('./routes/websocket'));
 app.use('/signin', require('./routes/signin'));
 app.use('/register', require('./routes/register'));
 app.use('/home', require('./routes/home'));
+app.use('/MoreDetails', require('./routes/MoreDetails'));
 
 app.use('/Admin', require('./routes/Admin/AdminLogin'));
 app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));
