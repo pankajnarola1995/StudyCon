@@ -7,6 +7,7 @@ let express = require('express'),
     HomeBanner = require('../model/Admin/AdminHomeBanner'),
     AdminEvent = require('../model/Admin/AdminAddEvent'),
     contact = require('../model/contact');
+
 const mongoose = require('mongoose');
 let Search = require('bing.search');
 let util = require('util');
@@ -47,22 +48,21 @@ router.get('/', function (req, res, next) {
                     HomeBanner.find(function (err, HomeBannerdata) {
                         AdminEvent.find(function (err, AdminEventdata) {
 
-                            if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
+                                if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
 
-                                console.log("Get Counsultancy Details Data Fetched for menu :User ");
-                                res.render('index', {
-                                    Consultancy: Consultancydata,
-                                    Language: Languagedata,
-                                    PilotTraining: PilotTrainingdata,
-                                    CallCenter: CallCenterdata,
-                                    HomeBanner: HomeBannerdata,
-                                    AdminEvent: AdminEventdata,
-                                });
-                            }
-                            else {
-                                res.render('index');
-                            }
-
+                                    console.log("Get Counsultancy Details Data Fetched for menu :User ");
+                                    res.render('index', {
+                                        Consultancy: Consultancydata,
+                                        Language: Languagedata,
+                                        PilotTraining: PilotTrainingdata,
+                                        CallCenter: CallCenterdata,
+                                        HomeBanner: HomeBannerdata,
+                                        AdminEvent: AdminEventdata,
+                                    });
+                                }
+                                else {
+                                    res.render('index');
+                                }
                         });
                     });
                 });

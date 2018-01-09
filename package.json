@@ -9,6 +9,7 @@
     "alert-node": "^0.2.1",
     "bing.search": "^1.0.1",
     "body-parser": "~1.18.2",
+    "btoa": "^1.1.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
@@ -18,14 +19,15 @@
     "finalhandler": "^1.1.0",
     "http": "0.0.0",
     "jquery": "^3.2.1",
-    "js-alert": "^1.0.4",
     "mongoose": "^4.13.3",
     "mongoose-searchable": "^1.0.0",
     "morgan": "~1.9.0",
+    "node-uuid": "^1.4.8",
     "path": "^0.12.7",
     "serve-favicon": "~2.4.5",
     "serve-static": "^1.13.1",
     "socket.io": "^2.0.4",
+    "underscore": "^1.8.3",
     "ws": "^3.3.1"
   }
 }

@@ -1,18 +1,17 @@
+
 let express = require('express'),
     router = express.Router(),
     Consultancy = require('../model/Admin/AdminConsultancy'),
     Register = require('../model/Register');
+
 const mongoose = require('mongoose');
 let assert = require('assert');
 let Schema = mongoose.Schema;
 let path = require('path');
 
-/* GET home page. */
-
 
 router.get('/', function (req, res, next) {
 
-    var Consultancy = mongoose.model("Consultancy");
     Consultancy.find(function (err, data) {
 
         if (data) {

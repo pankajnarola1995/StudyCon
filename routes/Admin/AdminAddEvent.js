@@ -8,8 +8,6 @@ let assert = require('assert');
 let fileUpload = require('express-fileupload');
 router.use(fileUpload());
 
-
-/* GET AddEvent listing. */
 router.get('/', function (req, res, next) {
     if (req.session.EmailId) //&& (req.session.Password)
     {
