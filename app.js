@@ -1,29 +1,29 @@
-let express = require('express');
-let app = express();
-let path = require('path');
-let favicon = require('serve-favicon');
-let logger = require('morgan');
-let cookieParser = require('cookie-parser');
-let bodyParser = require('body-parser');
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
-let assert = require('assert');
-let fileUpload = require('express-fileupload');
-let io = require('socket.io')();
-let uuid = require('node-uuid');
-let btoa = require('btoa');
+var express = require('express');
+var app = express();
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var assert = require('assert');
+var fileUpload = require('express-fileupload');
+var io = require('socket.io')();
+var uuid = require('node-uuid');
+var btoa = require('btoa');
+var _ = require('underscore')
+var session = require('express-session');
 var server = require('http').Server(app);
-let session = require('express-session');
-
 //database connection
-let dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
+var dbConn = mongoose.connect('mongodb://localhost/StudyConDb', {
     useMongoClient: true,
     /* other options */
 });
 if (dbConn) {
     console.log('success');
-    server.listen(3000, function() {
-        console.log('Server started ' + 3000 + ' at ' +
+    server.listen(5000, function() {
+        console.log('Server started ' + 5000 + ' at ' +
             (new Date().toLocaleString().substr(0, 24)));
     });
     io.attach(server, {
@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routes/index'));
 app.use('/signin', require('./routes/signin'));
 app.use('/register', require('./routes/register'));
-app.use('/', require('./routes/client'));
+
 
 app.use('/Admin', require('./routes/Admin/AdminLogin'));
 app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));
@@ -68,23 +68,10 @@ app.use('/Admin/AdminCallCenter', require('./routes/Admin/AdminCallCenter'));
 app.use('/Admin/AdminPilotTraining', require('./routes/Admin/AdminPilotTraining'));
 app.use('/Admin/AdminHomeBanner', require('./routes/Admin/AdminHomeBanner'));
 app.use('/Admin/AdminAddEvent', require('./routes/Admin/AdminAddEvent'));
-app.use('/adminURL', require('./routes/Admin/adminchat'));
+app.use('/Admin/adminURL', require('./routes/Admin/adminchat'));
 app.use(fileUpload());
 
 
-app.get('/ajaxcall',  (req, res) => {
-    contact.find(function (err, data) {
-        if (data) {
-            console.log("Contact Data Fetched");
-            res.send(data);
-            //res.render('Admin/AdminContactView',{contact:data});
-        }
-        else {
-            res.status(400).send(err);
-        }
-    });
-    console.log("Ajax working");
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -119,13 +106,8 @@ var MessageSchema = new mongoose.Schema({
 });
 var AddMsg = mongoose.model('AddMsg',MessageSchema);
 
-
 var admins = {};
 var users = {};
-
-
-
-
 
 io.on('connection', function(socket) {
     //Login Admin
@@ -145,7 +127,7 @@ io.on('connection', function(socket) {
                         err: "Already Logged In"
                     })
                 } else {
-                    socket.emit('login', {
+                    socket.emit('loginPage', {
                         login: true
                     })
                 }
@@ -165,7 +147,7 @@ io.on('connection', function(socket) {
 
         _.each(admins, function(adminSocket) {
             adminSocket.emit("admin added", socket.username)
-            //socket.emit("admin added", adminSocket.username)
+            socket.emit("admin added", adminSocket.username)
         });
 
         admins[socket.username] = socket;
@@ -231,6 +213,7 @@ io.on('connection', function(socket) {
                     getMore: false
                 });
                 if (Object.keys(admins).length == 0) {
+
                     //Tell user he will be contacted asap and send admin email
                     socket.emit('log message', "Thank you for reaching us." +
                         " Please leave your message here and we will get back to you shortly.");
@@ -328,18 +311,6 @@ io.on('connection', function(socket) {
         }
     });
 
-    socket.on('poke admin', function(targetAdmin) {
-        admins[targetAdmin].emit("poke admin", {})
-    });
-
-    socket.on('client ack', function() {
-        for (adminSocket in admins) {
-            if (!admins.hasOwnProperty(adminSocket)) {
-                continue;
-            }
-            admins[adminSocket].emit("client ack", {})
-        }
-    });
 
     socket.on("more messages", function() {
         if (socket.MsgHistoryLen < 0) {
