@@ -35,7 +35,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/FetchData', function (req, res, next) {
-    if (req.session.EmailId) {
+    if (req.session.email) {
 
         let id = req.body.id;
         console.log(id);

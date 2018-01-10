@@ -56,7 +56,7 @@ router.get('/', function (req, res, next) {
                                             if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
 
                                                 console.log("Get Counsultancy Details Data Fetched for menu :User ");
-                                                console.log(Consultancydata);
+                                                console.log(HomeBannerdata);
 
                                                 res.render('index', {
                                                     Consultancy: Consultancydata,
@@ -243,12 +243,12 @@ router.post('/saveContact', (req, res) => {
     contactdata.save(function (error, data) {
         if (error) {
             console.log("contact insert error ");
-            res.json(error);
+            res.send(error);
 
         }
         else {
             console.log("Contacted Successfully ! Will Get You Back Soon... ");
-            res.send("true");
+          // res.redirect("/");
         }
     });
 });
