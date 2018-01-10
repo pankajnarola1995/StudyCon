@@ -572,137 +572,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOJkrfBTNVS3Zyzzx5Q_GBHKYxNmSvLJY&callback=initMap"></script>
 <!-- end goole map -->
 
-//Search Results
-<div id="body" style="overflow:hidden;align-items:center;">
-
-    <div id="abc">
-        <!-- Popup Div Starts Here -->
-        <div id="popupContact">
-            <!-- Contact Us Form -->
-
-            <h1 style="
-        background-color:#FEFFED;
-        padding:20px 35px;
-        margin:-10px -50px;
-        text-align:center;
-        border-radius:10px 10px 0 0;
-        float: right">
-                Google Search
-                <img id="close" src="/images/close.png" onclick="div_hide() " style="float: right;margin-left: 50px">
-            </h1>
-            <form class="form-horizontal row-fluid" method="post" enctype="multipart/form-data"
-                  style="
-                                                                                      max-width:100%;
-                                                                                      min-width:100%;
-                                                                                      padding:10px 50px;
-                                                                                      border:2px solid gray;
-                                                                                      border-radius:10px;
-                                                                                      font-family:raleway;
-                                                                                      background-color:#fff;
-
-      ">
-                <br/><br/><br/><br/>
-
-                <div class="control-group">
-                    <label class="control-label"><b>Country Name</b></label>
-                    <div class="controls">
-                        <div id="SearchResult"></div>
-                       <div>hello</div>
-                        <div></div>
-
-                              <ul id="filters" class="list-inline">
-
-                                    <!--     begin portfolio filters-->
-                                    <!--     to add a new filter just duplicate a line from the list bellow and change 'data-filter = ".NEW_CATEGORY"'-->
-                                    <!--     where NEW_CATEGORY is the class and the data-cat of the col-md-3 column bellow-->
-                                    <li><span class="filter active" data-filter="all">All</span></li>
-                                    <li><span class="filter" data-filter=".portfolio">portfolio</span></li>
-                                    <li><span class="filter" data-filter=".design">design</span></li>
-                                    <li><span class="filter" data-filter=".clients">clients</span></li>
-                                    <!--      end filters-->
-                                </ul>
-                             </div>
-
-                    </div>
-                </div>
-
-            </form>
-        </div>
-        <!-- Popup Div Ends Here -->
-    </div>
-</div>
-
-<script>
-  /*  function UserSearch() {
-        let keyword = $('#keyword').val();
-        alert(keyword);
-        $.ajax({
-            type: 'POST',
-            url: "http://localhost:3000/search",
-            data: {"keyword": keyword},
-            dataType: 'json',
-            success: (data) => {
-                let i, html;
-                html = '<ul>';
-                for (i = 0; i < data.length; i++) {
-                    html += "<li>" + data[i]._id + '</li>' + '</br><li>' + data[i]. + '</li>';
-                }
-                html += '<ul>';
-                $("#SearchResult").html(html);
-            }
-        });
-        /* $.ajax({
-             type: 'GET',
-             url: 'http://localhost:3000/search',
-             // data: {"keyword": keyword},
-             dataType: 'json',
-         }).done(function (data) {
-             alert("done" + data);
-     /* data.forEach(function (data) {
-          $(".messages").append("<li>" + data.Consultancy._id + "</li>");
-
-      });
-
-
- });
-        document.getElementById('abc').style.display = "block";
-    }
-*/
-    function div_hide() {
-        document.getElementById('abc').style.display = "none";
-    }
-
-
-</script>
-
-<div class="msg_box" style="right: 0px">
-    <div class="msg_head">Live Chat</div>
-    <div class="contentArea" style="display: none">
-        <div class="formArea">
-            <div class="title">Please fill out this form</div>
-            <form class="inputFields">
-                <div class="inputContainer">
-                    <input class="nameInput" type="text" maxlength="20" pattern="^[a-zA-Z ]{3,}" placeholder=" * Name" required />
-                </div>
-                <div class="inputContainer">
-                    <input class="emailInput" type="email" placeholder=" * Email" required />
-                </div>
-                <div class="inputContainer">
-                    <input class="phoneInput" type="text" pattern="[0-9\(\)\-\+ ]{8,15}" title="Enter a valid Phone Number" placeholder=" * Phone Number" required />
-                </div>
-                <input type="submit" class="submitBtn">
-            </form>
-        </div>
-        <div class="chatArea" style="display: none">
-            <div class="messages">
-                <div class="msg_push_old"></div>
-                <div class="msg_push_new"></div>
-            </div>
-            <div class='typing'></div>
-            <input class="inputMessage" rows="1" placeholder="Type here..."></input>
-        </div>
-    </div>
-</div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 <script>
@@ -910,5 +779,138 @@
         return $('<div/>').text(input).text();
     }
 </script>
+
+<!--Search Results-->
+<div id="body" style="overflow:hidden;align-items:center;">
+
+    <div id="abc">
+        <!-- Popup Div Starts Here -->
+        <div id="popupContact">
+            <!-- Contact Us Form -->
+
+            <h1 style="
+        background-color:#FEFFED;
+        padding:20px 35px;
+        margin:-10px -50px;
+        text-align:center;
+        border-radius:10px 10px 0 0;
+        float: right">
+                Google Search
+                <img id="close" src="/images/close.png" onclick="div_hide() " style="float: right;margin-left: 50px">
+            </h1>
+            <form class="form-horizontal row-fluid" method="post" enctype="multipart/form-data"
+                  style="
+                                                                                      max-width:100%;
+                                                                                      min-width:100%;
+                                                                                      padding:10px 50px;
+                                                                                      border:2px solid gray;
+                                                                                      border-radius:10px;
+                                                                                      font-family:raleway;
+                                                                                      background-color:#fff;
+
+      ">
+                <br/><br/><br/><br/>
+
+                <div class="control-group">
+                    <label class="control-label"><b>Country Name</b></label>
+                    <div class="controls">
+                        <div id="SearchResult"></div>
+                        <div>hello</div>
+                        <div></div>
+
+                        <ul id="filters" class="list-inline">
+
+                            <!--     begin portfolio filters-->
+                            <!--     to add a new filter just duplicate a line from the list bellow and change 'data-filter = ".NEW_CATEGORY"'-->
+                            <!--     where NEW_CATEGORY is the class and the data-cat of the col-md-3 column bellow-->
+                            <li><span class="filter active" data-filter="all">All</span></li>
+                            <li><span class="filter" data-filter=".portfolio">portfolio</span></li>
+                            <li><span class="filter" data-filter=".design">design</span></li>
+                            <li><span class="filter" data-filter=".clients">clients</span></li>
+                            <!--      end filters-->
+                        </ul>
+
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!-- Popup Div Ends Here -->
+    </div>
+
+
+    <script>
+        /*  function UserSearch() {
+              let keyword = $('#keyword').val();
+              alert(keyword);
+              $.ajax({
+                  type: 'POST',
+                  url: "http://localhost:3000/search",
+                  data: {"keyword": keyword},
+                  dataType: 'json',
+                  success: (data) => {
+                      let i, html;
+                      html = '<ul>';
+                      for (i = 0; i < data.length; i++) {
+                          html += "<li>" + data[i]._id + '</li>' + '</br><li>' + data[i]. + '</li>';
+                      }
+                      html += '<ul>';
+                      $("#SearchResult").html(html);
+                  }
+              });
+              /* $.ajax({
+                   type: 'GET',
+                   url: 'http://localhost:3000/search',
+                   // data: {"keyword": keyword},
+                   dataType: 'json',
+               }).done(function (data) {
+                   alert("done" + data);
+           /* data.forEach(function (data) {
+                $(".messages").append("<li>" + data.Consultancy._id + "</li>");
+
+            });
+
+
+       });
+              document.getElementById('abc').style.display = "block";
+          }
+      */
+        function div_hide() {
+            document.getElementById('abc').style.display = "none";
+        }
+
+
+    </script>
+
+    <div class="msg_box" style="right: 0px">
+        <div class="msg_head">Live Chat</div>
+        <div class="contentArea" style="display: none">
+            <div class="formArea">
+                <div class="title">Please fill out this form</div>
+                <form class="inputFields">
+                    <div class="inputContainer">
+                        <input class="nameInput" type="text" maxlength="20" pattern="^[a-zA-Z ]{3,}" placeholder=" * Name" required />
+                    </div>
+                    <div class="inputContainer">
+                        <input class="emailInput" type="email" placeholder=" * Email" required />
+                    </div>
+                    <div class="inputContainer">
+                        <input class="phoneInput" type="text" pattern="[0-9\(\)\-\+ ]{8,15}" title="Enter a valid Phone Number" placeholder=" * Phone Number" required />
+                    </div>
+                    <input type="submit" class="submitBtn">
+                </form>
+            </div>
+            <div class="chatArea" style="display: none">
+                <div class="messages">
+                    <div class="msg_push_old"></div>
+                    <div class="msg_push_new"></div>
+                </div>
+                <div class='typing'></div>
+                <input class="inputMessage" rows="1" placeholder="Type here..."></input>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -68,6 +68,11 @@ app.use('/register', require('./routes/register'));
 
 app.use('/home', require('./routes/home'));
 app.use('/MoreDetails', require('./routes/MoreDetails'));
+app.use('/callcenterdetails', require('./routes/callcenterdetails'));
+app.use('/languagedetails', require('./routes/languagedetails'));
+app.use('/pilottrainingdetails', require('./routes/pilottrainingdetails'));
+
+
 
 app.use('/Admin', require('./routes/Admin/AdminLogin'));
 app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));

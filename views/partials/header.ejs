@@ -273,9 +273,12 @@
                         <%
                         if(locals.Language)
                         for(let i = 0; i < Language.length; i++){ %>
-
-                        <a href="#"><%= Language[i].Language_name %></a>
-
+                        <form method="post" action="/languagedetails/FetchData">
+                            <input type="hidden" name="id" value="<%= Language[i]._id %>" />
+                            <a>
+                                <button type="submit" style="background-color: white;color: #0e0e0e;border: hidden;width: 110%;height: 110%;font-size: 16px">   <%= Language[i].Language_name %></button>
+                            </a>
+                        </form>
                         <% } %>
                     </div>
                 </div>
@@ -285,10 +288,13 @@
                     <div class="dropdown-content">
                         <%
                         if(locals.PilotTraining)
-                        for(var i = 0; i < PilotTraining.length; i++){ %>
-
-                        <a href="#"><%= PilotTraining[i].PilotTraining_name %></a>
-
+                        for(let i = 0; i < PilotTraining.length; i++){ %>
+                        <form method="post" action="/pilottrainingdetails/FetchData">
+                            <input type="hidden" name="id" value="<%= PilotTraining[i]._id %>" />
+                            <a>
+                                <button type="submit" style="background-color: white;color: #0e0e0e;border: hidden;width: 110%;height: 110%;font-size: 16px">   <%= PilotTraining[i].PilotTraining_name %></button>
+                            </a>
+                        </form>
                         <% } %>
                     </div>
                 </div>
@@ -297,9 +303,13 @@
                     <div class="dropdown-content">
                         <%
                         if(locals.CallCenter)
-                        for(var i = 0; i < CallCenter.length; i++){ %>
-
-                        <a href="#"><%= CallCenter[i].CallCenter_name %></a>
+                        for(let i = 0; i < CallCenter.length; i++){ %>
+                        <form method="post" action="/callcenterdetails/FetchData">
+                            <input type="hidden" name="id" value="<%= CallCenter[i]._id %>" />
+                            <a>
+                                <button type="submit" style="background-color: white;color: #0e0e0e;border: hidden;width: 110%;height: 110%;font-size: 16px">   <%= CallCenter[i].CallCenter_name %></button>
+                            </a>
+                        </form>
 
                         <% } %>
                     </div>
@@ -412,7 +422,7 @@
                 let i, html;
                 html = '<ul>';
                 for (i = 0; i < body.length; i++) {
-                    html += "<li>" + body[i] + '</li>';
+                    html += "<li>" + body[i].url + '</li>';
                 }
                 html += '<ul>';
                 $("#SearchResult").html(html);
