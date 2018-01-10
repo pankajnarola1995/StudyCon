@@ -4,13 +4,13 @@
 
 <body>
 
-<% for(let i = 0; i < CallCenterdata.length; i++){ %>
+<% for(let i = 0; i < MoreCallCenterdata.length; i++){ %>
 
 <!-- Page Content -->
 <div class="container">
 
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4"><img src="/images/CallCenter_Flag/<%= CallCenterdata[i].flage_image %>"  style="height: 50px;width: 50px;"/> More Details About <%= CallCenterdata[i].CallCenter_name %>
+    <h1 class="my-4"><img src="/images/CallCenter_Flag/<%= MoreCallCenterdata[i].flage_image %>"  style="height: 50px;width: 50px;"/> More Details About <%= MoreCallCenterdata[i].CallCenter_name %>
         <small></small>
     </h1>
 
@@ -104,7 +104,7 @@
 
         <div class="col-md-4">
             <h3 class="my-3">Requirement </h3>
-            <%= CallCenterdata[i].requirenment %>
+            <%= MoreCallCenterdata[i].requirenment %>
 
         </div>
 
@@ -112,12 +112,12 @@
     <!-- /.row -->
     <h3 class="my-3">Project Details</h3>
     <ul>
-        <%= CallCenterdata[i].detail %>
+        <%= MoreCallCenterdata[i].detail %>
     </ul>
     <!-- Related Projects Row -->
     <h3 class="my-4" >Important Links</h3>
 <pre style="margin-bottom: 40px">
-    <%= CallCenterdata[i].important_link %>
+    <%= MoreCallCenterdata[i].important_link %>
 </pre>
 
 </div>

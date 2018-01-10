@@ -4,13 +4,13 @@
 
 <body>
 
-<% for(let i = 0; i < Languagedata.length; i++){ %>
+<% for(let i = 0; i < MoreLanguagedata.length; i++){ %>
 
 <!-- Page Content -->
 <div class="container">
 
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4"><img src="/images/Language_Flag/<%= Languagedata[i].flage_image %>"  style="height: 50px;width: 50px;"/> More Details About <%= Languagedata[i].Language_name %>
+    <h1 class="my-4"><img src="/images/Language_Flag/<%= MoreLanguagedata[i].flage_image %>"  style="height: 50px;width: 50px;"/> More Details About <%= MoreLanguagedata[i].Language_name %>
         <small></small>
     </h1>
 
@@ -104,7 +104,7 @@
 
         <div class="col-md-4">
             <h3 class="my-3">Requirement </h3>
-            <%= Languagedata[i].requirenment %>
+            <%= MoreLanguagedata[i].requirenment %>
 
         </div>
 
@@ -112,14 +112,14 @@
     <!-- /.row -->
     <h3 class="my-3">Project Details</h3>
     <ul>
-        <%= Languagedata[i].detail %>
+        <%= MoreLanguagedata[i].detail %>
 
     </ul>
     <!-- Related Projects Row -->
     <h3 class="my-4" >Important Links</h3>
 
     <pre style="margin-bottom: 40px">
-    <%= Languagedata[i].important_link %>
+    <%= MoreLanguagedata[i].important_link %>
     </pre>
 
 </div>

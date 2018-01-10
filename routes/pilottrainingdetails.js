@@ -35,39 +35,42 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/FetchData', function (req, res, next) {
-    let id = req.body.id;
-    console.log(id);
-    PilotTraining.find({'_id': id}, function (err, MorePilotdata) {
-        Image.find({'PilotTraining_id': id}, function (err, MorePilotdataImages) {
+    if (req.session.email) {
 
-            Consultancy.find(function (err, Consultancydata) {
-                Language.find(function (err, Languagedata) {
-                    PilotTraining.find(function (err, PilotTrainingdata) {
-                        CallCenter.find(function (err, CallCenterdata) {
-                            HomeBanner.find(function (err, HomeBannerdata) {
-                                AdminEvent.find(function (err, AdminEventdata) {
+        let id = req.body.id;
+        console.log(id);
+        PilotTraining.find({'_id': id}, function (err, MorePilotdata) {
+            Image.find({'PilotTraining_id': id}, function (err, MorePilotdataImages) {
 
-                                    if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
+                Consultancy.find(function (err, Consultancydata) {
+                    Language.find(function (err, Languagedata) {
+                        PilotTraining.find(function (err, PilotTrainingdata) {
+                            CallCenter.find(function (err, CallCenterdata) {
+                                HomeBanner.find(function (err, HomeBannerdata) {
+                                    AdminEvent.find(function (err, AdminEventdata) {
 
-                                        console.log("Get  Details Data Fetched for menu :User ");
-                                        console.log(MorePilotdataImages);
+                                        if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
 
-                                        res.render('pilottrainingdetails', {
-                                            Consultancy: Consultancydata,
-                                            MorePilotdata: MorePilotdata,
-                                            MorePilotdataImages: MorePilotdataImages,
-                                            Language: Languagedata,
-                                            PilotTraining: PilotTrainingdata,
-                                            CallCenter: CallCenterdata,
-                                            HomeBanner: HomeBannerdata,
-                                            AdminEvent: AdminEventdata,
+                                            console.log("Get  Details Data Fetched for menu :User ");
+                                            console.log(MorePilotdataImages);
 
-                                        });
-                                    }
-                                    else {
-                                        res.render('index');
+                                            res.render('pilottrainingdetails', {
+                                                Consultancy: Consultancydata,
+                                                MorePilotdata: MorePilotdata,
+                                                MorePilotdataImages: MorePilotdataImages,
+                                                Language: Languagedata,
+                                                PilotTraining: PilotTrainingdata,
+                                                CallCenter: CallCenterdata,
+                                                HomeBanner: HomeBannerdata,
+                                                AdminEvent: AdminEventdata,
 
-                                    }
+                                            });
+                                        }
+                                        else {
+                                            res.render('index');
+
+                                        }
+                                    });
                                 });
                             });
                         });
@@ -75,7 +78,9 @@ router.post('/FetchData', function (req, res, next) {
                 });
             });
         });
-    });
+    }else {
+        res.redirect("/");
+    }
 });
 
 
