@@ -110,22 +110,24 @@
 
     </div>
     <!-- /.row -->
-    <h3 class="my-3">Project Details</h3>
+    <h3 class="my-3"> Details</h3>
     <ul>
-        <li>Lorem Ipsum</li>
-        <li>Dolor Sit Amet</li>
-        <li>Consectetur</li>
-        <li>Adipiscing Elit</li>
+        <%= MoreConsultancydata[i].detail %>
     </ul>
     <!-- Related Projects Row -->
     <h3 class="my-4" >Important Links</h3>
 
-    <%= MoreConsultancydata[i].important_link %>
+    <pre style="margin-bottom: 40px">
 
+    <%= MoreConsultancydata[i].important_link %>
+    </pre>
 
 </div>
 <!-- /.container -->
 <%}%>
+
+<% include partials/footer.ejs %>
+
 <!-- Bootstrap core JavaScript -->
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

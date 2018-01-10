@@ -149,10 +149,16 @@ router.post('/search', function (req, res, next) {
             let name = parsedBody.webPages.value.map(function (item) {
                 return item.name;
             })
+            let url = parsedBody.webPages.value.map(function (item) {
+                return item.url;
+            })
+
+
+          var data = {name,url};
 
             console.log('\nJSON Response:\n');
-            console.log(name);
-            res.send(name);
+            console.log(url);
+            res.send(url);
 
         });
         response.on('error', function (e) {
