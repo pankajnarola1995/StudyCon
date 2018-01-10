@@ -39,49 +39,46 @@ let host = 'api.cognitive.microsoft.com';
 let path = '/bing/v7.0/search';
 
 
-
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    Consultancy.find(function (err, Consultancydata) {
-        Language.find(function (err, Languagedata) {
-            PilotTraining.find(function (err, PilotTrainingdata) {
-                CallCenter.find(function (err, CallCenterdata) {
-                    HomeBanner.find(function (err, HomeBannerdata) {
-                        AdminEvent.find(function (err, AdminEventdata) {
+    Consultancy.find().limit(3).exec(function (err, ConsultancydataHome) {
+        Language.find().limit(3).exec(function (err, LanguagedataHome) {
+            PilotTraining.find().limit(3).exec(function (err, PilotTrainingdataHome) {
+                CallCenter.find().limit(3).exec(function (err, CallCenterdataHome) {
 
-                            if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
+                    Consultancy.find(function (err, Consultancydata) {
+                        Language.find(function (err, Languagedata) {
+                            PilotTraining.find(function (err, PilotTrainingdata) {
+                                CallCenter.find(function (err, CallCenterdata) {
+                                    HomeBanner.find(function (err, HomeBannerdata) {
+                                        AdminEvent.find(function (err, AdminEventdata) {
 
-                                console.log("Get Counsultancy Details Data Fetched for menu :User ");
+                                            if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
 
-                                res.render('index', {
-                                    Consultancy: Consultancydata,
-                                    Language: Languagedata,
-                                    PilotTraining: PilotTrainingdata,
-                                    CallCenter: CallCenterdata,
-                                    HomeBanner: HomeBannerdata,
-                                    AdminEvent: AdminEventdata,
-                                });
-                            }
-                            else {
-                                res.render('index');
+                                                console.log("Get Counsultancy Details Data Fetched for menu :User ");
+                                                console.log(Consultancydata);
 
-                            }
+                                                res.render('index', {
+                                                    Consultancy: Consultancydata,
+                                                    ConsultancydataHome: ConsultancydataHome,
+                                                    LanguagedataHome: LanguagedataHome,
+                                                    PilotTrainingdataHome: PilotTrainingdataHome,
+                                                    CallCenterdataHome: CallCenterdataHome,
+                                                    Language: Languagedata,
+                                                    PilotTraining: PilotTrainingdata,
+                                                    CallCenter: CallCenterdata,
+                                                    HomeBanner: HomeBannerdata,
+                                                    AdminEvent: AdminEventdata,
+                                                });
+                                            }
+                                            else {
+                                                res.render('index');
 
-                                if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
-
-                                    console.log("Get Counsultancy Details Data Fetched for menu :User ");
-                                    res.render('index', {
-                                        Consultancy: Consultancydata,
-                                        Language: Languagedata,
-                                        PilotTraining: PilotTrainingdata,
-                                        CallCenter: CallCenterdata,
-                                        HomeBanner: HomeBannerdata,
-                                        AdminEvent: AdminEventdata,
+                                            }
+                                        });
                                     });
-                                }
-                                else {
-                                    res.render('index');
-                                }
+                                });
+                            });
                         });
                     });
                 });
@@ -89,6 +86,7 @@ router.get('/', function (req, res, next) {
         });
     });
 });
+
 router.post('/search', function (req, res, next) {
 
     let keyword = req.body.keyword;

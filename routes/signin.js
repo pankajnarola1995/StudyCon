@@ -39,7 +39,7 @@ router.post('/UserLogin', function(req, res, next) {
                 console.log("username or password do not match");
                // window.alert("username or password do not match");
                // JSAlert.alert("username or password do not match");
-                res.redirect('/signin');
+                res.send('username or password do not match');
             }
         }
     });
