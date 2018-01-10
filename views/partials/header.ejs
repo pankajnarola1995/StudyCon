@@ -1,16 +1,21 @@
 <head>
     <title>StudyCon</title>
-    <link href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="stylesheets/animate.min.css" rel="stylesheet" type="text/css">
-    <link href="fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
-    <link href="fontawesome/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+    <link href="/fontawesome/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/moredetails.css" rel="stylesheet">
+
     <script src="http://code.jquery.com/jquery-3.0.0.slim.min.js"></script>
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-    <script src="javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="/javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="/stylesheets/chatstyle.css">
     <link rel="stylesheet" type="text/css" href="fontawesome\css\style.css">
     <script src="http://code.jquery.com/jquery-3.0.0.slim.min.js"></script>
@@ -219,7 +224,7 @@
             <a class="navbar-brand" href="/">
 
                 <!--      	the site logo-->
-                <img src="images/logo.png" alt="site logo" style="height:60px;width: 60px;visibility: inherit"/>
+                <img src="/images/logo.png" alt="site logo" style="height:60px;width: 60px;visibility: inherit"/>
 
                 <!--      	site name ( keep span )-->
                 <span>Study</span>Con
@@ -230,7 +235,8 @@
             <!--     search form-->
             <form class="navbar-form navbar-right" role="search" id="popup" method="post" onsubmit="UserSearch()">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Search here..." required>
+                    <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Search here..."
+                           required>
 
                 </div>
             </form>
@@ -251,10 +257,13 @@
                     <div class="dropdown-content">
                         <%
                         if(locals.Consultancy)
-                        for(var i = 0; i < Consultancy.length; i++){ %>
-
-                        <a href="#"><%= Consultancy[i].country_name %></a>
-
+                        for(let i = 0; i < Consultancy.length; i++){ %>
+                        <form method="post" action="/MoreDetails/FetchData">
+                            <input type="hidden" name="id" value="<%= Consultancy[i]._id %>" />
+                        <a>
+                         <button type="submit" style="background-color: white;color: #0e0e0e;border: hidden;width: 110%;height: 110%;font-size: 16px">   <%= Consultancy[i].country_name %></button>
+                        </a>
+                        </form>
                         <% } %>
                     </div>
                 </div>
@@ -263,7 +272,7 @@
                     <div class="dropdown-content">
                         <%
                         if(locals.Language)
-                        for(var i = 0; i < Language.length; i++){ %>
+                        for(let i = 0; i < Language.length; i++){ %>
 
                         <a href="#"><%= Language[i].Language_name %></a>
 
@@ -305,7 +314,7 @@
 
                 </div>
 
-<%}else {%>
+                <% }else { %>
                 <div class="dropdown">
                     <li><a href="/register">Register</a></li>
 
@@ -314,7 +323,8 @@
                     <li><a href="/signin">Sign In</a></li>
 
                 </div>
-         <%}%>       <!--        end menu list-->
+                <% } %>
+                <!--        end menu list-->
 
             </ul>
 
@@ -323,8 +333,22 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-<div id="myserachResults"></div>
+
 <script>
+
+    function FetchData(id) {
+        alert("s");
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/MoreDetails/FetchData',
+            data: {"id": id},
+            dataType: 'json',
+            success: function (result) {
+
+            }
+        });
+    }
+
     function RegisterUser() {
 
         password = $('#password').val();
@@ -378,7 +402,8 @@
     function UserSearch() {
         keyword = $('#keyword').val();
         $.ajax({
-            type: 'POST', url: "http://localhost:3000/search",
+            type: 'POST',
+            url: "http://localhost:3000/search",
             data: {'keyword': keyword},
             dataType: 'json',
             success: (body) => {

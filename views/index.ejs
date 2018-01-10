@@ -11,20 +11,17 @@
 
 <!-----------------------------------------the hero area or the big title area-->
 
- <% for(let i = 0; i < HomeBanner.length; i++){ %>
-
-                  <% } %>
-   <%  for(let i = 1; i <= HomeBanner.length; i++){ %>
-<% } %>
 
 
 <section class="container-fluid text-center section" id="heroarea">
     <div class="slider" id="main-slider"><!-- outermost container element -->
         <div class="slider-wrapper"><!-- innermost wrapper element -->
-            <img src="images/backup.png" alt="First" class="slide" /><!-- slides -->
-            <img src="images/home.png" alt="Second" class="slide" />
-            <img src="images/post.png" alt="Third" class="slide" />
-        </div>
+
+            <% for(let i = 0; i < HomeBanner.length; i++){ %>
+
+            <img src="images/HomeBanner/<%= HomeBanner[i].BannerName %>" alt="First" class="slide" /><!-- slides -->
+            <%}%>
+             </div>
     </div>
 
     <script>
@@ -68,7 +65,7 @@
                         }
                         self._slideTo( self.index );
 
-                    }, 2000);
+                    }, 2500);
                 },
                 stopStart: function() {
                     var self = this;

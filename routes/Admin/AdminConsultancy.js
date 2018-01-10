@@ -407,7 +407,7 @@ router.post('/AdminConsultancyUpdateData', (req, res) => {
                 res.redirect("/Admin/AdminConsultancy");
             }
             else {
-                console.log("error in updated Consultancy");
+                console.log(err);
                 res.send(err);
             }
         });
