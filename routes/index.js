@@ -87,6 +87,43 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.post('/bing', function (req, res, next) {
+
+    let keyword = req.body.keyword;
+
+    Consultancy.find(function (err, Consultancydata) {
+        Language.find(function (err, Languagedata) {
+            PilotTraining.find(function (err, PilotTrainingdata) {
+                CallCenter.find(function (err, CallCenterdata) {
+                    HomeBanner.find(function (err, HomeBannerdata) {
+                        AdminEvent.find(function (err, AdminEventdata) {
+
+                            if (Consultancydata && Languagedata && PilotTrainingdata && CallCenterdata && HomeBannerdata && AdminEventdata) {
+
+                                console.log("Get Counsultancy Details Data Fetched for menu :User ");
+
+                                res.render('bing', {
+                                    Consultancy: Consultancydata,
+                                    Language: Languagedata,
+                                    PilotTraining: PilotTrainingdata,
+                                    CallCenter: CallCenterdata,
+                                    HomeBanner: HomeBannerdata,
+                                    AdminEvent: AdminEventdata,
+                                    keyword:keyword
+                                });
+                            }
+                            else {
+                                res.render('index');
+
+                            }
+
+                        });
+                    });
+                });
+            });
+        });
+    });
+});
 router.post('/search', function (req, res, next) {
 
     let keyword = req.body.keyword;
