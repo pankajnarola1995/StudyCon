@@ -10,36 +10,32 @@
 
 <!-----------------------------------------the hero area or the big title area-->
 
- <% for(let i = 0; i < HomeBanner.length; i++){ %>
-
-                  <% } %>
-   <%  for(let i = 1; i <= HomeBanner.length; i++){ %>
-<% } %>
-
 
 <section class="container-fluid text-center section" id="heroarea">
     <div class="slider" id="main-slider"><!-- outermost container element -->
         <div class="slider-wrapper"><!-- innermost wrapper element -->
-            <img src="images/backup.png" alt="First" class="slide" /><!-- slides -->
-            <img src="images/home.png" alt="Second" class="slide" />
-            <img src="images/post.png" alt="Third" class="slide" />
+
+            <% for(let i = 0; i < HomeBanner.length; i++){ %>
+
+            <img src="images/HomeBanner/<%= HomeBanner[i].BannerName %>" alt="First" class="slide"/><!-- slides -->
+            <% } %>
         </div>
     </div>
 
     <script>
-        (function() {
+        (function () {
 
-            function Slideshow( element ) {
-                this.el = document.querySelector( element );
+            function Slideshow(element) {
+                this.el = document.querySelector(element);
                 this.init();
             }
 
             Slideshow.prototype = {
-                init: function() {
-                    this.wrapper = this.el.querySelector( ".slider-wrapper" );
-                    this.slides = this.el.querySelectorAll( ".slide" );
-                    this.previous = this.el.querySelector( ".slider-previous" );
-                    this.next = this.el.querySelector( ".slider-next" );
+                init: function () {
+                    this.wrapper = this.el.querySelector(".slider-wrapper");
+                    this.slides = this.el.querySelectorAll(".slide");
+                    this.previous = this.el.querySelector(".slider-previous");
+                    this.next = this.el.querySelector(".slider-next");
                     this.index = 0;
                     this.total = this.slides.length;
                     this.timer = null;
@@ -47,36 +43,36 @@
                     this.action();
                     this.stopStart();
                 },
-                _slideTo: function( slide ) {
+                _slideTo: function (slide) {
                     var currentSlide = this.slides[slide];
                     currentSlide.style.opacity = 1;
 
-                    for( var i = 0; i < this.slides.length; i++ ) {
+                    for (var i = 0; i < this.slides.length; i++) {
                         var slide = this.slides[i];
-                        if( slide !== currentSlide ) {
+                        if (slide !== currentSlide) {
                             slide.style.opacity = 0;
                         }
                     }
                 },
-                action: function() {
+                action: function () {
                     var self = this;
-                    self.timer = setInterval(function() {
+                    self.timer = setInterval(function () {
                         self.index++;
-                        if( self.index == self.slides.length ) {
+                        if (self.index == self.slides.length) {
                             self.index = 0;
                         }
-                        self._slideTo( self.index );
+                        self._slideTo(self.index);
 
-                    }, 2000);
+                    }, 2500);
                 },
-                stopStart: function() {
+                stopStart: function () {
                     var self = this;
-                    self.el.addEventListener( "mouseover", function() {
-                        clearInterval( self.timer );
+                    self.el.addEventListener("mouseover", function () {
+                        clearInterval(self.timer);
                         self.timer = null;
 
                     }, false);
-                    self.el.addEventListener( "mouseout", function() {
+                    self.el.addEventListener("mouseout", function () {
                         self.action();
 
                     }, false);
@@ -85,9 +81,9 @@
 
             };
 
-            document.addEventListener( "DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function () {
 
-                var slider = new Slideshow( "#main-slider" );
+                var slider = new Slideshow("#main-slider");
 
             });
 
@@ -103,17 +99,21 @@
 <!-----------------------------------------features section-->
 
 <section id="services" class="container section text-center">
+
     <div class="row">
+        <div class="section-title text-center text-uppercase">
+            <h2 class="underlined">Consultancy</h2>
+        </div>
         <%
-        if(locals.Consultancy)
-            for(var i = 0; i < Consultancy.length; i++){
-            %>
+        if(locals.ConsultancydataHome)
+        for(var i = 0; i < ConsultancydataHome.length; i++){
+        %>
 
         <div class="col-md-4">
             <div class="service">
 
                 <!--      customize the icon go to fontawesome website to find the complete list of icons-->
-                <img src="/images/Consultancy_Flag/<%= Consultancy[i].flage_image %>" style="height: 50px;width: 50px" />
+                <img src="/images/Consultancy_Flag/<%= Consultancy[i].flage_image %>" style="height: 50px;width: 50px"/>
 
                 <!--       end icon-->
 
@@ -130,11 +130,7 @@
                 </p>
             </div>
         </div>
-<% if (i > 3){
-    %><%
-}
-} %>
-
+        <% } %>
 
     </div>
 </section>
@@ -145,103 +141,39 @@
 
 <section class="section container-fluid" id="blog">
     <div class="section-title text-center text-uppercase">
-        <h2 class="underlined">from the blog</h2>
+        <h2 class="underlined">Languages</h2>
     </div>
     <div class="container">
         <div class="row">
-
+            <%
+            if(locals.LanguagedataHome)
+            for(var i = 0; i < LanguagedataHome.length; i++){
+            %>
             <!--     begin article-->
-            <div class="col-md-4 article"><img src="images/ales-krivec-188743.jpg" class="img-responsive" alt="">
+            <div class="col-md-4 article"><img src="/images/Language_Flag/<%= LanguagedataHome[i].flage_image %>"
+                                               class="img-responsive" style="height: 120px;width: 220px" alt="">
                 <div class="article-caption">
                     <ul class="meta list-unstyled list-inline text-uppercase">
 
                         <!--           customize the blog categories list change the # with the destination link and web design with category name ( if you want to add more category name just copy and paste between <a ....</a> and change what you want )-->
-                        <li><a href="#">web design</a> | <a href="AdminMoreDetails">photoshop</a></li>
-                        <!--            end category listing-->
-                        <!--           customize the date-->
-                        <li>12 - 05 - 2017</li>
                         <!--            end the date-->
                     </ul>
                     <h2>
                         <!--          post title-->
-                        first thing first
+                        <%= LanguagedataHome[i].Language_name %>
                         <!--          end post title-->
                     </h2>
                     <p>
                         <!--          post content-->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        <!--          end post content -->
+                        <%= LanguagedataHome[i].requirenment %> <!--          end post content -->
                     </p>
 
                     <!--          post destination link when you click the read more button ( change the # with the destination page link )-->
-                    <p><a href="/MoreDetails" class="more-link btn text-uppercase">read more</a></p>
                     <!--          end post link/-->
                 </div>
             </div>
             <!--      end article-->
-
-            <!--     begin article-->
-            <div class="col-md-4 article"><img src="images/chi-n-ph-m-223833.jpg" class="img-responsive" alt="">
-                <div class="article-caption">
-                    <ul class="meta list-unstyled list-inline text-uppercase">
-
-                        <!--           customize the blog categories list change the # with the destination link and web design with category name ( if you want to add more category name just copy and paste between <a ....</a> and change what you want )-->
-                        <li><a href="#">wordpress</a></li>
-                        <!--            end category listing-->
-                        <!--           customize the date-->
-                        <li>12 - 05 - 2017</li>
-                        <!--            end the date-->
-                    </ul>
-                    <h2>
-                        <!--          post title-->
-                        work hard and smart
-                        <!--          end post title-->
-                    </h2>
-                    <p>
-                        <!--          post content-->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        <!--          end post content -->
-                    </p>
-
-                    <!--          post destination link when you click the read more button ( change the # with the destination page link )-->
-                    <p><a href="AdminMoreDetails" class="more-link btn text-uppercase">read more</a></p>
-                    <!--          end post link/-->
-                </div>
-            </div>
-            <!--      end article-->
-
-            <!--     begin article-->
-            <div class="col-md-4 article"><img src="images/post.png" class="img-responsive" alt="">
-                <div class="article-caption">
-                    <ul class="meta list-unstyled list-inline text-uppercase">
-
-                        <!--           customize the blog categories list change the # with the destination link and web design with category name ( if you want to add more category name just copy and paste between <a ....</a> and change what you want )-->
-                        <li><a href="#">jQuery</a></li>
-                        <!--            end category listing-->
-                        <!--           customize the date-->
-                        <li>12 - 05 - 2017</li>
-                        <!--            end the date-->
-                    </ul>
-                    <h2>
-                        <!--          post title-->
-                        the latest trends
-                        <!--          end post title-->
-                    </h2>
-                    <p>
-                        <!--          post content-->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        <!--          end post content -->
-                    </p>
-
-                    <!--          post destination link when you click the read more button ( change the # with the destination page link )-->
-                    <p><a href="AdminMoreDetails" class="more-link btn text-uppercase">read more</a></p>
-                    <!--          end post link/-->
-                </div>
-            </div>
-            <!--      end article-->
+            <% } %>
         </div>
     </div>
 </section>
@@ -254,122 +186,44 @@
 
 <section class="section container-fluid text-center" id="works">
     <div class="section-title text-center text-uppercase">
-        <h2 class="underlined">our team</h2>
+        <h2 class="underlined">Pilot Training</h2>
     </div>
     <div class="container">
         <div class="row">
+
+            <%
+            if(locals.PilotTrainingdataHome)
+            for(var i = 0; i < PilotTrainingdataHome.length; i++){
+            %>
             <div class="col-md-4">
 
                 <!--       begin team column-->
                 <div class="work">
-                    <div class="work-img"><img src="images/post.png" class="img-responsive" alt="">
+                    <div class="work-img"><img src="/images/CallCenter_Flag/<%= PilotTrainingdataHome[i].flage_image %>"
+                                               class="img-responsive" alt="">
                         <div class="work-title">
                             <h3 class="text-uppercase"><a href="#">
                                     <!--              team member name-->
-                                    john do
+                                    <%= PilotTrainingdataHome[i].PilotTraining_name %>
                                     <!--              end team member name-->
-                                </a></h3>
-                            <h5>
-                                <!--              begin team member position-->
-                                CEO of FDDRT
-                                <!--              end team member position-->
+                                </a>
+                            </h3>
 
-                            </h5>
                         </div>
                     </div>
                     <div class="work-caption">
                         <div>
-                            <p class="underlined">
-                                <!--              begin team member description-->
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore
-                                <!--              end team member description-->
+                            <p class="underlined" >
+                                <%= CallCenterdataHome[i].requirenment %>
+
                             </p>
-                            <ul class="social-links list-unstyled list-inline">
-
-                                <!--               begin team member social media links, change the # with the facebook, twitter or gplus page link -->
-                                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                                <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                                <!--               end team member social media links-->
-
-                            </ul>
-                        </div>
+                              </div>
                     </div>
                 </div>
                 <!--        end team column-->
 
             </div>
-            <div class="col-md-4">
-                <div class="work">
-                    <div class="work-img"><img src="images/post.png" class="img-responsive" alt="">
-                        <div class="work-title">
-                            <h3 class="text-uppercase"><a href="#">
-                                    <!--              team member name-->
-                                    john do
-                                    <!--              end team member name-->
-                                </a></h3>
-                            <h5>
-                                <!--              begin team member position-->
-                                CEO of FDDRT
-                                <!--              end team member position-->
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="work-caption">
-                        <div>
-                            <p class="underlined">
-                                <!--              begin team member description-->
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore
-                                <!--              end team member description-->
-                            </p>
-                            <ul class="social-links list-unstyled list-inline">
-                                <!--               begin team member social media links, change the # with the facebook, twitter or gplus page link -->
-                                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                                <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                                <!--               end team member social media links-->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="work">
-                    <div class="work-img"><img src="images/post.png" class="img-responsive" alt="">
-                        <div class="work-title">
-                            <h3 class="text-uppercase"><a href="#">
-                                    <!--              team member name-->
-                                    john do
-                                    <!--              end team member name-->
-                                </a></h3>
-                            <h5>
-                                <!--              begin team member position-->
-                                CEO of FDDRT
-                                <!--              end team member position-->
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="work-caption">
-                        <div>
-                            <p class="underlined">
-                                <!--              begin team member description-->
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore
-                                <!--              end team member description-->
-                            </p>
-                            <ul class="social-links list-unstyled list-inline">
-                                <!--               begin team member social media links, change the # with the facebook, twitter or gplus page link -->
-                                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                                <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                                <!--               end team member social media links-->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <% } %>
         </div>
     </div>
 </section>
@@ -379,99 +233,46 @@
 
 <!-----------------------------------------------------begin portfolio section-->
 
-<section class="section" id="portfolio">
+<section class="section container-fluid text-center" id="portfolio">
+    <div class="section-title text-center text-uppercase">
+        <h2 class="underlined">Call Center</h2>
+    </div>
     <div class="container">
-        <div class="section-title text-center text-uppercase">
-            <h2 class="underlined">our work</h2>
-        </div>
-        <ul id="filters" class="list-inline">
-
-            <!--     begin portfolio filters-->
-            <!--     to add a new filter just duplicate a line from the list bellow and change 'data-filter = ".NEW_CATEGORY"'-->
-            <!--     where NEW_CATEGORY is the class and the data-cat of the col-md-3 column bellow-->
-            <li><span class="filter active" data-filter="all">All</span></li>
-            <li><span class="filter" data-filter=".portfolio">portfolio</span></li>
-            <li><span class="filter" data-filter=".design">design</span></li>
-            <li><span class="filter" data-filter=".clients">clients</span></li>
-            <!--      end filters-->
-        </ul>
         <div class="row">
-            <div class="col-md-3 col-sm-6 mix portfolio" data-cat="portfolio ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/alex-jones-8205.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal">
-                        <span class="fa fa-search-plus"></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mix clients" data-cat="clients ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/alex-jones-8205.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal"> <span class="fa fa-search-plus"></span> </a></div>
-            </div>
-            <div class="col-md-3 col-sm-6 mix design" data-cat="design ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/ales-krivec-1881.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal"> <span class="fa fa-search-plus"></span></a></div>
-            </div>
-            <div class="col-md-3 col-sm-6 mix portfolio" data-cat="portfolio ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/chi-n-ph-m-223833.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal"> <span class="fa fa-search-plus"></span></a></div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 mix portfolio" data-cat="portfolio ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/ales-krivec-434.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal"> <span class="fa fa-search-plus"></span> </a></div>
+            <%
+            if(locals.CallCenterdataHome)
+            for(var i = 0; i < CallCenterdataHome.length; i++){
+            %>
+            <div class="col-md-4">
+
+                <!--       begin team column-->
+                <div class="work">
+                    <div class="work-img"><img src="/images/CallCenter_Flag/<%= CallCenterdataHome[i].flage_image %>"
+                                               class="img-responsive" alt="">
+                        <div class="work-title">
+                            <h3 class="text-uppercase"><a href="#">
+                                    <!--              team member name-->
+                                    <%= CallCenterdataHome[i].CallCenter_name %>
+                                    <!--              end team member name-->
+                                </a>
+                            </h3>
+
+                        </div>
+                    </div>
+                    <div class="work-caption">
+                        <div>
+                            <p class="underlined" >
+                                <%= CallCenterdataHome[i].requirenment %>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--        end team column-->
+
             </div>
-            <div class="col-md-3 col-sm-6 mix clients" data-cat="clients ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/alex-jones-8205.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal"> <span class="fa fa-search-plus"></span></a></div>
-            </div>
-            <div class="col-md-3 col-sm-6 mix design" data-cat="design ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/alex-knight-192782.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal"> <span class="fa fa-search-plus"></span></a></div>
-            </div>
-            <div class="col-md-3 col-sm-6 mix portfolio" data-cat="portfolio ">
-                <!--      begin portfolio image (change the image src="image_link" and alt attributes )-->
-                <img src="images/ander-burdain-168833.jpg" class="img-responsive" alt="Placeholder image">
-                <!--       end image-->
-                <div class="works-btn">
-                    <!--        the a tag bellow controls the modal window that will be displays ones clicked ( #modal is the modal ID )-->
-                    <!--        "#modal" ID is the id for the modal window that you'll find in the page bellow after the footer section-->
-                    <a data-toggle="modal" data-target="#modal"> <span class="fa fa-search-plus"></span></a></div>
-            </div>
+            <% } %>
         </div>
     </div>
 </section>
@@ -483,42 +284,93 @@
 
 <!--to change the reception email address open nd edit the info-->
 <div id="ContactDiv">
-<section class="section container-fluid" id="contact">
-    <div class="section-title text-center text-uppercase">
-        <h2 class="underlined">contact us</h2>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <!--       contact form -- the one thing that you need to customize is the placeholder or the value of the input button(submit button) -->
-                <form onsubmit="saveContact()" method="post" name="form1" id="contact-form">
-                    <input name="name" type="text" id="name" form="contact-form" placeholder="Your name">
-                    <input name="subject" type="text" id="subject" form="contact-form" placeholder="Message subject">
-                    <input name="email" required type="email" id="email" form="contact-form" placeholder="Your Email">
-                    <textarea name="message" required id="message" form="contact-form"
-                              placeholder="Your message"></textarea>
-                    <input name="submit" type="submit" class="btn btn-primary" id="submit" formaction="saveContact()" value="submit">
-
-                </form>
-                <!--        end contact form-->
-
-                <ul class="info list-unstyled">
-                    <!--         the list of contact information under contact form-->
-                    <li><strong>phone</strong> :+49 176 56 99 28 43</li>
-                    <li><strong>email</strong> : Info@StudyCon.com</li>
-                    <li><strong>Address</strong> : Fachhochschule Kiel, Sokratesplatz, Kiel</li>
-                    <!--          end list-->
-                </ul>
-            </div>
-
-            <!--      the map container don't remove it if you want to display the map-->
-            <div class="col-md-6">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2326.383208762723!2d10.178792815365203!3d54.33253470808531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41620151589bf8cb%3A0x67eb759431c88232!2sFachhochschule+Kiel!5e0!3m2!1sen!2sde!4v1515371724843" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-            <!--      end map container-->
+    <section class="section container-fluid" id="contact">
+        <div class="section-title text-center text-uppercase">
+            <h2 class="underlined">contact us</h2>
         </div>
-    </div>
-</section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--       contact form -- the one thing that you need to customize is the placeholder or the value of the input button(submit button) -->
+                    <form onsubmit="saveContact()" method="post" name="form1" id="contact-form">
+                        <input name="name" type="text" id="name" form="contact-form" placeholder="Your name">
+                        <input name="subject" type="text" id="subject" form="contact-form"
+                               placeholder="Message subject">
+                        <input name="email" required type="email" id="email" form="contact-form"
+                               placeholder="Your Email">
+                        <textarea name="message" required id="message" form="contact-form"
+                                  placeholder="Your message"></textarea>
+                        <input name="submit" type="submit" class="btn btn-primary" id="submit"
+                               formaction="saveContact()" value="submit">
+
+                    </form>
+                    <!--        end contact form-->
+
+                    <ul class="info list-unstyled">
+                        <!--         the list of contact information under contact form-->
+                        <li><strong>phone</strong> :+49 176 56 99 28 43</li>
+                        <li><strong>email</strong> : Info@StudyCon.com</li>
+                        <li><strong>Address</strong> : Fachhochschule Kiel, Sokratesplatz, Kiel</li>
+                        <!--          end list-->
+                    </ul>
+                </div>
+
+                <!--      the map container don't remove it if you want to display the map-->
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2326.383208762723!2d10.178792815365203!3d54.33253470808531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41620151589bf8cb%3A0x67eb759431c88232!2sFachhochschule+Kiel!5e0!3m2!1sen!2sde!4v1515371724843"
+                            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <!--      end map container-->
+            </div>
+        </div>
+    </section>
+    <section id="events" class="container section text-center">
+
+        <div class="row">
+            <div class="section-title text-center text-uppercase">
+                <h2 class="underlined">Events</h2>
+            </div>
+            <%
+            if(locals.AdminEvent)
+            for(var i = 0; i < AdminEvent.length; i++){
+            %>
+
+            <div class="col-md-4">
+                <div class="service">
+
+                    <!--      customize the icon go to fontawesome website to find the complete list of icons-->
+
+                    <!--       end icon-->
+
+                    <h3 class="underlined">
+                        <!--        customize the column heading-->
+                        <%= AdminEvent[i].event_name %>
+                        <!--        end heading-->
+                    </h3>
+                    <p>
+                        <b>Event Type</b></br>
+                        <!--        customize the column text-->
+                        <%= AdminEvent[i].event_type %>
+                        <!--        end column text-->
+                    </p>
+                    <p>
+                        <b>Event Start</b></br>
+                        <!--        customize the column text-->
+                        <%= AdminEvent[i].event_start %>
+                        <!--        end column text-->
+                    </p>
+                    <p>
+                        <b>Event End</b></br>
+                        <!--        customize the column text-->
+                        <%= AdminEvent[i].event_end %>                        <!--        end column text-->
+                    </p>
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+    </section>
+
 </div>
 <!--end contact form-->
 
@@ -574,7 +426,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOJkrfBTNVS3Zyzzx5Q_GBHKYxNmSvLJY&callback=initMap"></script>
 <!-- end goole map -->
 
-//Search Results
+<!-- Search Results-->
 <div id="body" style="overflow:hidden;align-items:center;">
 
     <div id="abc">
@@ -609,67 +461,67 @@
                     <label class="control-label"><b>Country Name</b></label>
                     <div class="controls">
                         <div id="SearchResult"></div>
-                       <div>hello</div>
+                        <div>hello</div>
                         <div></div>
 
-                              <ul id="filters" class="list-inline">
+                        <ul id="filters" class="list-inline">
 
-                                    <!--     begin portfolio filters-->
-                                    <!--     to add a new filter just duplicate a line from the list bellow and change 'data-filter = ".NEW_CATEGORY"'-->
-                                    <!--     where NEW_CATEGORY is the class and the data-cat of the col-md-3 column bellow-->
-                                    <li><span class="filter active" data-filter="all">All</span></li>
-                                    <li><span class="filter" data-filter=".portfolio">portfolio</span></li>
-                                    <li><span class="filter" data-filter=".design">design</span></li>
-                                    <li><span class="filter" data-filter=".clients">clients</span></li>
-                                    <!--      end filters-->
-                                </ul>
-                             </div>
-
+                            <!--     begin portfolio filters-->
+                            <!--     to add a new filter just duplicate a line from the list bellow and change 'data-filter = ".NEW_CATEGORY"'-->
+                            <!--     where NEW_CATEGORY is the class and the data-cat of the col-md-3 column bellow-->
+                            <li><span class="filter active" data-filter="all">All</span></li>
+                            <li><span class="filter" data-filter=".portfolio">portfolio</span></li>
+                            <li><span class="filter" data-filter=".design">design</span></li>
+                            <li><span class="filter" data-filter=".clients">clients</span></li>
+                            <!--      end filters-->
+                        </ul>
                     </div>
-                </div>
 
-            </form>
+                </div>
         </div>
-        <!-- Popup Div Ends Here -->
+
+        </form>
     </div>
+    <!-- Popup Div Ends Here -->
+</div>
 </div>
 
 <script>
-  /*  function UserSearch() {
-        let keyword = $('#keyword').val();
-        alert(keyword);
-        $.ajax({
-            type: 'POST',
-            url: "http://localhost:3000/search",
-            data: {"keyword": keyword},
-            dataType: 'json',
-            success: (data) => {
-                let i, html;
-                html = '<ul>';
-                for (i = 0; i < data.length; i++) {
-                    html += "<li>" + data[i]._id + '</li>' + '</br><li>' + data[i]. + '</li>';
-                }
-                html += '<ul>';
-                $("#SearchResult").html(html);
-            }
+    /*  function UserSearch() {
+          let keyword = $('#keyword').val();
+          alert(keyword);
+          $.ajax({
+              type: 'POST',
+              url: "http://localhost:3000/search",
+              data: {"keyword": keyword},
+              dataType: 'json',
+              success: (data) => {
+                  let i, html;
+                  html = '<ul>';
+                  for (i = 0; i < data.length; i++) {
+                      html += "<li>" + data[i]._id + '</li>' + '</br><li>' + data[i]. + '</li>';
+                  }
+                  html += '<ul>';
+                  $("#SearchResult").html(html);
+              }
+          });
+          /* $.ajax({
+               type: 'GET',
+               url: 'http://localhost:3000/search',
+               // data: {"keyword": keyword},
+               dataType: 'json',
+           }).done(function (data) {
+               alert("done" + data);
+       /* data.forEach(function (data) {
+            $(".messages").append("<li>" + data.Consultancy._id + "</li>");
+
         });
-        /* $.ajax({
-             type: 'GET',
-             url: 'http://localhost:3000/search',
-             // data: {"keyword": keyword},
-             dataType: 'json',
-         }).done(function (data) {
-             alert("done" + data);
-     /* data.forEach(function (data) {
-          $(".messages").append("<li>" + data.Consultancy._id + "</li>");
-
-      });
 
 
- });
-        document.getElementById('abc').style.display = "block";
-    }
-*/
+   });
+          document.getElementById('abc').style.display = "block";
+      }
+  */
     function div_hide() {
         document.getElementById('abc').style.display = "none";
     }
@@ -684,13 +536,15 @@
             <div class="title">Please fill out this form</div>
             <form class="inputFields">
                 <div class="inputContainer">
-                    <input class="nameInput" type="text" maxlength="20" pattern="^[a-zA-Z ]{3,}" placeholder=" * Name" required />
+                    <input class="nameInput" type="text" maxlength="20" pattern="^[a-zA-Z ]{3,}" placeholder=" * Name"
+                           required/>
                 </div>
                 <div class="inputContainer">
-                    <input class="emailInput" type="email" placeholder=" * Email" required />
+                    <input class="emailInput" type="email" placeholder=" * Email" required/>
                 </div>
                 <div class="inputContainer">
-                    <input class="phoneInput" type="text" pattern="[0-9\(\)\-\+ ]{8,15}" title="Enter a valid Phone Number" placeholder=" * Phone Number" required />
+                    <input class="phoneInput" type="text" pattern="[0-9\(\)\-\+ ]{8,15}"
+                           title="Enter a valid Phone Number" placeholder=" * Phone Number" required/>
                 </div>
                 <input type="submit" class="submitBtn">
             </form>
@@ -912,5 +766,6 @@
         return $('<div/>').text(input).text();
     }
 </script>
+
 </body>
 </html>

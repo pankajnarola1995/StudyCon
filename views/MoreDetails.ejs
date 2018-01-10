@@ -1,105 +1,136 @@
 <!doctype html>
 <% include partials/header.ejs %>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>More Details</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="stylesheets/moredetails.css" rel="stylesheet">
-
-</head>
 
 <body>
 
+<% for(let i = 0; i < MoreConsultancydata.length; i++){ %>
 
 <!-- Page Content -->
 <div class="container">
 
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4">Page Heading
-        <small>Language Text</small>
+    <h1 class="my-4"><img src="/images/Consultancy_Flag/<%= MoreConsultancydata[i].flage_image %>"  style="height: 50px;width: 50px;"/> More Details About <%= MoreConsultancydata[i].country_name %>
+        <small></small>
     </h1>
 
     <!-- Portfolio Item Row -->
     <div class="row">
 
-        <div class="col-md-8">
-            <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+        <div class="col-md-8" style="alignment: center">
+
+
+                <div class="slider" id="main-slider" ><!-- outermost container element -->
+                    <div class="slider-wrapper"><!-- innermost wrapper element -->
+
+                        <% for(let i = 0; i < MoreConsultancydataImages.length; i++){ %>
+
+                        <img src="/images/Consultancy/<%= MoreConsultancydataImages[i].images_name %>" alt="First" class="slide"  /><!-- slides -->
+                        <%}%>
+                    </div>
+                </div>
+
+                <script>
+                    (function() {
+
+                        function Slideshow( element ) {
+                            this.el = document.querySelector( element );
+                            this.init();
+                        }
+
+                        Slideshow.prototype = {
+                            init: function() {
+                                this.wrapper = this.el.querySelector( ".slider-wrapper" );
+                                this.slides = this.el.querySelectorAll( ".slide" );
+                                this.previous = this.el.querySelector( ".slider-previous" );
+                                this.next = this.el.querySelector( ".slider-next" );
+                                this.index = 0;
+                                this.total = this.slides.length;
+                                this.timer = null;
+
+                                this.action();
+                                this.stopStart();
+                            },
+                            _slideTo: function( slide ) {
+                                var currentSlide = this.slides[slide];
+                                currentSlide.style.opacity = 1;
+
+                                for( var i = 0; i < this.slides.length; i++ ) {
+                                    var slide = this.slides[i];
+                                    if( slide !== currentSlide ) {
+                                        slide.style.opacity = 0;
+                                    }
+                                }
+                            },
+                            action: function() {
+                                var self = this;
+                                self.timer = setInterval(function() {
+                                    self.index++;
+                                    if( self.index == self.slides.length ) {
+                                        self.index = 0;
+                                    }
+                                    self._slideTo( self.index );
+
+                                }, 2500);
+                            },
+                            stopStart: function() {
+                                var self = this;
+                                self.el.addEventListener( "mouseover", function() {
+                                    clearInterval( self.timer );
+                                    self.timer = null;
+
+                                }, false);
+                                self.el.addEventListener( "mouseout", function() {
+                                    self.action();
+
+                                }, false);
+                            }
+
+
+                        };
+
+                        document.addEventListener( "DOMContentLoaded", function() {
+
+                            var slider = new Slideshow( "#main-slider" );
+
+                        });
+
+
+                    })();
+                </script>
+
+
         </div>
 
         <div class="col-md-4">
-            <h3 class="my-3">Languiage Description</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-            <h3 class="my-3">Project Details</h3>
-            <ul>
-                <li>Lorem Ipsum</li>
-                <li>Dolor Sit Amet</li>
-                <li>Consectetur</li>
-                <li>Adipiscing Elit</li>
-            </ul>
+            <h3 class="my-3">Requirement </h3>
+             <%= MoreConsultancydata[i].requirenment %>
+
         </div>
 
     </div>
     <!-- /.row -->
-
+    <h3 class="my-3"> Details</h3>
+    <ul>
+        <%= MoreConsultancydata[i].detail %>
+    </ul>
     <!-- Related Projects Row -->
-    <h3 class="my-4">Related Projects</h3>
+    <h3 class="my-4" >Important Links</h3>
 
-    <div class="row">
+    <pre style="margin-bottom: 40px">
 
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
-    </div>
-    <!-- /.row -->
+    <%= MoreConsultancydata[i].important_link %>
+    </pre>
 
 </div>
 <!-- /.container -->
+<%}%>
 
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-    </div>
-    <!-- /.container -->
-</footer>
+<% include partials/footer.ejs %>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

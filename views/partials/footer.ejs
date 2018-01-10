@@ -1,41 +1,40 @@
 <footer class="container-fluid section" id="footer">
     <div class="container">
         <div class="row text-center">
-            <div class="col-md-4"><a class="footer-brand" href="/">
+            <div class="col-md-4">
+                <a class="footer-brand" href="/">
                     <!--      site logo in the footer-->
-                    <img src="images/logo.png" alt="site logo" style="height:60px;width: 60px;visibility: inherit" />
-                    <!--      site name-->
+
+                    <img src="/images/logo.png" alt="site logo" style="height:60px;width: 60px;visibility: inherit" />
+                   <!--      site name-->
                     <span>Study</span>Con</a>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <!--       newsletter form-->
+                <form  method="post" action="/register/Add_User"  class="text-center" id="newsletter-form">
+
+                    <h4>Please Register for More Details</h4>
+                    <input type="email" class="form-control" id="email" name="email"
+                           placeholder="email" required  onchange="CheckUser()">
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="password" required>
+
+                    <button type="submit" class="sub-btn2">Submit</button>
+                </form>
+                <!--        end newsletter-->
 
             </div>
             <div class="col-md-4">
 
-                <!--       newsletter form-->
-                <form action="" class="text-center" id="newsletter-form">
-                    <input name="email" type="text" id="email" placeholder="Please Register with us for More Details">
-                    <input name="password" type="text" id="password" placeholder="Please Enter Password">
-
-                    <input name="newsletter-submit" type="submit" id="newsletter-submit" class="btn btn-primary" value="Register">
-                </form>
-                <!--        end newsletter-->
-
-            </div>   <div class="col-md-4">
-
-                <!--       newsletter form-->
-                <form action="" class="text-center" id="newsletter-form">
-                    <input name="email" type="text" id="email" placeholder="Please Register with us for More Details">
-                    <input name="password" type="text" id="password" placeholder="Please Enter Password">
-
-                    <input name="newsletter-submit" type="submit" id="newsletter-submit" class="btn btn-primary" value="Register">
-                </form>
-                <!--        end newsletter-->
 
             </div>
-        </div>
+
 
         <div class="col-md-4 copyright">
-                <p>© 2017 StudyCon - StudyCon.com </b> All rights reserved.</p>
-            </div>
+            <p>© 2017 StudyCon - StudyCon.com </b> All rights reserved.</p>
+        </div>
+        </div>
     </div>
 </footer>
 

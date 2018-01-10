@@ -59,7 +59,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static(path.join(__dirname, 'model')));
 
 //redirection of file to the particular pages
 app.use('/', require('./routes/index'));
@@ -68,6 +67,11 @@ app.use('/register', require('./routes/register'));
 
 app.use('/home', require('./routes/home'));
 app.use('/MoreDetails', require('./routes/MoreDetails'));
+app.use('/callcenterdetails', require('./routes/callcenterdetails'));
+app.use('/languagedetails', require('./routes/languagedetails'));
+app.use('/pilottrainingdetails', require('./routes/pilottrainingdetails'));
+
+
 
 app.use('/Admin', require('./routes/Admin/AdminLogin'));
 app.use('/AdminIndex', require('./routes/Admin/AdminIndex'));

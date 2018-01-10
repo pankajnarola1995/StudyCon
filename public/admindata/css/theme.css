@@ -1675,7 +1675,10 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', end
 	display: inline-block;
 	padding: 3px 10px
 }
-.ui-slider {
+.ui-
+
+
+slider {
 	position: relative;
 	text-align: left
 }
