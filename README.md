@@ -7,7 +7,9 @@ The Main goal of this project is to help scholars all over the world who wish to
   Nodejs/npm <br/>
   MongoDB <br/> 
   Express <br/> 
-  Angular JS<br/>
+  Ajax<br/>  
+  jQuery<br/>  
+  Bing Api<br/>
   Bootstrap<br/>
   <br/>
   
